@@ -5,37 +5,44 @@
 class Board
 
   def initialize(size)
-    @size = size
-    @col = []
-    size.times {@col.push(nil)}
+    @pos = Array.new(size, nil)
+    @col = Array.new(size, false)
+    @diag1 = Array.new(2*size, false)
+    @diag2 = Array.new(2*size, false)
   end
 
   def size
-    @col.size
+    @pos.size
   end
 
   def place!(row, col)
-    @col[row] = col
+    @pos[row] = col
+    @col[col] = true
+    @diag1[col-row+size] = true
+    @diag2[col+row] = true
   end
 
   def unplace!(row)
-    col = @col[row]
-    @col[row] = nil
+    col = @pos[row]
+    @pos[row] = nil
+    @col[col] = false
+    @diag1[col-row+size] = false
+    @diag2[col+row] = false
     col
   end
 
-  def ok(row, col)
-    (0..row-1).each do |r|
-      return false if @col[r] == col
-      return false if (col - @col[r]).abs == (row - r).abs
-    end
+  def ok?(row, col)
+    return false if @col[col]
+    return false if @diag1[col-row+size]
+    return false if @diag2[col+row]
+    true
   end
 
   def solve!
     row = 0
     col = 0
     while row < size
-      while !ok(row, col) and col < size
+      while !ok?(row, col) and col < size
         col += 1
       end
       if col < size
@@ -51,19 +58,11 @@ class Board
   end
 
   def printout
-    (0..@size-1).each do |row|
-      if @col[row]
-        (@col[row]).times {print(" ")}
-        puts "X"
-      else
-        puts ""
-      end
-    end
+    @pos.each {|p| puts " " * p + "X"}
   end
 
 end # class Board
 
 size = ARGV.shift.to_i
 Board.new(size).solve!.printout
-
 
