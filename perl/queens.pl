@@ -1,3 +1,6 @@
+# $Id$
+# John Hurst (jbhurst@attglobal.net)
+# 2006-02-03
 
 $size = shift;
 
