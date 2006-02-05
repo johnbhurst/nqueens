@@ -1,0 +1,45 @@
+/*****************************************************************************/
+/* QueensAI.PLG  : Solving the Queens problem using Prolog                   */
+/* Author        : John Hurst                                                */
+/* Date          : 04/12/89                                                  */
+/* Notes         : This program was adapted from the article                 */
+/*                 "Solving constraint satisfaction problems", AI Expert,    */
+/*                 June 1989 (Vol 4 No 6), pp.30-35                          */
+/* Modifications : NONE                                                      */
+/*                                                                           */
+/*****************************************************************************/
+
+
+pos( 1, 1 ). pos( 1, 2 ). pos( 1, 3 ). pos( 1, 4 ). pos( 1, 5 ).
+pos( 2, 1 ). pos( 2, 2 ). pos( 2, 3 ). pos( 2, 4 ). pos( 2, 5 ).
+pos( 3, 1 ). pos( 3, 2 ). pos( 3, 3 ). pos( 3, 4 ). pos( 3, 5 ).
+pos( 4, 1 ). pos( 4, 2 ). pos( 4, 3 ). pos( 4, 4 ). pos( 4, 5 ).
+pos( 5, 1 ). pos( 5, 2 ). pos( 5, 3 ). pos( 5, 4 ). pos( 5, 5 ).
+
+adjoin( queen( Row, Column ), Node, Node ) :-
+        member( queen( Row, Column ), Node ).
+adjoin( queen( Row, Column ), Node, [ queen( Row, Column ) | Node ] ) :-
+        pos( Row, Column ),
+        not( member( queen( Row, Column ), Node ) ),
+        not( inconsistent( queen( Row, Column ), Node ) ).
+
+member( E, [ E | _ ] ).
+member( E, [ _ | T ] ) :-
+        member( E, T ).
+
+inconsistent( queen( R, C ), W ) :-
+        member( queen( R1, C1 ), W ),
+        ( R = R1;
+          C = C1;
+          R + C := R1 + C1;
+          R - C := R1 - C1 ).
+
+queens( Initial_State, Final_State ) :-
+        adjoin( queen( 1, _ ), Initial_State, Node1 ),
+        adjoin( queen( 2, _ ), Node1, Node2 ),
+        adjoin( queen( 3, _ ), Node2, Node3 ),
+        adjoin( queen( 4, _ ), Node3, Node4 ),
+        adjoin( queen( 5, _ ), Node4, Final_State ).
+
+
+

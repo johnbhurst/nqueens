@@ -1,0 +1,51 @@
+/* N queens problem in Prolog                                                */
+
+abs(X, Y) :- X >= 0, Y is  X.
+abs(X, Y) :- X <  0, Y is -X.
+
+printspaces(0).
+printspaces(N) :- putc(' '),
+                  N1 is N-1,
+                  printspaces(N1).
+
+answer(N) :- queens(N, L),
+             printout(L),
+             !.
+
+printout([]).
+printout([H|T]) :- printspaces(H),
+                   putc('*'),
+                   nl,
+                   printout(T).
+
+queens(0, []   ).
+queens(N, [P|Q]) :-     select(P, 1, 4),
+                        N1 is N - 1,
+                        queens(N1, Q),
+                        safe(P, Q, 1).
+
+safe(P, [],    N).
+safe(P, [A|X], N) :-    not(checks(P, A, N)),
+                        N1 is N + 1,
+                        safe(P, X, N1).
+
+checks(P, A, N) :-      P := A.
+checks(P, A, N) :-      abs(P - A, Diff),
+                        Diff = N.
+
+
+select(1, 1, 8).
+select(2, 1, 8).
+select(3, 1, 8).
+select(4, 1, 8).
+select(5, 1, 8).
+select(6, 1, 8).
+select(7, 1, 8).
+select(8, 1, 8).
+
+select(1, 1, 4).
+select(2, 1, 4).
+select(3, 1, 4).
+select(4, 1, 4).
+
+
