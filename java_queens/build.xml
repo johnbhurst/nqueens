@@ -1,0 +1,26 @@
+<!--
+  $Id: build.xml 696 2007-04-05 09:26:28Z jhurst $
+  Copyright 2007 John Hurst
+  John Hurst (jbhurst@attglobal.net)
+  2007-04-05 
+-->
+<project name="queens" basedir="." default="all">
+  <target name="clean">
+    <delete dir="build"/>
+  </target>  
+  <target name="prepare">
+    <mkdir dir="build"/>
+  </target>
+  <target name="compile" depends="prepare">
+    <javac srcdir="." destdir="build"/>
+  </target>
+  <target name="test" depends="compile">
+    <junit printSummary="true" fork="true">
+      <classpath path="build"/>
+      <formatter type="brief" usefile="false"/>
+      <test name="BoardTest"/>
+    </junit>
+  </target>
+  <target name="all" depends="clean,test"/>
+</project>
+
