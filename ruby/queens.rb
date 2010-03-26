@@ -41,8 +41,8 @@ class Board
   def solve!
     row = 0
     col = 0
-    while row < size
-      while !ok?(row, col) and col < size
+    while row >= 0 and row < size
+      while col < size and !ok?(row, col)
         col += 1
       end
       if col < size
@@ -51,10 +51,12 @@ class Board
         col = 0
       else
         row -= 1
-        col = unplace!(row) + 1
+        if row >= 0
+          col = unplace!(row) + 1
+        end
       end
     end
-    self
+    return row == size
   end
 
   def printout
