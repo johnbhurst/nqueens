@@ -45,7 +45,7 @@ nextBoards boards = foldl1 (++) allmap
     allmap = map pl bcps
 
 solve :: Int -> [Board]
-solve n = last $ take (n+1) $ iterate nextBoards [start n]
+solve n = head $ drop n $ iterate nextBoards [start n]
 
 solve1 :: Int -> Board
 solve1 n = head $ solve n
