@@ -37,12 +37,11 @@ place (Board {size = size, rows = rows, pos = pos, cols = cols, diag1 = diag1, d
     diag2 = setBit diag2 (rows + 1 + j)
   }
 
+placeNextCols :: Board -> [Board]
+placeNextCols board = map (place board) (nextCols board)
+
 nextBoards :: [Board] -> [Board]
-nextBoards boards = foldr1 (++) allmap
-  where bc board = (board, nextCols board)
-        bcps = map bc boards
-        pl (board, cols) = map (place board) cols
-        allmap = map pl bcps
+nextBoards boards = foldr1 (++) $ map placeNextCols boards
 
 solve :: Int -> [Board]
 solve n = head $ drop n $ iterate nextBoards [start n]
