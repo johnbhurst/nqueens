@@ -18,8 +18,8 @@ start n = Board {
   rows = 0, 
   pos = array (1, n) [(i, 0) | i <- [1..n]],
   cols = makeFalse n,
-  diag1 = makeFalse (2 * n - 1),
-  diag2 = makeFalse (2 * n - 1)
+  diag1 = makeFalse (2 * n),
+  diag2 = makeFalse (2 * n)
 }
 
 ok :: Board -> Int -> Int -> Bool
@@ -37,8 +37,8 @@ place (Board {size = size, rows = rows, pos = pos, cols = cols, diag1 = diag1, d
 		rows = rows + 1,
 		pos = array (1, size) ([(i, pos!i) | i <- [1..rows]] ++ [(rows+1, j)] ++ [(i, 0) | i <- [rows+2..size]]),
 		cols = array (1, size) [(i, cols!i || i == j) | i <- [1..size]],
-		diag1 = array (1, 2 * size - 1) [(i, diag1!i || i == j - (rows + 1) + size) | i <- [1..(2 * size - 1)]],
-		diag2 = array (1, 2 * size - 1) [(i, diag2!i || i == (rows + 1) + j) | i <- [1..(2 * size - 1)]]
+		diag1 = array (1, 2 * size) [(i, diag1!i || i == j - (rows + 1) + size) | i <- [1..(2 * size)]],
+		diag2 = array (1, 2 * size) [(i, diag2!i || i == (rows + 1) + j) | i <- [1..(2 * size)]]
 	}
 
 nextBoards :: [Board] -> [Board]
