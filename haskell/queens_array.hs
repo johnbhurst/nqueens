@@ -22,13 +22,12 @@ start n = Board {
   diag2 = makeFalse (2 * n)
 }
 
-ok :: Board -> Int -> Int -> Bool
-ok (Board {size = size, rows = rows, pos = pos, cols = cols, diag1 = diag1, diag2 = diag2}) i j = 
-	not (cols!j || diag1!(j-i+size) || diag2!(i+j))
+ok :: Board -> Int -> Bool
+ok (Board {size = size, rows = rows, pos = pos, cols = cols, diag1 = diag1, diag2 = diag2}) j = 
+	not (cols!j || diag1!(j-(rows+1)+size) || diag2!(rows+1+j))
 
 nextCols :: Board -> [Int]
-nextCols board@(Board {size = size, rows = rows}) = filter okNext [1..size] 
-  where okNext = ok board (rows+1)
+nextCols board@(Board {size = size, rows = rows}) = filter (ok board) [1..size] 
 
 place :: Board -> Int -> Board
 place (Board {size = size, rows = rows, pos = pos, cols = cols, diag1 = diag1, diag2 = diag2}) j =
@@ -45,11 +44,11 @@ nextBoards :: [Board] -> [Board]
 nextBoards boards = foldl1 (++) allmap
   where bc board = (board, nextCols board)
   	bcps = map bc boards
-  	pl (board, cols) = map p1 cols where p1 = place board
+  	pl (board, cols) = map (place board) cols
   	allmap = map pl bcps
 
 solve :: Int -> [Board]
-solve n = last $ take (n+1) $ iterate nextBoards [start n]
+solve n = head $ drop n $ iterate nextBoards [start n]
 
 solve1 :: Int -> Board
 solve1 n = head $ solve n
