@@ -5,19 +5,19 @@
 
 use strict;
 
-$size = 0;
-@pos = ();
-@col = ();
-@diag1 = ();
-@diag2 = ();
+my $size = 0;
+my @pos = ();
+my @col = ();
+my @diag1 = ();
+my @diag2 = ();
 
 sub initialize {
   $size = $_[0];
-  for ($i = 0; $i < $size; $i++) {
+  for (my $i = 0; $i < $size; $i++) {
     $pos[$i] = -1;
     $col[$i] = 0;
   }
-  for ($i = 0; $i < 2 * $size + 1; $i++) {
+  for (my $i = 0; $i < 2 * $size + 1; $i++) {
     $diag1[$i] = 0;
     $diag2[$i] = 0;
   }
