@@ -19,13 +19,12 @@ start n = Board {
   diag2 = 0 :: Integer
 }
 
-ok :: Board -> Int -> Int -> Bool
-ok (Board {size = size, rows = rows, pos = pos, cols = cols, diag1 = diag1, diag2 = diag2}) i j = 
-	not ((testBit cols j) || (testBit diag1 (j-i+size)) || (testBit diag2 (i+j)))
+ok :: Board -> Int -> Bool
+ok (Board {size = size, rows = rows, cols = cols, diag1 = diag1, diag2 = diag2}) j = 
+	not ((testBit cols j) || (testBit diag1 (j-(rows+1)+size)) || (testBit diag2 (rows+1+j)))
 
 nextCols :: Board -> [Int]
-nextCols board@(Board {size = size, rows = rows}) = filter okNext [1..size] 
-  where okNext = ok board (rows+1)
+nextCols board@(Board {size = size}) = filter (ok board) [1..size]
 
 place :: Board -> Int -> Board
 place (Board {size = size, rows = rows, pos = pos, cols = cols, diag1 = diag1, diag2 = diag2}) j =
