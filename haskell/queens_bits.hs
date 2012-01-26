@@ -41,7 +41,7 @@ nextBoards :: [Board] -> [Board]
 nextBoards boards = foldl1 (++) allmap
   where bc board = (board, nextCols board)
         bcps = map bc boards
-        pl (board, cols) = map p1 cols where p1 = place board
+        pl (board, cols) = map (place board) cols
         allmap = map pl bcps
 
 solve :: Int -> [Board]
