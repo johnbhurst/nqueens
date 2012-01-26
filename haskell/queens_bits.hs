@@ -40,9 +40,9 @@ place (Board {size = size, rows = rows, pos = pos, cols = cols, diag1 = diag1, d
 nextBoards :: [Board] -> [Board]
 nextBoards boards = foldl1 (++) allmap
   where bc board = (board, nextCols board)
-    bcps = map bc boards
-    pl (board, cols) = map p1 cols where p1 = place board
-    allmap = map pl bcps
+        bcps = map bc boards
+        pl (board, cols) = map p1 cols where p1 = place board
+        allmap = map pl bcps
 
 solve :: Int -> [Board]
 solve n = head $ drop n $ iterate nextBoards [start n]
