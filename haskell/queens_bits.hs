@@ -1,10 +1,9 @@
-import Data.Array
 import Data.Bits
 
 data Board = Board {
   size :: Int,
   rows :: Int,
-  pos :: Array Int Int,
+  pos :: [Int],
 	cols :: Integer,
 	diag1 :: Integer,
 	diag2 :: Integer
@@ -14,7 +13,7 @@ start :: Int -> Board
 start n = Board {
   size = n, 
   rows = 0, 
-  pos = array (1, n) [(i, 0) | i <- [1..n]],
+  pos = [],
   cols = 0 :: Integer,
   diag1 = 0 :: Integer,
   diag2 = 0 :: Integer
@@ -33,7 +32,7 @@ place (Board {size = size, rows = rows, pos = pos, cols = cols, diag1 = diag1, d
 	Board {
 		size = size,
 		rows = rows + 1,
-		pos = array (1, size) ([(i, pos!i) | i <- [1..rows]] ++ [(rows+1, j)] ++ [(i, 0) | i <- [rows+2..size]]),
+    pos = j : pos,
 		cols = setBit cols j,
 		diag1 = setBit diag1 (j - (rows + 1) + size),
 		diag2 = setBit diag2 (rows + 1 + j)
@@ -53,6 +52,6 @@ solve1 :: Int -> Board
 solve1 n = head $ solve n
 
 toString :: Board -> String
-toString (Board {size = size, pos = pos}) = unlines $ map f [pos!i | i <- [1..size]]
+toString (Board {pos = pos}) = unlines $ map f pos
   where f n = (replicate (n-1) ' ') ++ "*"
 
