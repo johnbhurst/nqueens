@@ -4,9 +4,9 @@ data Board = Board {
   size :: Int,
   rows :: Int,
   pos :: [Int],
-	cols :: Integer,
-	diag1 :: Integer,
-	diag2 :: Integer
+  cols :: Integer,
+  diag1 :: Integer,
+  diag2 :: Integer
 } deriving (Show)
 
 start :: Int -> Board
@@ -21,28 +21,28 @@ start n = Board {
 
 ok :: Board -> Int -> Bool
 ok (Board {size = size, rows = rows, cols = cols, diag1 = diag1, diag2 = diag2}) j = 
-	not ((testBit cols j) || (testBit diag1 (j-(rows+1)+size)) || (testBit diag2 (rows+1+j)))
+  not ((testBit cols j) || (testBit diag1 (j-(rows+1)+size)) || (testBit diag2 (rows+1+j)))
 
 nextCols :: Board -> [Int]
 nextCols board@(Board {size = size}) = filter (ok board) [1..size]
 
 place :: Board -> Int -> Board
 place (Board {size = size, rows = rows, pos = pos, cols = cols, diag1 = diag1, diag2 = diag2}) j =
-	Board {
-		size = size,
-		rows = rows + 1,
+  Board {
+    size = size,
+    rows = rows + 1,
     pos = j : pos,
-		cols = setBit cols j,
-		diag1 = setBit diag1 (j - (rows + 1) + size),
-		diag2 = setBit diag2 (rows + 1 + j)
-	}
+    cols = setBit cols j,
+    diag1 = setBit diag1 (j - (rows + 1) + size),
+    diag2 = setBit diag2 (rows + 1 + j)
+  }
 
 nextBoards :: [Board] -> [Board]
 nextBoards boards = foldl1 (++) allmap
   where bc board = (board, nextCols board)
-  	bcps = map bc boards
-  	pl (board, cols) = map p1 cols where p1 = place board
-  	allmap = map pl bcps
+    bcps = map bc boards
+    pl (board, cols) = map p1 cols where p1 = place board
+    allmap = map pl bcps
 
 solve :: Int -> [Board]
 solve n = last $ take (n+1) $ iterate nextBoards [start n]
