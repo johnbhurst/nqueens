@@ -38,7 +38,7 @@ place (Board {size = size, rows = rows, pos = pos, cols = cols, diag1 = diag1, d
   }
 
 nextBoards :: [Board] -> [Board]
-nextBoards boards = foldl1 (++) allmap
+nextBoards boards = foldr1 (++) allmap
   where bc board = (board, nextCols board)
         bcps = map bc boards
         pl (board, cols) = map (place board) cols
