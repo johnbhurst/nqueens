@@ -12,62 +12,68 @@ import (
 	"time"
 )
 
-var rows []int
-
-func Place(row, col int) {
-	rows[row] = col
+type Board struct {
+	size int
+	pos []int
+	col []bool
+	diag1 []bool
+	diag2 []bool
 }
 
-func Remove(row int) int {
-	result := rows[row]
-	rows[row] = -1
-	return result
+func New(size int) *Board {
+	return &Board{
+		size: size,
+		pos: make([]int, size),
+		col: make([]bool, size),
+		diag1: make([]bool, 2*size-1),
+		diag2: make([]bool, 2*size-1) }
 }
 
-func Ok(row, col int) bool {
-	for i := range rows {
-		if i != row && rows[i] != -1 && rows[i] == col {
-			return false
-		}
-		if i != row && rows[i] != -1 && i - rows[i] == row - col {
-			return false
-		}
-		if i != row && rows[i] != -1 && i + rows[i] == row + col {
-			return false
-		}
-	}
-	return true
+func (this *Board) Place(row, col int) {
+	this.pos[row] = col
+	this.col[col] = true
+	this.diag1[row+col] = true
+	this.diag2[row-col+this.size-1] = true
 }
 
-func Print() {
-	for i := range rows {
-		fmt.Printf("%s*\n", strings.Repeat(" ", rows[i]))
+func (this *Board) Remove(row int) int {
+	col := this.pos[row]
+	this.col[col] = false
+	this.diag1[row+col] = false
+	this.diag2[row-col+this.size-1] = false
+	return col
+}
+
+func (this *Board) Ok(row, col int) bool {
+	return !this.col[col] && !this.diag1[row+col] && !this.diag2[row-col+this.size-1]
+}
+
+func (this *Board) Print() {
+	for _, pos := range this.pos {
+		fmt.Printf("%s*\n", strings.Repeat(" ", pos))
 	}
 }
 
 func main() {
 	size, _ := strconv.Atoi(os.Args[1])
 	start := time.Now()
-	rows = make([]int, size)
-	for i := range rows {
-		rows[i] = -1
-	}
+	board := New(size)
 	row := 0
 	col := 0
-	for row < len(rows) {
-		if Ok(row, col) {
-			Place(row, col)
+	for row < size {
+		if board.Ok(row, col) {
+			board.Place(row, col)
 			row++
 			col = 0
 		} else {
 			col++
-			for col == len(rows) {
+			for col == size {
 				row--
-				col = Remove(row) + 1
+				col = board.Remove(row) + 1
 			}
 		}
 	}
 	seconds := time.Since(start) / time.Second
-	Print()
+	board.Print()
 	fmt.Printf("Duration: %d seconds\n", seconds)
 }
