@@ -49,9 +49,21 @@ func (this *Board) Ok(row, col int) bool {
 }
 
 func (this *Board) Print() {
-	for _, pos := range this.pos {
-		fmt.Printf("%s*\n", strings.Repeat(" ", pos))
+	fmt.Printf("\u250F" + strings.Join(strings.Split(strings.Repeat("\u2501", this.size), ""), "\u2533") + "\u2513" + "\n")
+	for i, pos := range this.pos {
+		if i > 0 {
+			fmt.Printf("\u2523" + strings.Join(strings.Split(strings.Repeat("\u2501", this.size), ""), "\u254B") + "\u252B" + "\n")
+		}
+		for j := 0; j < pos; j++ {
+			fmt.Printf("\u2503 ")
+		}
+		fmt.Printf("\u2503\u2655") // Queen
+		for j := pos+1; j < this.size; j++ {
+			fmt.Printf("\u2503 ")
+		}
+		fmt.Printf("\u2503\n")
 	}
+	fmt.Printf("\u2517" + strings.Join(strings.Split(strings.Repeat("\u2501", this.size), ""), "\u253B") + "\u251B" + "\n")
 }
 
 func main() {
