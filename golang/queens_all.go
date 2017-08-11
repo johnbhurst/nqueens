@@ -48,6 +48,16 @@ func (this *Board) Ok(row, col int) bool {
 	return !this.col[col] && !this.diag1[row+col] && !this.diag2[row-col+this.size-1]
 }
 
+func (this *Board) Backtrack(row, col int) (int, int) {
+  for col == this.size && row >= 0 { // backtrack if reached end of row
+    row--
+    if row >= 0 {
+      col = this.Remove(row) + 1
+    }
+  }
+  return row, col
+}
+
 func main() {
   if len(os.Args) < 2 || len(os.Args) > 3 {
     log.Fatalf("queens_all size1 [size2]")
@@ -72,21 +82,11 @@ func main() {
         } else { // filled last row: solution found
           count++
           col = board.Remove(row) + 1
-          for col == size && row >= 0 { // backtrack if reached end of row
-            row--
-            if row >= 0 {
-              col = board.Remove(row) + 1
-            }
-          }
+          row, col = board.Backtrack(row, col)
         }
       } else { // cannot place at current position, try next one
         col++
-        for col == size && row >= 0 { // backtrack if reached end of row
-          row--
-          if row >= 0 {
-            col = board.Remove(row) + 1
-          }
-        }
+        row, col = board.Backtrack(row, col)
       }
     }
 
