@@ -6,7 +6,6 @@ package main
 
 import (
 	"fmt"
-  "log"
 	"os"
 	"strconv"
 	"time"
@@ -58,13 +57,24 @@ func (this *Board) Backtrack(row, col int) (int, int) {
   return row, col
 }
 
+func Usage() {
+  fmt.Printf("queens_all size1 [size2]\n")
+  os.Exit(1)
+}
+
 func main() {
   if len(os.Args) < 2 || len(os.Args) > 3 {
-    log.Fatalf("queens_all size1 [size2]")
+    Usage()
   }
 
-  from, _ := strconv.Atoi(os.Args[1])
-  to, _ := strconv.Atoi(os.Args[len(os.Args)-1])
+  from, err1 := strconv.Atoi(os.Args[1])
+  to, err2 := strconv.Atoi(os.Args[len(os.Args)-1])
+  if err1 != nil || err2 != nil {
+    Usage()
+  }
+  if from > to || from < 4 || to < 4 {
+    Usage()
+  }
 
   for size := from; size <= to; size++ {
     start := time.Now()
