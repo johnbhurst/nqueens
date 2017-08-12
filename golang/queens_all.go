@@ -57,6 +57,30 @@ func (this *Board) Backtrack(row, col int) (int, int) {
   return row, col
 }
 
+func (this *Board) Solve() int {
+  row := 0
+  col := 0
+  count := 0
+
+  for row >= 0 {
+    if this.Ok(row, col) {
+      this.Place(row, col)
+      if row < this.size - 1 { // still more rows to fill
+        row++
+        col = 0
+      } else { // filled last row: solution found
+        count++
+        col = this.Remove(row) + 1
+        row, col = this.Backtrack(row, col)
+      }
+    } else { // cannot place at current position, try next one
+      col++
+      row, col = this.Backtrack(row, col)
+    }
+  }
+  return count
+}
+
 func Usage() {
   fmt.Printf("queens_all size1 [size2]\n")
   os.Exit(1)
@@ -66,7 +90,6 @@ func main() {
   if len(os.Args) < 2 || len(os.Args) > 3 {
     Usage()
   }
-
   from, err1 := strconv.Atoi(os.Args[1])
   to, err2 := strconv.Atoi(os.Args[len(os.Args)-1])
   if err1 != nil || err2 != nil || from > to || from < 4 || to < 4{
@@ -75,28 +98,7 @@ func main() {
 
   for size := from; size <= to; size++ {
     start := time.Now()
-    board := New(size)
-    row := 0
-    col := 0
-    count := 0
-
-    for row >= 0 {
-      if board.Ok(row, col) {
-        board.Place(row, col)
-        if row < size - 1 { // still more rows to fill
-          row++
-          col = 0
-        } else { // filled last row: solution found
-          count++
-          col = board.Remove(row) + 1
-          row, col = board.Backtrack(row, col)
-        }
-      } else { // cannot place at current position, try next one
-        col++
-        row, col = board.Backtrack(row, col)
-      }
-    }
-
+    count := New(size).Solve()
     duration := time.Now().Sub(start)
     fmt.Printf("Board size %d has %d solutions. Calculated in %v.\n", size, count, duration)
   }
