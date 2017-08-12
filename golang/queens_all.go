@@ -69,10 +69,7 @@ func main() {
 
   from, err1 := strconv.Atoi(os.Args[1])
   to, err2 := strconv.Atoi(os.Args[len(os.Args)-1])
-  if err1 != nil || err2 != nil {
-    Usage()
-  }
-  if from > to || from < 4 || to < 4 {
+  if err1 != nil || err2 != nil || from > to || from < 4 || to < 4{
     Usage()
   }
 
