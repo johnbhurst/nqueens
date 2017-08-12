@@ -71,11 +71,15 @@ func (this *Board) Solve() int {
       } else { // filled last row: solution found
         count++
         col = this.Remove(row) + 1
-        row, col = this.Backtrack(row, col)
+        if col == this.size {
+          row, col = this.Backtrack(row, col)
+        }
       }
     } else { // cannot place at current position, try next one
       col++
-      row, col = this.Backtrack(row, col)
+      if col == this.size {
+        row, col = this.Backtrack(row, col)
+      }
     }
   }
   return count
