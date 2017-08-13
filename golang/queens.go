@@ -13,20 +13,20 @@ import (
 )
 
 type Board struct {
-	size int
-	pos []int
-	col []bool
+	size  int
+	pos   []int
+	col   []bool
 	diag1 []bool
 	diag2 []bool
 }
 
 func New(size int) *Board {
 	return &Board{
-		size: size,
-		pos: make([]int, size),
-		col: make([]bool, size),
+		size:  size,
+		pos:   make([]int, size),
+		col:   make([]bool, size),
 		diag1: make([]bool, 2*size-1),
-		diag2: make([]bool, 2*size-1) }
+		diag2: make([]bool, 2*size-1)}
 }
 
 func (this *Board) Place(row, col int) {
@@ -58,7 +58,7 @@ func (this *Board) Print() {
 			fmt.Printf("\u2503 ")
 		}
 		fmt.Printf("\u2503\u2655") // Queen
-		for j := pos+1; j < this.size; j++ {
+		for j := pos + 1; j < this.size; j++ {
 			fmt.Printf("\u2503 ")
 		}
 		fmt.Printf("\u2503\n")
