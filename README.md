@@ -72,7 +72,7 @@ Based on the name, my guess is that `queencsqc.c` was written for Microsoft Quic
 
 `queensc1.c` and `queensc2.c` are newer: they use the ANSI syntax.
 
-They also have the date they wqere written: 1990.
+They also have the date they were written: 1990.
 
 ## C++ (2007)
 
@@ -135,3 +135,50 @@ No doubt there is a good way to do it, but I'm not there yet.
 I started learning Go in 2016.
 Go is a refreshing new take on low-level systems programming - a modern-day "C" replacement.
 It's a lot of fun.
+
+The `queens.go` program finds the first solution. It outputs the board using unicode chess characters:
+
+    go build queens.go
+    ./queens 8
+    ┏━┳━┳━┳━┳━┳━┳━┳━┓
+    ┃♕┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃
+    ┣━╋━╋━╋━╋━╋━╋━╋━┫
+    ┃ ┃ ┃ ┃ ┃♕┃ ┃ ┃ ┃
+    ┣━╋━╋━╋━╋━╋━╋━╋━┫
+    ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃♕┃
+    ┣━╋━╋━╋━╋━╋━╋━╋━┫
+    ┃ ┃ ┃ ┃ ┃ ┃♕┃ ┃ ┃
+    ┣━╋━╋━╋━╋━╋━╋━╋━┫
+    ┃ ┃ ┃♕┃ ┃ ┃ ┃ ┃ ┃
+    ┣━╋━╋━╋━╋━╋━╋━╋━┫
+    ┃ ┃ ┃ ┃ ┃ ┃ ┃♕┃ ┃
+    ┣━╋━╋━╋━╋━╋━╋━╋━┫
+    ┃ ┃♕┃ ┃ ┃ ┃ ┃ ┃ ┃
+    ┣━╋━╋━╋━╋━╋━╋━╋━┫
+    ┃ ┃ ┃ ┃♕┃ ┃ ┃ ┃ ┃
+    ┗━┻━┻━┻━┻━┻━┻━┻━┛
+    Duration: 0 seconds
+
+The `queens_all.go` program finds the number of solutions for the range of sizes given:
+
+    go build queens_all.go
+    ./queens_all 8 12
+    Board size 8 has 92 solutions. Calculated in 173.179µs.
+    Board size 9 has 352 solutions. Calculated in 735.575µs.
+    Board size 10 has 724 solutions. Calculated in 3.257445ms.
+    Board size 11 has 2680 solutions. Calculated in 16.264111ms.
+    Board size 12 has 14200 solutions. Calculated in 79.522755ms.
+    Board size 13 has 73712 solutions. Calculated in 399.299286ms.
+    Board size 14 has 365596 solutions. Calculated in 2.378303828s.
+
+The `queens_all_parallel` program does the same thing but uses goroutines to spread the work out over multiple CPUs:
+
+    go build queens_all_parallel.go
+    ./queens_all_parallel 8 14
+    Board size 8 has 92 solutions. Calculated in 138.979µs.
+    Board size 9 has 352 solutions. Calculated in 443.072µs.
+    Board size 10 has 724 solutions. Calculated in 1.664409ms.
+    Board size 11 has 2680 solutions. Calculated in 7.272826ms.
+    Board size 12 has 14200 solutions. Calculated in 44.901451ms.
+    Board size 13 has 73712 solutions. Calculated in 221.067671ms.
+    Board size 14 has 365596 solutions. Calculated in 1.159239836s.
