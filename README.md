@@ -182,3 +182,20 @@ The `queens_all_parallel` program does the same thing but uses goroutines to spr
     Board size 12 has 14200 solutions. Calculated in 44.901451ms.
     Board size 13 has 73712 solutions. Calculated in 221.067671ms.
     Board size 14 has 365596 solutions. Calculated in 1.159239836s.
+
+## Python (2017)
+
+The `queens_all_lsit.py` program finds the number of solutions for the range of sizes given:
+
+    python queens_all.py 8 14
+    Board size 8 has 92 solutions. Calculated in 0.007903 seconds.
+    Board size 9 has 352 solutions. Calculated in 0.035062 seconds.
+    Board size 10 has 724 solutions. Calculated in 0.155653 seconds.
+    Board size 11 has 2680 solutions. Calculated in 0.710653 seconds.
+    Board size 12 has 14200 solutions. Calculated in 3.820887 seconds.
+    Board size 13 has 73712 solutions. Calculated in 21.94931 seconds.
+    Board size 14 has 365596 solutions. Calculated in 134.913962 seconds.    
+
+This version uses Python's generic List data structure, which is not very efficient.
+
+    
