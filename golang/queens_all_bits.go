@@ -12,7 +12,7 @@ import (
 )
 
 type Board struct {
-	size   int
+	size  int
 	pos   []int
 	col   int // 64-bits
 	diag1 int
@@ -22,11 +22,11 @@ type Board struct {
 func New(size int) *Board {
 	return &Board{
 		size: size,
-		pos:  make([]int, size) }
+		pos:  make([]int, size)}
 }
 
 func (this *Board) Place(row, col int) {
-  this.pos[row] = col
+	this.pos[row] = col
 	this.col |= (1 << uint(col))
 	this.diag1 |= (1 << uint(row+col))
 	this.diag2 |= (1 << uint(row-col+this.size-1))
@@ -34,16 +34,16 @@ func (this *Board) Place(row, col int) {
 
 func (this *Board) Remove(row int) int {
 	col := int(this.pos[row])
-  this.col &^= (1 << uint(col))
+	this.col &^= (1 << uint(col))
 	this.diag1 &^= (1 << uint(row+col))
 	this.diag2 &^= (1 << uint(row-col+this.size-1))
 	return col
 }
 
 func (this *Board) Ok(row, col int) bool {
-  return this.col & (1 << uint(col)) == 0 &&
-	       this.diag1 & (1 << uint(row+col)) == 0 &&
-				 this.diag2 & (1 << uint(row-col+this.size-1)) == 0
+	return this.col&(1<<uint(col)) == 0 &&
+		this.diag1&(1<<uint(row+col)) == 0 &&
+		this.diag2&(1<<uint(row-col+this.size-1)) == 0
 }
 
 func (this *Board) Backtrack(row, col int) (int, int) {
