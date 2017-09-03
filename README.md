@@ -183,6 +183,19 @@ The `queens_all_parallel` program does the same thing but uses goroutines to spr
     Board size 13 has 73712 solutions. Calculated in 221.067671ms.
     Board size 14 has 365596 solutions. Calculated in 1.159239836s.
 
+The `queens_all_bits` program tries to using bit operations instead of Go's slices to keep track of booleans
+for columns and diagnonals. It works about the same as the slices version, however.
+
+    go build queens_all_bits.go
+    ./queens_all_bits 8 16
+    Board size 8 has 92 solutions. Calculated in 164.731µs.
+    Board size 9 has 352 solutions. Calculated in 713.498µs.
+    Board size 10 has 724 solutions. Calculated in 3.30171ms.
+    Board size 11 has 2680 solutions. Calculated in 16.234293ms.
+    Board size 12 has 14200 solutions. Calculated in 86.700167ms.
+    Board size 13 has 73712 solutions. Calculated in 399.632399ms.
+    Board size 14 has 365596 solutions. Calculated in 2.248712623s.
+
 ## Python (2017)
 
 The `queens_all_lsit.py` program finds the number of solutions for the range of sizes given:
@@ -197,5 +210,3 @@ The `queens_all_lsit.py` program finds the number of solutions for the range of 
     Board size 14 has 365596 solutions. Calculated in 134.913962 seconds.    
 
 This version uses Python's generic List data structure, which is not very efficient.
-
-    
