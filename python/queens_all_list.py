@@ -41,7 +41,7 @@ class Board:
         col = 0
         count = 0
         while row >= 0:
-            if (self.ok(row, col)):
+            if self.ok(row, col):
                 self.place(row, col)
                 if row < self.size-1:
                     row += 1
