@@ -1,8 +1,6 @@
-// console.time('main');
-// for (let i = 0 ; i < 1000; i++) {
-//   // do nothing
-// }
-// console.timeEnd('main');
+// Copyright 2017 John Hurst
+// John Hurst (john.b.hurst@gmail.com)
+// 2017-12-16
 
 class Board {
   constructor(size) {
@@ -14,7 +12,6 @@ class Board {
   }
 
   place(row, col) {
-    //console.log("place(%d, %d)", row, col);
     this.pos[row] = col;
     this.col |= 1 << col;
     this.diag1 |= 1 << (row + col);
@@ -30,12 +27,9 @@ class Board {
   }
 
   ok(row, col) {
-    //console.log("ok(%d, %d)", row, col);
-    //console.log("size=%d, col=%d, diag1=%d, diag2=%d", this.size, this.col, this.diag1, this.diag2);
     var result = (this.col & (1 << col)) == 0 &&
       (this.diag1 & (1 << row + col)) == 0 &&
       (this.diag2 & (1 << row - col + size - 1)) == 0;
-    //console.log("result = " + result);
     return result;
   }
 
