@@ -4,11 +4,9 @@
 
 
 function place(board, row, col) {
-  var newPos = board.pos.slice()
-  newPos.push(col)
   return {
     size: board.size,
-    pos: newPos,
+    places: board.places + 1,
     col: board.col | 1 << col,
     diag1: board.diag1 | 1 << (row + col),
     diag2: board.diag2 | 1 << (row - col + board.size - 1)
@@ -22,12 +20,12 @@ function ok(board, row, col) {
 }
 
 function solve_board(board) {
-  if (board.pos.length == board.size) {
+  if (board.places == board.size) {
     return 1
   }
   else {
     var result = 0
-    var row = board.pos.length
+    var row = board.places
     for (var col = 0; col < board.size; col++) {
       if (ok(board, row, col)) {
         result += solve_board(place(board, row, col))
@@ -38,7 +36,7 @@ function solve_board(board) {
 }
 
 function solve(size) {
-  return solve_board({size: size, pos: [], col: 0, diag1: 0, diag2: 0})
+  return solve_board({size: size, places: 0, col: 0, diag1: 0, diag2: 0})
 }
 
 var start = Number.parseInt(process.argv[2])
