@@ -198,7 +198,7 @@ for columns and diagnonals. It works about the same as the slices version, howev
 
 ## Python (2017)
 
-The `queens_all_lsit.py` program finds the number of solutions for the range of sizes given:
+The `queens_all_list.py` program finds the number of solutions for the range of sizes given:
 
     python queens_all.py 8 14
     Board size 8 has 92 solutions. Calculated in 0.007903 seconds.
