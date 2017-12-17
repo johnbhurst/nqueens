@@ -210,3 +210,19 @@ The `queens_all_list.py` program finds the number of solutions for the range of 
     Board size 14 has 365596 solutions. Calculated in 134.913962 seconds.    
 
 This version uses Python's generic List data structure, which is not very efficient.
+
+## Machine Specs (2017)
+
+    Model Name:	MacBook Pro
+      Model Identifier:	MacBookPro13,3
+      Processor Name:	Intel Core i7
+      Processor Speed:	2.9 GHz
+      Number of Processors:	1
+      Total Number of Cores:	4
+      L2 Cache (per Core):	256 KB
+      L3 Cache:	8 MB
+      Memory:	16 GB
+      Boot ROM Version:	MBP133.0233.B00
+      SMC Version (system):	2.38f7
+      Serial Number (system):	C02SP8YUGTF1
+      Hardware UUID:	22A82479-3202-5B53-BD70-D1B0A9923C5C
