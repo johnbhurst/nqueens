@@ -1,5 +1,8 @@
 # JavaScript
 
+    node --version
+    v9.2.0
+
 ## Object oriented, mutable state (place/unplace)
 
     node queens.js 11 14
@@ -24,7 +27,7 @@
     14: 2744.340ms
     365596
 
-# Functional with filter()/map()/reduce()
+## Functional with filter()/map()/reduce()
 
     node queens_func_hihgerorder.js 11 14
     11: 314.934ms
