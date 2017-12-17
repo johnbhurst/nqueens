@@ -49,7 +49,7 @@ var end = process.argv.length > 3 ?
   Number.parseInt(process.argv[3]) : start
 
 for (var size = start; size <= end; size++) {
-  console.time(size);
+  console.time(size)
   var result = solve_board(new_board(size))
   console.timeEnd(size)
   console.log(result)
