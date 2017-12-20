@@ -36,8 +36,6 @@ func Ok(board Board, row, col int) bool {
 	return board.col & (1 << uint(col)) == 0 &&
 		board.diag1 & (1 << uint(row+col)) == 0 &&
     board.diag2 & (1 << uint(row-col+board.size-1)) == 0
-  // fmt.Printf("Ok((%d, %d, %d, %d, %d), %d, %d): %v\n", board.size, board.placed, board.col, board.diag1, board.diag2, row, col, result)
-  // return result
 }
 
 func Solve(board Board) int {
