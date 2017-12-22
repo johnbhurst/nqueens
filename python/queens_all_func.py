@@ -43,8 +43,7 @@ last = int(sys.argv[2])
 
 for size in range(first, last+1):
     start = datetime.datetime.now()
-    board = Board(size)
-    count = board.solve()
+    count = Board(size).solve()
     end = datetime.datetime.now()
     diff = end - start
     print "Board size {} has {} solutions. Calculated in {} seconds.".format(size, count, diff.total_seconds())
