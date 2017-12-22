@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 typedef struct {
     int size;
@@ -61,7 +62,11 @@ int main(int argc, char** argv) {
     int to = argc < 3 ? from : atoi(argv[2]);
 
     for (int size = from; size <= to; size++) {
-        printf("%d: %d\n", size, solve(new(size)));
+        clock_t start = clock();
+        int result = solve(new(size));
+        clock_t end = clock();
+        int elapsed = (end - start) / 1000;
+        printf("%d: %d (%dms)\n", size, result, elapsed);
     }
 }
 
