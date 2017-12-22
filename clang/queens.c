@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
         int result = solve(new(size));
         clock_t end = clock();
         int elapsed = (end - start) / 1000;
-        printf("%d: %d (%dms)\n", size, result, elapsed);
+        printf("Board size %d has %d solutions. Calculated in %dms\n", size, result, elapsed);
     }
 }
 
