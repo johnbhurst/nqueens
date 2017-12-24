@@ -1,0 +1,214 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7440,        206]
+NotebookOptionsPosition[      6997,        189]
+NotebookOutlinePosition[      7358,        205]
+CellTagsIndexPosition[      7315,        202]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"New", "[", "size_", "]"}], ":=", 
+    RowBox[{"{", 
+     RowBox[{"size", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}]}], ";"}],
+   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Ok", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "size_", ",", "placed_", ",", "col_", ",", "diag1_", ",", "diag2_"}], 
+       "}"}], ",", "newRow_", ",", "newCol_"}], "]"}], ":=", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"BitAnd", "[", 
+       RowBox[{"col", ",", 
+        RowBox[{"BitShiftLeft", "[", 
+         RowBox[{"1", ",", "newCol"}], "]"}]}], "]"}], "\[Equal]", "0"}], " ",
+      "&&", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"BitAnd", "[", 
+       RowBox[{"diag1", ",", 
+        RowBox[{"BitShiftLeft", "[", 
+         RowBox[{"1", ",", 
+          RowBox[{"newRow", "+", "newCol"}]}], "]"}]}], "]"}], "\[Equal]", 
+      "0"}], " ", "&&", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"BitAnd", "[", 
+       RowBox[{"diag2", ",", 
+        RowBox[{"BitShiftLeft", "[", 
+         RowBox[{"1", ",", 
+          RowBox[{"newRow", "-", "newCol", "+", "size", "-", "1"}]}], "]"}]}],
+        "]"}], "\[Equal]", "0"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Place", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "size_", ",", "placed_", ",", "col_", ",", "diag1_", ",", "diag2_"}], 
+       "}"}], ",", "newRow_", ",", "newCol_"}], "]"}], ":=", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{"size", ",", "\[IndentingNewLine]", 
+      RowBox[{"placed", "+", "1"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"BitOr", "[", 
+       RowBox[{"col", ",", 
+        RowBox[{"BitShiftLeft", "[", 
+         RowBox[{"1", ",", "newCol"}], "]"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"BitOr", "[", 
+       RowBox[{"diag1", ",", 
+        RowBox[{"BitShiftLeft", "[", 
+         RowBox[{"1", ",", 
+          RowBox[{"newRow", "+", "newCol"}]}], "]"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"BitOr", "[", 
+       RowBox[{"diag2", ",", 
+        RowBox[{"BitShiftLeft", "[", 
+         RowBox[{"1", ",", 
+          RowBox[{"newRow", "-", "newCol", "+", "size", "-", "1"}]}], "]"}]}],
+        "]"}]}], "\[IndentingNewLine]", "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"SolveBoard", "[", "board_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "size", ",", "placed", ",", "col", ",", "diag1", ",", "diag2", ",", 
+        " ", "newRow", ",", "newCols", ",", "newBoards"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "size", ",", "placed", ",", "col", ",", "diag1", ",", "diag2"}], 
+         "}"}], ":=", " ", "board"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"placed", "\[Equal]", "size"}], ",", "1", ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"newRow", ":=", "placed"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"newCols", ":=", 
+           RowBox[{"Select", "[", 
+            RowBox[{
+             RowBox[{"Range", "[", 
+              RowBox[{"0", ",", 
+               RowBox[{"size", "-", "1"}]}], "]"}], ",", 
+             RowBox[{
+              RowBox[{"Ok", "[", 
+               RowBox[{"board", ",", "newRow", ",", "#"}], "]"}], "&"}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"newBoards", ":=", 
+           RowBox[{"Map", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Place", "[", 
+               RowBox[{"board", ",", "newRow", ",", "#"}], "]"}], " ", "&"}], 
+             ",", "newCols"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Plus", "@@", 
+           RowBox[{"SolveBoard", "/@", "newBoards"}]}]}]}], 
+        "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Reverse", " ", "/@", " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Timing", "[", 
+      RowBox[{"SolveBoard", "[", 
+       RowBox[{"New", "[", "#", "]"}], "]"}], "]"}], "&"}], "/@", 
+    RowBox[{"Range", "[", 
+     RowBox[{"4", ",", "12"}], "]"}]}], ")"}]}]}], "Input",
+ CellChangeTimes->{{3.723126692449955*^9, 3.723126694839485*^9}, {
+  3.723126755122059*^9, 3.723126820140133*^9}, {3.7231269896607533`*^9, 
+  3.723127272800459*^9}, {3.723127315451765*^9, 3.7231275321163473`*^9}, {
+  3.723127770026022*^9, 3.723127811496804*^9}, {3.72312785015703*^9, 
+  3.723127860409258*^9}, {3.7231279117536907`*^9, 3.72312806371885*^9}, {
+  3.723128096317093*^9, 3.723128310147416*^9}, {3.723128362821602*^9, 
+  3.723128367675312*^9}, {3.723128445848859*^9, 3.723128689888867*^9}, {
+  3.723128744981498*^9, 3.723129106494403*^9}, {3.7231291380075502`*^9, 
+  3.723129180896134*^9}, {3.723129221853262*^9, 3.723129275861915*^9}, {
+  3.7231293151644783`*^9, 3.72312947264282*^9}, {3.723129534132782*^9, 
+  3.7231295587797213`*^9}, {3.723129650559366*^9, 3.723129652645834*^9}, {
+  3.7231296975895348`*^9, 3.7231297739879427`*^9}, {3.723131103285239*^9, 
+  3.723131107959607*^9}},ExpressionUUID->"e45548e0-60b6-49b6-8f64-\
+89c4af697c8c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"2", ",", "0.001404`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10", ",", "0.004504`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "0.015078`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"40", ",", "0.053516`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"92", ",", "0.201588`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"352", ",", "0.852801`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"724", ",", "2.781646`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2680", ",", "12.109007`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"14200", ",", "66.188234`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.72312935173967*^9, {3.723129445658845*^9, 3.72312947377433*^9}, {
+   3.723129549436492*^9, 3.723129559338811*^9}, 3.723129654792336*^9, {
+   3.723129738330977*^9, 3.723129751595752*^9}, 
+   3.723131202109152*^9},ExpressionUUID->"35dbe21b-3ebd-4330-811f-\
+f28e5fc101a4"]
+}, Open  ]]
+},
+WindowSize->{1379, 1603},
+WindowMargins->{{179, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 5432, 136, 556, "Input",ExpressionUUID->"e45548e0-60b6-49b6-8f64-89c4af697c8c"],
+Cell[6015, 160, 966, 26, 34, "Output",ExpressionUUID->"35dbe21b-3ebd-4330-811f-f28e5fc101a4"]
+}, Open  ]]
+}
+]
+*)
+
