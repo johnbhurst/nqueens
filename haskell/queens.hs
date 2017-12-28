@@ -27,31 +27,29 @@ new n = Board {
 
 -- Tells whether a queen may be placed on the next row in the given column.
 ok :: Board -> Int -> Bool
-ok (Board {size = size, placed = placed, cols = cols, diag1 = diag1, diag2 = diag2}) col =
+ok (Board {size = size, placed = row, cols = cols, diag1 = diag1, diag2 = diag2}) col =
   not ((testBit cols col) ||
        (testBit diag1 (row + col)) ||
        (testBit diag2 (row - col + size - 1)))
-    where row = placed
 
 -- Returns the board resulting from placing a queen on the next row in the given column.
 place :: Board -> Int -> Board
-place (Board {size = size, placed = placed, cols = cols, diag1 = diag1, diag2 = diag2}) col =
+place (Board {size = size, placed = row, cols = cols, diag1 = diag1, diag2 = diag2}) col =
   Board {
     size = size,
-    placed = placed + 1,
+    placed = row + 1,
     cols = setBit cols col,
     diag1 = setBit diag1 (row + col),
     diag2 = setBit diag2 (row - col + size - 1)
   }
-  where row = placed
 
 -- Returns the number of solutions for the given (partially filled) board.
 solve :: Board -> Int
 solve board@(Board {size = size, placed = placed, cols = cols, diag1 = diag1, diag2 = diag2}) =
   if placed == size then 1
   else sum $ map solve boards
-    where cols = filter (ok board) [0..size-1]
-          boards = map (place board) cols
+    where boards = map (place board) cols
+          cols = filter (ok board) [0..size-1]
 
 -- Solves board of given size and prints result and time to compute.
 timeSolution :: Int -> IO ()
