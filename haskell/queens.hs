@@ -45,7 +45,7 @@ place (Board {size = size, placed = row, cols = cols, diag1 = diag1, diag2 = dia
 
 -- Returns the number of solutions for the given (partially filled) board.
 solve :: Board -> Int
-solve board@(Board {size = size, placed = placed, cols = cols, diag1 = diag1, diag2 = diag2}) =
+solve board@(Board {size = size, placed = placed}) =
   if placed == size then 1
   else sum $ map solve boards
     where boards = map (place board) cols
