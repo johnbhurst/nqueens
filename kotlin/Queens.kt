@@ -13,12 +13,12 @@ fun main(args: Array<String>) {
   }
 }
 
-fun <T> time(foo: () -> T): Unit {
+fun <T> time(f: () -> T): Unit {
   val start = Instant.now()
-  val t = foo()
+  val result = f()
   val end = Instant.now()
   val duration = Duration.between(start, end)
-  println("$t. Calculated in $duration")
+  println("$result. Calculated in $duration")
 }
 
 class Board(
