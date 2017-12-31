@@ -22,11 +22,11 @@ fun <T> time(foo: () -> T): Unit {
 }
 
 class Board(
-  val size: Int = 0,
-  val row: Int = 0,
-  val cols: Int = 0,
-  val diags1: Int = 0,
-  val diags2: Int = 0
+  val size: Int = 0,   // size of board
+  val row: Int = 0,    // current row placed
+  val cols: Int = 0,   // bits indicating occupied columns
+  val diags1: Int = 0, // bits indicating occupied diagonal
+  val diags2: Int = 0  // bits indicating occupied diagonal
 ) {
   fun place(col: Int) = Board(
       size = this.size,
