@@ -45,7 +45,6 @@ class Board(
     if (row == size) 1 else
       (0 until size)
         .filter(::ok)
-        .map(::place)
-        .map { it.solve() }
+        .map { place(it).solve() }
         .sum()
 }
