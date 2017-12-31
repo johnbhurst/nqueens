@@ -23,27 +23,27 @@ fun <T> time(foo: () -> T): Unit {
 
 class Board(
   val size: Int = 0,
-  val placed: Int = 0,
-  val col: Int = 0,
-  val diag1: Int = 0,
-  val diag2: Int = 0
+  val row: Int = 0,
+  val cols: Int = 0,
+  val diags1: Int = 0,
+  val diags2: Int = 0
 ) {
   fun place(col: Int) = Board(
       size = this.size,
-      placed = this.placed + 1,
-      col = this.col or (1 shl col),
-      diag1 = this.diag1 or (1 shl this.placed + col),
-      diag2 = this.diag2 or (1 shl this.placed - col + this.size - 1)
+      row = this.row + 1,
+      cols = this.cols or (1 shl col),
+      diags1 = this.diags1 or (1 shl this.row + col),
+      diags2 = this.diags2 or (1 shl this.row - col + this.size - 1)
     )
 
   fun ok(col: Int) =
-      (this.col and (1 shl col)) == 0 &&
-      (this.diag1 and (1 shl this.placed + col)) == 0 &&
-      (this.diag2 and (1 shl this.placed - col + this.size - 1)) == 0
+      (this.cols and (1 shl col)) == 0 &&
+      (this.diags1 and (1 shl this.row + col)) == 0 &&
+      (this.diags2 and (1 shl this.row - col + this.size - 1)) == 0
 
   fun solve(): Int =
-    if (placed == size) 1 else
-      (0 until this.size)
+    if (row == size) 1 else
+      (0 until size)
         .filter(::ok)
         .map(::place)
         .map { it.solve() }
