@@ -37,9 +37,9 @@ class Board(
     )
 
   fun ok(col: Int) =
-      (this.cols and (1 shl col)) or
-      (this.diags1 and (1 shl this.row + col)) or
-      (this.diags2 and (1 shl this.row - col + this.size - 1)) == 0
+      (cols and (1 shl col)) or
+      (diags1 and (1 shl row + col)) or
+      (diags2 and (1 shl row - col + size - 1)) == 0
 
   fun solve(): Int =
     if (row == size) 1 else
