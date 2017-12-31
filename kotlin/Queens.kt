@@ -8,14 +8,17 @@ import java.time.Instant
 fun main(args: Array<String>) {
   val from = if (args.size > 0) Integer.parseInt(args[0]) else 8
   val to = if (args.size > 1) Integer.parseInt(args[1]) else from
-
   for (size in from..to) {
-    val start = Instant.now()
-    val count = Board(size).solve()
-    val end = Instant.now()
-    val duration = Duration.between(start, end)
-    println("Board size $size has $count solutions. Calculated in $duration.")
+    time {"Board size $size has ${Board(size).solve()} solutions"}
   }
+}
+
+fun <T> time(foo: () -> T): Unit {
+  val start = Instant.now()
+  val t = foo()
+  val end = Instant.now()
+  val duration = Duration.between(start, end)
+  println("$t. Calculated in $duration")
 }
 
 class Board(
