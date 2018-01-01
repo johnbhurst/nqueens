@@ -57,9 +57,9 @@ public class QueensArr {
     }
 
     private boolean ok(int row, int col) {
-      return (this.cols & (1 << col)) == 0 &&
-        (this.diags1 & (1 << row + col)) == 0 &&
-        (this.diags2 & (1 << row - col + this.size - 1)) == 0;
+      return ((this.cols & (1 << col)) |
+        (this.diags1 & (1 << row + col)) |
+        (this.diags2 & (1 << row - col + this.size - 1))) == 0;
     }
 
     private Pair backtrack(int row, int col) {
