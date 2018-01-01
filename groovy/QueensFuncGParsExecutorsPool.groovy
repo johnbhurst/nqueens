@@ -26,34 +26,32 @@ class QueensFuncGParsExecutorsPool {
 
 class Board {
   private int size
-  private int placed
-  private long col
-  private long diag1
-  private long diag2
+  private int row
+  private long cols
+  private long diags1
+  private long diags2
 
   private Board place(int col) {
-    int row = this.placed
     return new Board(
       size: this.size,
-      placed: this.placed + 1,
-      col: this.col | 1 << col,
-      diag1: this.diag1 | 1 << (row + col),
-      diag2: this.diag2 | 1 << (row - col + this.size - 1)
+      row: this.row + 1,
+      cols: this.cols | 1 << col,
+      diags1: this.diags1 | 1 << (this.row + col),
+      diags2: this.diags2 | 1 << (this.row - col + this.size - 1)
     )
   }
 
   private boolean ok(int col) {
-    int row = this.placed
-    return (this.col & (1 << col)) == 0 &&
-      (this.diag1 & (1 << row + col)) == 0 &&
-      (this.diag2 & (1 << row - col + this.size - 1)) == 0
+    return (this.cols & (1 << col)) == 0 &&
+      (this.diags1 & (1 << row + col)) == 0 &&
+      (this.diags2 & (1 << row - col + this.size - 1)) == 0
   }
 
   public int solve() {
-    if (this.placed == this.size) {
+    if (this.row == this.size) {
       return 1
     }
-    else if (this.placed == 0) {
+    else if (this.row == 0) {
       return GParsExecutorsPool.withPool {
         (0..<this.size)
           .findAll {ok(it)}
