@@ -25,19 +25,19 @@ Board new(int size) {
   return result;
 }
 
-int ok(Board board, int row, int col) {
+int ok(Board board, int col) {
   return (board.cols & (1 << col)) == 0 &&
-         (board.diags1 & (1 << (row + col))) == 0 &&
-         (board.diags2 & (1 << (row - col + board.size - 1))) == 0;
+         (board.diags1 & (1 << (board.row + col))) == 0 &&
+         (board.diags2 & (1 << (board.row - col + board.size - 1))) == 0;
 }
 
-Board place(Board board, int row, int col) {
+Board place(Board board, int col) {
   Board result;
   result.size = board.size;
   result.row = board.row + 1;
   result.cols = board.cols | 1 << col;
-  result.diags1 = board.diags1 | 1 << (row + col);
-  result.diags2 = board.diags2 | 1 << (row - col + board.size - 1);
+  result.diags1 = board.diags1 | 1 << (board.row + col);
+  result.diags2 = board.diags2 | 1 << (board.row - col + board.size - 1);
   return result;
 }
 
@@ -47,10 +47,9 @@ int solve(Board board) {
   }
   else {
     int result = 0;
-    int row = board.row;
     for (int col = 0; col < board.size; col++) {
-      if (ok(board, row, col)) {
-        result += solve(place(board, row, col));
+      if (ok(board, col)) {
+        result += solve(place(board, col));
       }
     }
     return result;
