@@ -9,45 +9,45 @@
 
 typedef struct {
   int size;
-  int places;
-  int col;
-  int diag1;
-  int diag2;
+  int row;
+  int cols;
+  int diags1;
+  int diags2;
 } Board;
 
 Board new(int size) {
   Board result;
   result.size = size;
-  result.places = 0;
-  result.col = 0;
-  result.diag1 = 0;
-  result.diag2 = 0;
+  result.row = 0;
+  result.cols = 0;
+  result.diags1 = 0;
+  result.diags2 = 0;
   return result;
 }
 
 int ok(Board board, int row, int col) {
-  return (board.col & (1 << col)) == 0 &&
-         (board.diag1 & (1 << (row + col))) == 0 &&
-         (board.diag2 & (1 << (row - col + board.size - 1))) == 0;
+  return (board.cols & (1 << col)) == 0 &&
+         (board.diags1 & (1 << (row + col))) == 0 &&
+         (board.diags2 & (1 << (row - col + board.size - 1))) == 0;
 }
 
 Board place(Board board, int row, int col) {
   Board result;
   result.size = board.size;
-  result.places = board.places + 1;
-  result.col = board.col | 1 << col;
-  result.diag1 = board.diag1 | 1 << (row + col);
-  result.diag2 = board.diag2 | 1 << (row - col + board.size - 1);
+  result.row = board.row + 1;
+  result.cols = board.cols | 1 << col;
+  result.diags1 = board.diags1 | 1 << (row + col);
+  result.diags2 = board.diags2 | 1 << (row - col + board.size - 1);
   return result;
 }
 
 int solve(Board board) {
-  if (board.places == board.size) {
+  if (board.row == board.size) {
     return 1;
   }
   else {
     int result = 0;
-    int row = board.places;
+    int row = board.row;
     for (int col = 0; col < board.size; col++) {
       if (ok(board, row, col)) {
         result += solve(place(board, row, col));
