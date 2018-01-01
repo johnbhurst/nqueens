@@ -32,9 +32,9 @@ public class QueensArr {
 
     private int size;
     private int[] pos;
-    private long col;
-    private long diag1;
-    private long diag2;
+    private long cols;
+    private long diags1;
+    private long diags2;
 
     Board(int size) {
       this.size = size;
@@ -43,23 +43,23 @@ public class QueensArr {
 
     private void place(int row, int col) {
       this.pos[row] = col;
-      this.col |= 1 << col;
-      this.diag1 |= 1 << (row + col);
-      this.diag2 |= 1 << (row - col + this.size - 1);
+      this.cols |= 1 << col;
+      this.diags1 |= 1 << (row + col);
+      this.diags2 |= 1 << (row - col + this.size - 1);
     }
 
     private int remove(int row) {
       int col = this.pos[row];
-      this.col = this.col & ~(1 << col);
-      this.diag1 = this.diag1 & ~(1 << row + col);
-      this.diag2 = this.diag2 & ~(1 << row - col + this.size - 1);
+      this.cols = this.cols & ~(1 << col);
+      this.diags1 = this.diags1 & ~(1 << row + col);
+      this.diags2 = this.diags2 & ~(1 << row - col + this.size - 1);
       return col;
     }
 
     private boolean ok(int row, int col) {
-      return (this.col & (1 << col)) == 0 &&
-        (this.diag1 & (1 << row + col)) == 0 &&
-        (this.diag2 & (1 << row - col + this.size - 1)) == 0;
+      return (this.cols & (1 << col)) == 0 &&
+        (this.diags1 & (1 << row + col)) == 0 &&
+        (this.diags2 & (1 << row - col + this.size - 1)) == 0;
     }
 
     private Pair backtrack(int row, int col) {

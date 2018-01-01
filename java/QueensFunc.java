@@ -26,10 +26,10 @@ public class QueensFunc {
   static class Board {
 
     private int size;
-    private int placed;
-    private long col;
-    private long diag1;
-    private long diag2;
+    private int row;
+    private long cols;
+    private long diags1;
+    private long diags2;
 
     Board(int size) {
       this.size = size;
@@ -37,23 +37,21 @@ public class QueensFunc {
 
     private Board place(int col) {
       Board result = new Board(this.size);
-      int row = this.placed;
-      result.placed = this.placed + 1;
-      result.col = this.col | 1 << col;
-      result.diag1 = this.diag1 | 1 << (row + col);
-      result.diag2 = this.diag2 | 1 << (row - col + this.size - 1);
+      result.row = this.row + 1;
+      result.cols = this.cols | 1 << col;
+      result.diags1 = this.diags1 | 1 << (this.row + col);
+      result.diags2 = this.diags2 | 1 << (this.row - col + this.size - 1);
       return result;
     }
 
     private boolean ok(int col) {
-      int row = this.placed;
-      return (this.col & (1 << col)) == 0 &&
-        (this.diag1 & (1 << row + col)) == 0 &&
-        (this.diag2 & (1 << row - col + this.size - 1)) == 0;
+      return (this.cols & (1 << col)) == 0 &&
+        (this.diags1 & (1 << this.row + col)) == 0 &&
+        (this.diags2 & (1 << this.row - col + this.size - 1)) == 0;
     }
 
     public int solve() {
-      if (this.placed == this.size) {
+      if (this.row == this.size) {
         return 1;
       }
       else {
