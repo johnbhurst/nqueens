@@ -32,14 +32,9 @@ class Board(object):
 
     def solve(self):
         """Return the number of solutions possible on the board as configured."""
-        if self.row == self.size:
-            return 1
-        else:
-            result = 0
-            for col in range(self.size):
-                if self.is_ok(col):
-                    result += self.place(col).solve()
-            return result
+        return 1 if self.row == self.size else sum(
+            [self.place(col).solve() for col in range(self.size) if self.is_ok(col)]
+        )
 
 FIRST = int(argv[1])
 LAST = int(argv[2])
