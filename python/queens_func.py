@@ -2,8 +2,8 @@
 # John Hurst (john.b.hurst@gmail.com)
 # 2017-12-22
 
-import datetime
-import sys
+from datetime import datetime
+from sys import argv
 
 class Board(object):
     """A puzzle board"""
@@ -41,13 +41,13 @@ class Board(object):
                     result += self.place(col).solve()
             return result
 
-FIRST = int(sys.argv[1])
-LAST = int(sys.argv[2])
+FIRST = int(argv[1])
+LAST = int(argv[2])
 
 for size in range(FIRST, LAST+1):
-    start = datetime.datetime.now()
+    start = datetime.now()
     count = Board(size).solve()
-    end = datetime.datetime.now()
+    end = datetime.now()
     diff = end - start
     print("Board size {} has {} solutions. Calculated in {} seconds." \
       .format(size, count, diff.total_seconds()))
