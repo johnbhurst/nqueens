@@ -7,35 +7,35 @@ import sys
 
 class Board(object):
     """A puzzle board"""
-    def __init__(self, size, placed=0, col=0, diag1=0, diag2=0):
+    def __init__(self, size, row=0, cols=0, diags1=0, diags2=0):
         self.size = size
-        self.placed = placed
-        self.col = col
-        self.diag1 = diag1
-        self.diag2 = diag2
+        self.row = row
+        self.cols = cols
+        self.diags1 = diags1
+        self.diags2 = diags2
 
     def place(self, row, col):
         """Place a queen at (row, col)."""
         return Board(
             self.size,
-            self.placed + 1,
-            self.col | (1 << col),
-            self.diag1 | (1 << row + col),
-            self.diag2 | (1 << row - col + self.size - 1)
+            self.row + 1,
+            self.cols | (1 << col),
+            self.diags1 | (1 << row + col),
+            self.diags2 | (1 << row - col + self.size - 1)
         )
 
     def is_ok(self, row, col):
         """Return true if position (row, col) is not currently attacked."""
-        return (self.col & (1 << col) == 0 and
-                self.diag1 & (1 << row+col) == 0 and
-                self.diag2 & (1 << row-col+self.size-1) == 0)
+        return (self.cols & (1 << col) == 0 and
+                self.diags1 & (1 << row+col) == 0 and
+                self.diags2 & (1 << row-col+self.size-1) == 0)
 
     def solve(self):
         """Return the number of solutions possible on the board as configured."""
-        if self.placed == self.size:
+        if self.row == self.size:
             return 1
         else:
-            row = self.placed
+            row = self.row
             result = 0
             for col in range(self.size):
                 if self.is_ok(row, col):
