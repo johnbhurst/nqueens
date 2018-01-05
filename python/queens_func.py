@@ -14,32 +14,31 @@ class Board(object):
         self.diags1 = diags1
         self.diags2 = diags2
 
-    def place(self, row, col):
-        """Place a queen at (row, col)."""
+    def place(self, col):
+        """Place a queen at (current row, given col)."""
         return Board(
             self.size,
             self.row + 1,
             self.cols | (1 << col),
-            self.diags1 | (1 << row + col),
-            self.diags2 | (1 << row - col + self.size - 1)
+            self.diags1 | (1 << self.row + col),
+            self.diags2 | (1 << self.row - col + self.size - 1)
         )
 
-    def is_ok(self, row, col):
-        """Return true if position (row, col) is not currently attacked."""
+    def is_ok(self, col):
+        """Return true if position (current row, given col) is not currently attacked."""
         return (self.cols & (1 << col) == 0 and
-                self.diags1 & (1 << row+col) == 0 and
-                self.diags2 & (1 << row-col+self.size-1) == 0)
+                self.diags1 & (1 << self.row + col) == 0 and
+                self.diags2 & (1 << self.row - col + self.size - 1) == 0)
 
     def solve(self):
         """Return the number of solutions possible on the board as configured."""
         if self.row == self.size:
             return 1
         else:
-            row = self.row
             result = 0
             for col in range(self.size):
-                if self.is_ok(row, col):
-                    result += self.place(row, col).solve()
+                if self.is_ok(col):
+                    result += self.place(col).solve()
             return result
 
 FIRST = int(sys.argv[1])
