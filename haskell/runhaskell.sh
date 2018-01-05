@@ -8,3 +8,6 @@ TO=$3
 
 ghc ${NAME}.hs
 ./$NAME $FROM $TO
+rm $NAME
+rm ${NAME}.hi
+rm ${NAME}.o

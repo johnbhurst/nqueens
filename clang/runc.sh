@@ -8,4 +8,4 @@ TO=$3
 
 cc -O3 -o $NAME ${NAME}.c
 ./$NAME $FROM $TO
-
+rm $NAME

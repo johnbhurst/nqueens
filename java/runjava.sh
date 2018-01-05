@@ -8,3 +8,4 @@ TO=$3
 
 javac ${NAME}.java
 java -classpath . $NAME $FROM $TO
+rm *.class

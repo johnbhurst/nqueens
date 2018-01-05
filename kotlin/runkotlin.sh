@@ -8,4 +8,4 @@ TO=$3
 
 kotlinc ${NAME}.kt -include-runtime -d ${NAME}.jar
 java -jar ${NAME}.jar $FROM $TO
-
+rm ${NAME}.jar
