@@ -36,8 +36,8 @@ class Board(object):
             [self.place(col).solve() for col in range(self.size) if self.is_ok(col)]
         )
 
-FIRST = int(argv[1])
-LAST = int(argv[2])
+FIRST = int(argv[1]) if len(argv) >= 2 else 8
+LAST = int(argv[2]) if len(argv) >= 3 else FIRST
 
 for size in range(FIRST, LAST+1):
     start = datetime.now()
