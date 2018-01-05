@@ -4,12 +4,11 @@
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.stream.IntStream;
 
 import static java.lang.Integer.parseInt;
 import static java.util.stream.IntStream.range;
 
-public class QueensFuncStreamParallel {
+public class QueensStream {
 
   public static void main(String[] args) {
     int from = args.length >= 1 ? parseInt(args[0]) : 0;
@@ -53,17 +52,12 @@ public class QueensFuncStreamParallel {
     }
 
     public int solve() {
-      if (this.row == this.size) {
-        return 1;
-      }
-      IntStream cols = this.row <= 3 ?
-        range(0, this.size).parallel() :
-        range(0, this.size);
-      return cols
-        .filter(this::ok)
-        .mapToObj(this::place)
-        .mapToInt(Board::solve)
-        .sum();
+      return this.row == this.size ? 1 :
+        range(0, this.size)
+          .filter(this::ok)
+          .mapToObj(this::place)
+          .mapToInt(Board::solve)
+          .sum();
     }
   }
 

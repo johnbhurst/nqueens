@@ -7,7 +7,7 @@ import java.time.Instant;
 
 import static java.lang.Integer.parseInt;
 
-public class QueensFunc {
+public class Queens {
 
   public static void main(String[] args) {
     int from = args.length >= 1 ? parseInt(args[0]) : 0;
