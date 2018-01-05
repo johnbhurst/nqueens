@@ -50,5 +50,5 @@ for size in range(FIRST, LAST+1):
     count = Board(size).solve()
     end = datetime.datetime.now()
     diff = end - start
-    print "Board size {} has {} solutions. Calculated in {} seconds." \
-      .format(size, count, diff.total_seconds())
+    print("Board size {} has {} solutions. Calculated in {} seconds." \
+      .format(size, count, diff.total_seconds()))
