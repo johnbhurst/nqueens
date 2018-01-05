@@ -8,11 +8,11 @@ from sys import argv
 class Board(object):
     """A puzzle board"""
     def __init__(self, size, row=0, cols=0, diags1=0, diags2=0):
-        self.size = size
-        self.row = row
-        self.cols = cols
-        self.diags1 = diags1
-        self.diags2 = diags2
+        self.size = size      # size of board
+        self.row = row        # current row placed
+        self.cols = cols      # bits indicating occupied column
+        self.diags1 = diags1  # bits indicating occupied diagonal
+        self.diags2 = diags2  # bits indicating occupied diagonal
 
     def place(self, col):
         """Place a queen at (current row, given col)."""
