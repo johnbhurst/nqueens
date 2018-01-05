@@ -1,4 +1,4 @@
-# # Copyright 2017 John Hurst
+# Copyright 2017 John Hurst
 # John Hurst (john.b.hurst@gmail.com)
 # 2017-12-22
 
