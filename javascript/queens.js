@@ -5,39 +5,38 @@
 function new_board(size) {
   return {
     size: size,
-    places: 0,
-    col: 0,
-    diag1: 0,
-    diag2: 0,
+    row: 0,
+    cols: 0,
+    diags1: 0,
+    diags2: 0,
   }
 }
 
-function ok(board, row, col) {
-  return (board.col & (1 << col)) == 0 &&
-         (board.diag1 & (1 << row + col)) == 0 &&
-         (board.diag2 & (1 << row - col + board.size - 1)) == 0
+function ok(board, col) {
+  return (board.cols & (1 << col)) == 0 &&
+         (board.diags1 & (1 << board.row + col)) == 0 &&
+         (board.diags2 & (1 << board.row - col + board.size - 1)) == 0
 }
 
-function place(board, row, col) {
+function place(board, col) {
   return {
     size: board.size,
-    places: board.places + 1,
-    col: board.col | 1 << col,
-    diag1: board.diag1 | 1 << (row + col),
-    diag2: board.diag2 | 1 << (row - col + board.size - 1)
+    row: board.row + 1,
+    cols: board.cols | 1 << col,
+    diags1: board.diags1 | 1 << (board.row + col),
+    diags2: board.diags2 | 1 << (board.row - col + board.size - 1)
   }
 }
 
 function solve_board(board) {
-  if (board.places == board.size) {
+  if (board.row == board.size) {
     return 1
   }
   else {
     var result = 0
-    var row = board.places
     for (var col = 0; col < board.size; col++) {
-      if (ok(board, row, col)) {
-        result += solve_board(place(board, row, col))
+      if (ok(board, col)) {
+        result += solve_board(place(board, col))
       }
     }
   }

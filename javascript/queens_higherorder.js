@@ -8,31 +8,30 @@
 function new_board(size) {
   return {
     size: size,
-    places: 0,
-    col: 0,
-    diag1: 0,
-    diag2: 0,
+    row: 0,
+    cols: 0,
+    diags1: 0,
+    diags2: 0,
   }
 }
 
 function solve_board(board) {
-  if (board.places == board.size) {
+  if (board.row == board.size) {
     return 1
   }
   else {
-    var row = board.places
     var ok = function(col) {
-      return (board.col & (1 << col)) == 0 &&
-             (board.diag1 & (1 << row + col)) == 0 &&
-             (board.diag2 & (1 << row - col + board.size - 1)) == 0
+      return (board.cols & (1 << col)) == 0 &&
+             (board.diags1 & (1 << board.row + col)) == 0 &&
+             (board.diags2 & (1 << board.row - col + board.size - 1)) == 0
     }
     var place = function(col) {
       return {
         size: board.size,
-        places: board.places + 1,
-        col: board.col | 1 << col,
-        diag1: board.diag1 | 1 << (row + col),
-        diag2: board.diag2 | 1 << (row - col + board.size - 1)
+        row: board.row + 1,
+        cols: board.cols | 1 << col,
+        diags1: board.diags1 | 1 << (board.row + col),
+        diags2: board.diags2 | 1 << (board.row - col + board.size - 1)
       }
     }
     var sum = (v1, v2) => v1 + v2
