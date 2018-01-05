@@ -15,31 +15,31 @@ function new_board(size) {
   }
 }
 
+function ok(board, col) {
+  return (board.cols & (1 << col)) == 0 &&
+    (board.diags1 & (1 << board.row + col)) == 0 &&
+    (board.diags2 & (1 << board.row - col + board.size - 1)) == 0
+}
+
+function place(board, col) {
+  return {
+    size: board.size,
+    row: board.row + 1,
+    cols: board.cols | 1 << col,
+    diags1: board.diags1 | 1 << (board.row + col),
+    diags2: board.diags2 | 1 << (board.row - col + board.size - 1)
+  }
+}
+
 function solve_board(board) {
   if (board.row == board.size) {
     return 1
   }
   else {
-    var ok = function(col) {
-      return (board.cols & (1 << col)) == 0 &&
-             (board.diags1 & (1 << board.row + col)) == 0 &&
-             (board.diags2 & (1 << board.row - col + board.size - 1)) == 0
-    }
-    var place = function(col) {
-      return {
-        size: board.size,
-        row: board.row + 1,
-        cols: board.cols | 1 << col,
-        diags1: board.diags1 | 1 << (board.row + col),
-        diags2: board.diags2 | 1 << (board.row - col + board.size - 1)
-      }
-    }
-    var sum = (v1, v2) => v1 + v2
     return Array.from(Array(board.size).keys())
-      .filter(ok)
-      .map(place)
-      .map(solve_board)
-      .reduce(sum, 0)
+      .filter(col => ok(board, col))
+      .map(col => solve_board(place(board, col)))
+      .reduce((v1, v2) => v1 + v2, 0)
   }
   return result
 }
