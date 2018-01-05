@@ -3,7 +3,7 @@
 // 2017-12-16
 
 // This version uses ES6's filter(), map() & reduce() and higher-order functions to count solutions more elegantly.
-// But, this version runs about 20 times slower than queens_func.js with a plain old for-loop and regular functions.
+// But, this version runs about 20 times slower than queens.js with a plain old for-loop and regular functions.
 
 function new_board(size) {
   return {
