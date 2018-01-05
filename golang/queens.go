@@ -13,40 +13,39 @@ import (
 
 type Board struct {
 	size   int
-  placed int
-	col    int // 64-bits
-	diag1  int
-	diag2  int
+  row    int
+	cols   int // 64-bits
+	diags1 int
+	diags2 int
 }
 
 func New(size int) Board {
 	return Board{size: size}
 }
 
-func Place(board Board, row, col int) Board {
+func Place(board Board, col int) Board {
   return Board{
     size: board.size,
-    placed: board.placed + 1,
-    col: board.col | (1 << uint(col)),
-    diag1: board.diag1 | (1 << uint(row+col)),
-    diag2: board.diag2 | (1 << uint(row-col+board.size-1))}
+    row: board.row + 1,
+    cols: board.cols | (1 << uint(col)),
+    diags1: board.diags1 | (1 << uint(board.row + col)),
+    diags2: board.diags2 | (1 << uint(board.row - col + board.size - 1))}
 }
 
-func Ok(board Board, row, col int) bool {
-	return board.col & (1 << uint(col)) == 0 &&
-		board.diag1 & (1 << uint(row+col)) == 0 &&
-		board.diag2 & (1 << uint(row-col+board.size-1)) == 0
+func Ok(board Board, col int) bool {
+	return board.cols & (1 << uint(col)) == 0 &&
+		board.diags1 & (1 << uint(board.row + col)) == 0 &&
+		board.diags2 & (1 << uint(board.row - col + board.size - 1)) == 0
 }
 
 func Solve(board Board) int {
-  if board.placed == board.size {
+  if board.row == board.size {
     return 1
   } else {
-    row := board.placed
     result := 0
     for col := 0; col < board.size; col++ {
-      if Ok(board, row, col) {
-        result += Solve(Place(board, row, col))
+      if Ok(board, col) {
+        result += Solve(Place(board, col))
       }
     }
     return result
