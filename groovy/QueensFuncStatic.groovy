@@ -44,9 +44,9 @@ class Board {
   }
 
   private boolean ok(int col) {
-    return (this.cols & (1 << col)) == 0 &&
-      (this.diags1 & (1 << this.row + col)) == 0 &&
-      (this.diags2 & (1 << this.row - col + this.size - 1)) == 0
+    return ((this.cols & (1 << col)) |
+      (this.diags1 & (1 << this.row + col)) |
+      (this.diags2 & (1 << this.row - col + this.size - 1))) == 0
   }
 
   public int solve() {
