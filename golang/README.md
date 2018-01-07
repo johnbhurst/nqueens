@@ -20,9 +20,6 @@
 
 ## Functional - parallel GCP n1-highcpu-4
 
-    Board size 8 has 92 solutions. Calculated in 222.32µs.
-    Board size 9 has 352 solutions. Calculated in 430.864µs.
-    Board size 10 has 724 solutions. Calculated in 1.772095ms.
     Board size 11 has 2680 solutions. Calculated in 7.494896ms.
     Board size 12 has 14200 solutions. Calculated in 36.008866ms.
     Board size 13 has 73712 solutions. Calculated in 155.342433ms.
@@ -32,9 +29,6 @@
 
 ## Functional - parallel GCP n1-highcpu-16
 
-    Board size 8 has 92 solutions. Calculated in 143.87µs.
-    Board size 9 has 352 solutions. Calculated in 397.365µs.
-    Board size 10 has 724 solutions. Calculated in 870.71µs.
     Board size 11 has 2680 solutions. Calculated in 2.077255ms.
     Board size 12 has 14200 solutions. Calculated in 9.316836ms.
     Board size 13 has 73712 solutions. Calculated in 53.329788ms.
