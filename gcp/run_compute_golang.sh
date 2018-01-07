@@ -14,7 +14,7 @@ DIR=`dirname $0`
 
 gcloud compute --project "nqueens-gcp" instances create "queens" \
   --zone "australia-southeast1-c" \
-  --machine-type "n1-highcpu-4" \
+  --machine-type "n1-highcpu-16" \
   --image "debian-9-stretch-v20180105" \
   --image-project "debian-cloud" \
   --boot-disk-size "10" \
