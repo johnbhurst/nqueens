@@ -6,7 +6,7 @@ NAME=$1
 FROM=$2
 TO=$3
 
-g++ -o $NAME ${NAME}.cpp
+g++ -std=c++11 -o $NAME ${NAME}.cpp
 ./$NAME $FROM $TO
 rm $NAME
 

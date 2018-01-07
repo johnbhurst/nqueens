@@ -14,18 +14,14 @@ public:
 
 private:
   int size_;
-  int row_;
-  int cols_;
-  int diags1_;
-  int diags2_;
+  int row_ = 0;
+  int cols_ = 0;
+  int diags1_ = 0;
+  int diags2_ = 0;
 };
 
 Board::Board(int size) {
   size_ = size;
-  row_ = 0;
-  cols_ = 0;
-  diags1_ = 0;
-  diags2_ = 0;
 }
 
 bool Board::ok(int col) {
