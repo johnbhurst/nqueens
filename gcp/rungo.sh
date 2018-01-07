@@ -10,5 +10,3 @@ git clone https://github.com/johnbhurst/nqueens.git
 cd nqueens/golang
 
 sh ./rungo.sh queens_parallel 8 16
-
-
