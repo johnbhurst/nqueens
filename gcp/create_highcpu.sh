@@ -10,4 +10,23 @@
 # n1-highcpu-64 $2.2688/hour
 # n1-highcpu-96 $3.402/hour
 
+gcloud compute --project "nqueens-gcp" instances create "queens" \
+  --zone "australia-southeast1-c" \
+  --machine-type "n1-highcpu-4" \
+  --image "debian-9-stretch-v20180105" \
+  --image-project "debian-cloud" \
+  --boot-disk-size "10" \
+  --boot-disk-type "pd-standard" \
+  --boot-disk-device-name "queens"
 
+gcloud compute ssh queens --zone "australia-southeast1-c"
+
+sudo apt-get install git
+
+git clone https://github.com/johnbhurst/nqueens.git
+
+sudo apt-get install golang
+
+gcloud -q compute instances --project "nqueens-gcp" delete "queens" \
+  --zone "australia-southeast1-c" \
+  --delete-disks=all
