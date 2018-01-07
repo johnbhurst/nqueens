@@ -10,6 +10,8 @@
 # n1-highcpu-64 $2.2688/hour
 # n1-highcpu-96 $3.402/hour
 
+DIR=`dirname $0`
+
 gcloud compute --project "nqueens-gcp" instances create "queens" \
   --zone "australia-southeast1-c" \
   --machine-type "n1-highcpu-4" \
@@ -19,13 +21,8 @@ gcloud compute --project "nqueens-gcp" instances create "queens" \
   --boot-disk-type "pd-standard" \
   --boot-disk-device-name "queens"
 
-gcloud compute ssh queens --zone "australia-southeast1-c"
-
-sudo apt-get install git
-
-git clone https://github.com/johnbhurst/nqueens.git
-
-sudo apt-get install golang
+gcloud compute scp $DIR/rungo.sh queens: --zone "australia-southeast1-c"
+gcloud compute ssh queens --zone "australia-southeast1-c" --command "sh ./rungo.sh"
 
 gcloud -q compute instances --project "nqueens-gcp" delete "queens" \
   --zone "australia-southeast1-c" \
