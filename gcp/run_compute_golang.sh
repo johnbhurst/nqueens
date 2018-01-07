@@ -13,9 +13,9 @@
 DIR=`dirname $0`
 PROJECT="nqueens-gcp"
 NAME="queens"
-#ZONE="australia-southeast1-c"
-ZONE="us-central1-a"
-CPUS=64
+ZONE="australia-southeast1-c"
+#ZONE="us-central1-a"
+CPUS=16
 
 gcloud compute --project $PROJECT instances create $NAME \
   --zone $ZONE \
