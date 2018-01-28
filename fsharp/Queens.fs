@@ -1,4 +1,6 @@
-﻿// Learn more about F# at http://fsharp.org
+﻿// Copyright 2018 John Hurst
+// John Hurst (john.b.hurst@gmail.com)
+// 2018-01-28
 
 open System
 open System.Diagnostics
@@ -37,7 +39,6 @@ let rec solve board =
 
 [<EntryPoint>]
 let main argv =
-    printfn "Hello World from F#!"
     let (size0, size1) = 
         match argv with 
         | _ when argv.Length = 0 -> (8, 8)
@@ -50,5 +51,4 @@ let main argv =
         watch.Stop()
         let ts = watch.Elapsed
         printfn "Board size %d has %d solutions.  Calculated in %02d:%02d:%02d.%03d." size count ts.Hours ts.Minutes ts.Seconds ts.Milliseconds
-
-    0 // return an integer exit code
+    0
