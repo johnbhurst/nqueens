@@ -29,23 +29,18 @@ let place board col = {
 }
 
 let rec solve board = 
-    match board with
-    | _ when board.Row = board.Size -> 1
-    | _ -> seq { 0 .. board.Size - 1 }
-        |> Seq.filter (ok board)
-        |> Seq.map (place board)
-        |> Seq.map solve
-        |> Seq.sum
+    if board.Row = board.Size then 1 
+        else seq { 0 .. board.Size - 1 }
+            |> Seq.filter (ok board)
+            |> Seq.map (place board)
+            |> Seq.map solve
+            |> Seq.sum
 
 [<EntryPoint>]
 let main argv =
-    let (size0, size1) = 
-        match argv with 
-        | _ when argv.Length = 0 -> (8, 8)
-        | _ when argv.Length = 1 -> (int argv.[0], int argv.[0])
-        | _ -> (int argv.[0], int argv.[1])
-
-    for size = size0 to size1 do
+    let first = if argv.Length = 0 then 8 else int argv.[0]
+    let last = if argv.Length = 1 then first else int argv.[1]
+    for size = first to last do
         let watch = Stopwatch.StartNew()
         let count = size |> empty |> solve
         watch.Stop()
