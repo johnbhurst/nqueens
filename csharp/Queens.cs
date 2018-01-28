@@ -1,6 +1,6 @@
-// Copyright 2017 John Hurst
+// Copyright 2018 John Hurst
 // John Hurst (john.b.hurst@gmail.com)
-// 2017-12-30
+// 2018-01-27
 
 using System;
 using System.Diagnostics;
