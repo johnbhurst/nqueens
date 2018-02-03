@@ -5,13 +5,7 @@
 open System
 open System.Diagnostics
 
-type Board = {
-    Size: int;
-    Row: int;
-    Cols: int;
-    Diags1: int;
-    Diags2: int;
-}
+type Board = {Size: int; Row: int; Cols: int; Diags1: int; Diags2: int;}
 
 let empty size = {Size = size; Row = 0; Cols = 0; Diags1 = 0; Diags2 = 0}
 
@@ -21,15 +15,15 @@ let ok board col =
      (board.Diags2 &&& (1 <<< board.Row - col + board.Size - 1))) = 0
 
 let place board col = {
-    board with 
-        Row = board.Row + 1 ; 
+    board with
+        Row = board.Row + 1 ;
         Cols = board.Cols ||| (1 <<< col);
         Diags1 = board.Diags1 ||| (1 <<< board.Row + col);
         Diags2 = board.Diags2 ||| (1 <<< board.Row - col + board.Size - 1)
 }
 
-let rec solve board = 
-    if board.Row = board.Size then 1 
+let rec solve board =
+    if board.Row = board.Size then 1
         else seq { 0 .. board.Size - 1 }
             |> Seq.filter (ok board)
             |> Seq.map (place board)
