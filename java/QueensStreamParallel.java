@@ -56,7 +56,7 @@ public class QueensStreamParallel {
       if (this.row == this.size) {
         return 1;
       }
-      IntStream cols = this.row <= 3 ?
+      IntStream cols = this.row <= 1 ?
         range(0, this.size).parallel() :
         range(0, this.size);
       return cols
