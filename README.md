@@ -64,19 +64,148 @@ All of the programs use three functions:
 
 Pseudo-code for `ok()` is:
 
-    return cols bit at col is not set
-      and diag1 bit at row+col is not set
-      and diag2 bit at row-col+size-1 is not set
+```
+return cols bit at col is not set
+  and diag1 bit at row+col is not set
+  and diag2 bit at row-col+size-1 is not set
+```
+
+This function looks pretty much the same in any language, though the bitwise operator vary.
+
+A typical example is in C:
+
+```c
+int ok(Board board, int col) {
+  return (board.cols & (1 << col)) == 0 &&
+        (board.diags1 & (1 << (board.row + col))) == 0 &&
+        (board.diags2 & (1 << (board.row - col + board.size - 1))) == 0;
+}
+```
+
+Not much different in Python:
+
+```python
+def is_ok(self, col):
+    return (self.cols & (1 << col) == 0 and
+            self.diags1 & (1 << self.row + col) == 0 and
+            self.diags2 & (1 << self.row - col + self.size - 1) == 0)
+```
 
 Pseudo-code for `place()` is:
 
-    return new board of same size, with current row incremented by 1,
-      cols with bit col set,
-      diag1 with bit row+col set,
-      diag2 with bit row-col+size-1 set
+```
+return new board of same size, with current row incremented by 1,
+  cols with bit col set,
+  diag1 with bit row+col set,
+  diag2 with bit row-col+size-1 set
+```
+
+This function varies a bit more in different langauges, which vary in their data structures.
+
+C uses plain old structs, which need to be populated with asignments:
+
+```c
+Board place(Board board, int col) {
+  Board result;
+  result.size = board.size;
+  result.row = board.row + 1;
+  result.cols = board.cols | 1 << col;
+  result.diags1 = board.diags1 | 1 << (board.row + col);
+  result.diags2 = board.diags2 | 1 << (board.row - col + board.size - 1);
+  return result;
+}
+```
+
+Object-oriented languages are similar, where structs are replaced with objects.
+
+C# is typical:
+
+```c#
+private Board Place(int col) {
+  Board result = new Board(this.size);
+  result.row = this.row + 1;
+  result.cols = this.cols | ((uint) 1) << col;
+  result.diags1 = this.diags1 | ((uint) 1) << (this.row + col);
+  result.diags2 = this.diags2 | ((uint) 1) << (this.row - col + this.size - 1);
+  return result;
+}
+```
+
+Functional languages use data types, such as in Haskell:
+
+```haskell
+place (Board {size = size, placed = row, cols = cols, diag1 = diag1, diag2 = diag2}) col =
+  Board {
+    size = size,
+    placed = row + 1,
+    cols = setBit cols col,
+    diag1 = setBit diag1 (row + col),
+    diag2 = setBit diag2 (row - col + size - 1)
+  }
+```
 
 Pseudo-code for `solve()` is:
 
-    return sum over col in 0..size-1 where ok(board, col) of:
-      solve(place(board, col))
+```
+return sum over col in 0..size-1 where ok(board, col) of:
+  solve(place(board, col))
+```
+
+Imperative languages have to initialise a count and then loop, as in C++:
+
+```c++
+int Board::solve() {
+  if (row_ == size_) {
+    return 1;
+  }
+  else {
+    int result = 0;
+    for (int col = 0; col < size_; col++) {
+      if (ok(col)) {
+        result += place(col).solve();
+      }
+    }
+    return result;
+  }
+}
+```
+
+Object-oriented languages can work like this, but often provide a more functional approach.
+
+With Java's Streams API:
+
+```java
+public int solve() {
+  return this.row == this.size ? 1 :
+    range(0, this.size)
+      .filter(this::ok)
+      .mapToObj(this::place)
+      .mapToInt(Board::solve)
+      .sum();
+}
+```
+
+Or C#'s LINQ feature:
+
+```c#
+public int Solve() {
+  return this.row == this.size ? 1 :
+    Enumerable.Range(1, this.size)
+      .Where(col => Ok(col))
+      .Select(col => Place(col).Solve())
+      .Sum();
+}
+```
+
+Perhaps the most elegant variation is F#'s data pipelines:
+
+```f#
+let rec solve board =
+    if board.Row = board.Size then 1
+        else seq { 0 .. board.Size - 1 }
+            |> Seq.filter (ok board)
+            |> Seq.map (place board)
+            |> Seq.map solve
+            |> Seq.sum
+```
 
