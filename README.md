@@ -6,6 +6,8 @@ We compare different programming languages and platforms, and also different pro
 
 Unless otherwise noted, the same basic algorithm is used for all programs.
 
+## Agorithm Description
+
 We start with an empty board and count the solutions for boards found by placing a queen at each column on the first row.
 For each of those boards, we find count solutions recursively by placing queens on each available column on the next row.
 
@@ -53,4 +55,28 @@ The available columns on the next row are those that are not currently attacked:
 The number of solutions for the current position is the sum of the number of solutions for the boards found by placing queens on the available positions:
 
 ![Next boards](doc/images/N-Queens-Example-NextBoards.svg)
+
+All of the programs use three functions:
+
+* `ok(board, col)` returns true if the column is not currently attacked on the given board.
+* `place(board, col)` returns a new board by adding a queen on the next row at the given column.
+* `solve(board)` returns the number of solutions for the given board.
+
+Pseudo-code for `ok()` is:
+
+    return cols bit at col is not set
+      and diag1 bit at row+col is not set
+      and diag2 bit at row-col+size-1 is not set
+
+Pseudo-code for `place()` is:
+
+    return new board of same size, with current row incremented by 1,
+      cols with bit col set,
+      diag1 with bit row+col set,
+      diag2 with bit row-col+size-1 set
+
+Pseudo-code for `solve()` is:
+
+    return sum over col in 0..size-1 where ok(board, col) of:
+      solve(place(board, col))
 
