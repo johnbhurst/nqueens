@@ -2,14 +2,14 @@
 
 This project contains programs that count solutions to the [N Queens Problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle).
 
-We compare different programming languages and platforms, and also different program styles of techniques within those languages.
+We compare different programming languages and platforms, and also different program styles or techniques within those languages.
 
 Unless otherwise noted, the same basic algorithm is used for all programs.
 
-## Agorithm Description
+## Algorithm Description
 
 We start with an empty board and count the solutions for boards found by placing a queen at each column on the first row.
-For each of those boards, we find count solutions recursively by placing queens on each available column on the next row.
+For each of those boards, we count solutions recursively by placing queens on each available column on the next row.
 
 At each stage, we have a board with queens placed up to a certain row. We proceed with these steps:
 
