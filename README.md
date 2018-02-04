@@ -54,7 +54,7 @@ The available columns on the next row are those that are not currently attacked:
 
 The number of solutions for the current position is the sum of the number of solutions for the boards found by placing queens on the available positions:
 
-<img alt="Next boards" src="doc/images/N-Queens-Example-NextBoards.svg" width="600" height="600">
+<img alt="Next boards" src="doc/images/N-Queens-Example-NextBoards.svg" width="600" height="200">
 
 All of the programs use three functions:
 
