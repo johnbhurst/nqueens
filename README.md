@@ -26,35 +26,35 @@ To record the placement of queens, we keep track of these items:
 
 We track the columns with queens in them using a bit string (long integer) for the columns:
 
-<img alt="Column bits" src="doc/images/N-Queens-Bits-Cols.svg" width="400" height="400">
+<img alt="Column bits" src="doc/images/N-Queens-Bits-Cols.svg" width="600" height="600">
 
 For example, with these three queens placed, bits 0, 5 and 7 are set, giving a value of 1 + 32 + 128 = 161.
 
-![Column example](doc/images/N-Queens-Example-Cols.svg)
+<img alt="Column example" src="doc/images/N-Queens-Example-Cols.svg" width="600" height="600">
 
 We track the diagonals with two bit strings. The first one has the diagonals to the left going down the board:
 
-![Diagonal 1 bits](doc/images/N-Queens-Bits-Diag1.svg)
+<img alt="Diagonal 1 bits" src="doc/images/N-Queens-Bits-Diag1.svg" width="600" height="600">
 
 With the three queens placed, bits 0, 6 and 9 are set, giving a value of 1 + 64 + 512 = 577.
 
-![Diagonal 1 example](doc/images/N-Queens-Example-Diag1.svg)
+<img alt="Diagonal 1 example" src="doc/images/N-Queens-Example-Diag1.svg" width="600" height="600">
 
 The other diagonals go to the right going down the board:
 
-![Diagonal 2 bits](doc/images/N-Queens-Bits-Diag2.svg)
+<img alt="Diagonal 2 bits" src="doc/images/N-Queens-Bits-Diag2.svg" width="600" height="600">
 
 With the three queens placed, bits 2, 3 and 7 are set, giving a value of 4 + 8 + 128 = 140.
 
-![Diagonal 2 example](doc/images/N-Queens-Example-Diag2.svg)
+<img alt="Diagonal 2 example" src="doc/images/N-Queens-Example-Diag2.svg" width="600" height="600">
 
 The available columns on the next row are those that are not currently attacked:
 
-![Available columns](doc/images/N-Queens-Example-Available.svg)
+<img alt="Available columns" src="doc/images/N-Queens-Example-Available.svg" width="600" height="600">
 
 The number of solutions for the current position is the sum of the number of solutions for the boards found by placing queens on the available positions:
 
-![Next boards](doc/images/N-Queens-Example-NextBoards.svg)
+<img alt="Next boards" src="doc/images/N-Queens-Example-NextBoards.svg" width="600" height="600">
 
 All of the programs use three functions:
 
