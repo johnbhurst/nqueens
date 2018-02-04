@@ -26,7 +26,7 @@ To record the placement of queens, we keep track of these items:
 
 We track the columns with queens in them using a bit string (long integer) for the columns:
 
-![Column bits](doc/images/N-Queens-Bits-Cols.svg | width=400)
+<img alt="Column bits" src="doc/images/N-Queens-Bits-Cols.svg" width="400" height="400">
 
 For example, with these three queens placed, bits 0, 5 and 7 are set, giving a value of 1 + 32 + 128 = 161.
 
