@@ -13,16 +13,17 @@ For each of those boards, we count solutions recursively by placing queens on ea
 
 At each stage, we have a board with queens placed up to a certain row. We proceed with these steps:
 
-1. Find the available (unattacked) columns on trhe next row.
+1. Find the available (unattacked) columns on the next row.
 2. Find a new board for each of the available columns by placing a queen in the column.
 3. Count the solutions for each of the new boards.
 4. Return the sum of the counts.
 
 To record the placement of queens, we keep track of these items:
 
-1. The current row.
-2. The columns with queens in them.
-3. The diagonals with queens in them.
+1. The size of the board.
+2. The current row.
+3. The columns with queens in them.
+4. The diagonals with queens in them.
 
 We track the columns with queens in them using a bit string (long integer) for the columns:
 
@@ -56,6 +57,10 @@ The number of solutions for the current position is the sum of the number of sol
 
 <img alt="Next boards" src="doc/images/N-Queens-Example-NextBoards.svg" width="600" height="200">
 
+We can use 32-bit integers for the board size and the current row, and 64-bit integers for the bits for the columns and diagonals.
+Using 64-bit integers should let us count solutions for boards up to size 32.
+The current world record for counting solutions is for board size 27, so this should suffice.
+
 All of the programs use three functions:
 
 * `ok(board, col)` returns true if the column is not currently attacked on the given board.
@@ -70,7 +75,7 @@ return cols bit at col is not set
   and diag2 bit at row-col+size-1 is not set
 ```
 
-This function looks pretty much the same in any language, though the bitwise operator vary.
+This function looks pretty much the same in any language, though the bitwise operators vary.
 
 A typical example is in C:
 
@@ -208,4 +213,14 @@ let rec solve board =
             |> Seq.map solve
             |> Seq.sum
 ```
+
+## Algorithm Notes
+
+For even sized boards, we can save half the work by using only half of the columns in the first row, and doubling the result.
+For odd sized boards, we can do a similar trick counting twice for the first ((n-1)/2) columns, then once for the middle column.
+
+This algorithm uses recursion and immutable data. This makes it well suited to parallelism.
+However, the recursion means a call and a stack frame for every queen placed, which could be inefficient.
+An algorithm using iteration instead of recursion might be more performant.
+But it would also be harder to reason about and harder to make parallel.
 
