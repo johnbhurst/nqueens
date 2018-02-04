@@ -32,16 +32,11 @@ function place(board, col) {
 }
 
 function solve_board(board) {
-  if (board.row == board.size) {
-    return 1
-  }
-  else {
-    return Array.from(Array(board.size).keys())
+  return board.row == board.size ? 1 :
+    Array.from(Array(board.size).keys())
       .filter(col => ok(board, col))
       .map(col => solve_board(place(board, col)))
       .reduce((v1, v2) => v1 + v2, 0)
-  }
-  return result
 }
 
 var start = Number.parseInt(process.argv[2])
