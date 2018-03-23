@@ -29,7 +29,7 @@ class Board
 
   def solve
     @row == @size ? 1 :
-    (0..@size-1).map {|col| ok(col) ? place(col).solve : 0}.reduce(:+)
+    (0...@size).map {|col| ok(col) ? place(col).solve : 0}.reduce(:+)
   end
 end
 
