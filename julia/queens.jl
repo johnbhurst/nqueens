@@ -35,3 +35,10 @@ function solve(board::Board)
   sum(map(col -> ok(board, col) ? solve(place(board, col)) : 0, 0:board.size-1))
 end
 
+from = length(ARGS) > 0 ? parse(Int, ARGS[1]) : 8
+to = length(ARGS) > 1 ? parse(Int, ARGS[2]) : from
+
+for size = from:to
+  println(solve(new(size)))
+end
+
