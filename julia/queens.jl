@@ -3,18 +3,18 @@
 # 2018-03-30
 
 struct Board
-  size::Int
-  row::Int
-  cols::Int
-  diags1::Int
-  diags2::Int
+  size
+  row
+  cols
+  diags1
+  diags2
 end
 
 function new(size)
   Board(size, 0, 0, 0, 0)
 end
 
-function place(board::Board, col::Int)
+function place(board, col)
   Board(
     board.size,
     board.row+1,
@@ -24,13 +24,13 @@ function place(board::Board, col::Int)
   )
 end
 
-function ok(board::Board, col::Int)
+function ok(board, col)
   board.cols & (1 << col) |
     board.diags1 & (1 << (board.row + col)) |
     board.diags2 & (1 << (board.row - col + board.size - 1)) == 0
 end
 
-function solve(board::Board)
+function solve(board)
   board.row == board.size ? 1 : begin
     cols = 0:board.size-1
     solutions = map(col -> ok(board, col) ? solve(place(board, col)) : 0, cols)
