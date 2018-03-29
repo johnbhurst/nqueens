@@ -17,7 +17,7 @@ end
 function place(board::Board, col::Int)
   Board(
     board.size,
-    board.row+1,
+    board.row + 1,
     board.cols | (1 << col),
     board.diags1 | (1 << (board.row + col)),
     board.diags2 | (1 << (board.row - col + board.size - 1))
@@ -32,7 +32,7 @@ end
 
 function solve(board::Board)
   board.row == board.size ? 1 : begin
-    cols = 0:board.size-1
+    cols = 0:board.size - 1
     solutions = map(col -> ok(board, col) ? solve(place(board, col)) : 0, cols)
     sum(solutions)
   end
