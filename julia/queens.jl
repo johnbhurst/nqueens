@@ -41,7 +41,7 @@ end
 from = length(ARGS) > 0 ? parse(Int, ARGS[1]) : 8
 to = length(ARGS) > 1 ? parse(Int, ARGS[2]) : from
 
-for size = from:to
+for size in from:to
   tic()
   println("Board size $size has $(solve(new(size))) solutions.")
   toc()
