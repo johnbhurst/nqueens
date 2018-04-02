@@ -32,7 +32,7 @@ end
 
 function solve(board::Board)
   board.row == board.size ? 1 : begin
-    cols = 0:board.size - 1
+    cols = 0:board.size-1
     solutions = map(col -> ok(board, col) ? solve(place(board, col)) : 0, cols)
     sum(solutions)
   end
@@ -42,6 +42,8 @@ from = length(ARGS) > 0 ? parse(Int, ARGS[1]) : 8
 to = length(ARGS) > 1 ? parse(Int, ARGS[2]) : from
 
 for size = from:to
-  tic(); println("Board size $size has $(solve(new(size))) solutions.") ; toc()
+  tic()
+  println("Board size $size has $(solve(new(size))) solutions.")
+  toc()
 end
 
