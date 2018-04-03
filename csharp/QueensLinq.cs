@@ -52,9 +52,9 @@ class Board {
   }
 
   public int Solve() {
-    return this.row == this.size ? 1 : 
+    return this.row == this.size ? 1 :
       Enumerable.Range(1, this.size)
-        .Where(col => Ok(col))
+        .Where(Ok)
         .Select(col => Place(col).Solve())
         .Sum();
   }
