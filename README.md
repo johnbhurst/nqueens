@@ -25,19 +25,27 @@ To record the placement of queens, we keep track of these items:
 3. The columns with queens in them.
 4. The diagonals with queens in them.
 
-We track the columns with queens in them using a bit string (long integer) for the columns:
+We use bit sets to mark the columns and diagonals with queens in them.
+Using a 64-bit integer as a representation of an immutable bit set,
+and with these we can record up to 64 columns or diagonals.
+
+We track the columns with queens in them using a bit set for the columns:
 
 <img alt="Column bits" src="doc/images/N-Queens-Bits-Cols.svg" width="600" height="600">
 
-For example, with these three queens placed, bits 0, 5 and 7 are set, giving a value of 1 + 32 + 128 = 161.
+For example, with these three queens placed, bits 0, 5 and 7 are set,
+giving an int value of 2<sup>0</sup> + 2<sup>5</sup> + 2<sup>7</sup>
+= 1 + 32 + 128 = 161.
 
 <img alt="Column example" src="doc/images/N-Queens-Example-Cols.svg" width="600" height="600">
 
-We track the diagonals with two bit strings. The first one has the diagonals to the left going down the board:
+We track the diagonals with two bit sets. The first one has the diagonals to the left going down the board:
 
 <img alt="Diagonal 1 bits" src="doc/images/N-Queens-Bits-Diag1.svg" width="600" height="600">
 
-With the three queens placed, bits 0, 6 and 9 are set, giving a value of 1 + 64 + 512 = 577.
+With the three queens placed, bits 0, 6 and 9 are set,
+giving an int value of 2<sup>0</sup> + 2<sup>6</sup> + 2<sup>9</sup>
+= 1 + 64 + 512 = 577.
 
 <img alt="Diagonal 1 example" src="doc/images/N-Queens-Example-Diag1.svg" width="600" height="600">
 
@@ -45,7 +53,9 @@ The other diagonals go to the right going down the board:
 
 <img alt="Diagonal 2 bits" src="doc/images/N-Queens-Bits-Diag2.svg" width="600" height="600">
 
-With the three queens placed, bits 2, 3 and 7 are set, giving a value of 4 + 8 + 128 = 140.
+With the three queens placed, bits 2, 3 and 7 are set,
+giving an int value of 2<sup>2</sup> + 2<sup>3</sup> + 2<sup>7</sup>
+= 4 + 8 + 128 = 140.
 
 <img alt="Diagonal 2 example" src="doc/images/N-Queens-Example-Diag2.svg" width="600" height="600">
 
@@ -57,9 +67,8 @@ The number of solutions for the current position is the sum of the number of sol
 
 <img alt="Next boards" src="doc/images/N-Queens-Example-NextBoards.svg" width="600" height="200">
 
-We can use 32-bit integers for the board size and the current row, and 64-bit integers for the bits for the columns and diagonals.
-Using 64-bit integers should let us count solutions for boards up to size 32.
-The current world record for counting solutions is for board size 27, so this should suffice.
+Using 64-bit integers for bit sets should let us count solutions for boards up to size 32.
+The current world record for counting solutions is for [board size 27](https://github.com/preusser/q27), so this should suffice.
 
 All of the programs use three functions:
 
@@ -152,8 +161,10 @@ place (Board {size = size, placed = row, cols = cols, diag1 = diag1, diag2 = dia
 Pseudo-code for `solve()` is:
 
 ```
-return sum over col in 0..size-1 where ok(board, col) of:
-  solve(place(board, col))
+if row == size then return 1      # full board: count one solution
+else
+  return sum over col in 0..size-1 where ok(board, col) of:
+    solve(place(board, col))
 ```
 
 Imperative languages have to initialise a count and then loop, as in C++:
