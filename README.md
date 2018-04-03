@@ -15,7 +15,7 @@ At each stage, we have a board with queens placed up to a certain row. We procee
 
 1. Find the available (unattacked) columns on the next row.
 2. Find a new board for each of the available columns by placing a queen in the column.
-3. Count the solutions for each of the new boards.
+3. Count the solutions for each of the new boards (recursively).
 4. Return the sum of the counts.
 
 To record the placement of queens, we keep track of these items:
