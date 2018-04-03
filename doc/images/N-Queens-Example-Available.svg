@@ -1,199 +1,453 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="88 83 824 821" width="824pt" height="821pt" xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <metadata> Produced by OmniGraffle 7.6.1 
-    <dc:date>2018-01-26 05:02:33 +0000</dc:date>
-  </metadata>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="88 76 824 828" width="824" height="828">
   <defs>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" viewBox="-1 -3 6 6" markerWidth="6" markerHeight="6" color="#666">
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -3 6 6" markerWidth="6" markerHeight="6" color="#666">
       <g>
         <path d="M 3.2 0 L 0 -1.2 L 0 1.2 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
       </g>
     </marker>
+    <font-face font-family="Arial Unicode MS" font-size="90" panose-1="2 11 6 4 2 2 2 2 2 4" units-per-em="1000" underline-position="-100.09766" underline-thickness="49.80469" slope="0" x-height="523.9258" cap-height="721.6797" ascent="1068.8477" descent="-270.9961" font-weight="400">
+      <font-face-src>
+        <font-face-name name="ArialUnicodeMS"/>
+      </font-face-src>
+    </font-face>
   </defs>
-  <g stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1">
+  <metadata> Produced by OmniGraffle 7.7.1 
+    <dc:date>2018-04-03 07:23:18 +0000</dc:date>
+  </metadata>
+  <g id="Canvas_1" fill-opacity="1" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none">
     <title>N-Queens</title>
-    <g>
+    <g id="Canvas_1: Board">
       <title>Board</title>
-      <rect x="800" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="800" width="100" height="100" fill="#ccc"/>
-      <rect x="700" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="800" width="100" height="100" fill="#ccc"/>
-      <rect x="500" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="800" width="100" height="100" fill="#ccc"/>
-      <rect x="300" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="800" width="100" height="100" fill="#ccc"/>
-      <rect x="100" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="700" width="100" height="100" fill="#ccc"/>
-      <rect x="800" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="700" width="100" height="100" fill="#ccc"/>
-      <rect x="600" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="700" width="100" height="100" fill="#ccc"/>
-      <rect x="400" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="700" width="100" height="100" fill="#ccc"/>
-      <rect x="200" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="600" width="100" height="100" fill="#ccc"/>
-      <rect x="700" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="600" width="100" height="100" fill="#ccc"/>
-      <rect x="500" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="600" width="100" height="100" fill="#ccc"/>
-      <rect x="300" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="600" width="100" height="100" fill="#ccc"/>
-      <rect x="100" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="500" width="100" height="100" fill="#ccc"/>
-      <rect x="800" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="500" width="100" height="100" fill="#ccc"/>
-      <rect x="600" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="500" width="100" height="100" fill="#ccc"/>
-      <rect x="400" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="500" width="100" height="100" fill="#ccc"/>
-      <rect x="200" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="400" width="100" height="100" fill="#ccc"/>
-      <rect x="700" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="400" width="100" height="100" fill="#ccc"/>
-      <rect x="500" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="400" width="100" height="100" fill="#ccc"/>
-      <rect x="300" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="400" width="100" height="100" fill="#ccc"/>
-      <rect x="100" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="300" width="100" height="100" fill="#ccc"/>
-      <rect x="800" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="300" width="100" height="100" fill="#ccc"/>
-      <rect x="600" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="300" width="100" height="100" fill="#ccc"/>
-      <rect x="400" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="300" width="100" height="100" fill="#ccc"/>
-      <rect x="200" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="200" width="100" height="100" fill="#ccc"/>
-      <rect x="700" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="200" width="100" height="100" fill="#ccc"/>
-      <rect x="500" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="200" width="100" height="100" fill="#ccc"/>
-      <rect x="300" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="200" width="100" height="100" fill="#ccc"/>
-      <rect x="100" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="100" width="100" height="100" fill="#ccc"/>
-      <rect x="800" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="100" width="100" height="100" fill="#ccc"/>
-      <rect x="600" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="100" width="100" height="100" fill="#ccc"/>
-      <rect x="400" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="100" width="100" height="100" fill="#ccc"/>
-      <rect x="200" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="101" y="100" width="800" height="800" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+      <g id="Group_145">
+        <title>Board0</title>
+        <g id="Group_210">
+          <title>Row_7</title>
+          <g id="Graphic_218">
+            <title>Square_7_7</title>
+            <rect x="800" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_217">
+            <title>Square_7_6</title>
+            <rect x="700" y="800" width="100" height="100" fill="#ccc"/>
+            <rect x="700" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_216">
+            <title>Square_7_5</title>
+            <rect x="600" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_215">
+            <title>Square_7_4</title>
+            <rect x="500" y="800" width="100" height="100" fill="#ccc"/>
+            <rect x="500" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_214">
+            <title>Square_7_3</title>
+            <rect x="400" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_213">
+            <title>Square_7_2</title>
+            <rect x="300" y="800" width="100" height="100" fill="#ccc"/>
+            <rect x="300" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_212">
+            <title>Square_7_1</title>
+            <rect x="200" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_211">
+            <title>Square_7_0</title>
+            <rect x="100" y="800" width="100" height="100" fill="#ccc"/>
+            <rect x="100" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_201">
+          <title>Row_6</title>
+          <g id="Graphic_209">
+            <title>Square_6_7</title>
+            <rect x="800" y="700" width="100" height="100" fill="#ccc"/>
+            <rect x="800" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_208">
+            <title>Square_6_6</title>
+            <rect x="700" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_207">
+            <title>Square_6_5</title>
+            <rect x="600" y="700" width="100" height="100" fill="#ccc"/>
+            <rect x="600" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_206">
+            <title>Square_6_4</title>
+            <rect x="500" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_205">
+            <title>Square_6_3</title>
+            <rect x="400" y="700" width="100" height="100" fill="#ccc"/>
+            <rect x="400" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_204">
+            <title>Square_6_2</title>
+            <rect x="300" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_203">
+            <title>Square_6_1</title>
+            <rect x="200" y="700" width="100" height="100" fill="#ccc"/>
+            <rect x="200" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_202">
+            <title>Square_6_0</title>
+            <rect x="100" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_192">
+          <title>Row_5</title>
+          <g id="Graphic_200">
+            <title>Square_5_7</title>
+            <rect x="800" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_199">
+            <title>Square_5_6</title>
+            <rect x="700" y="600" width="100" height="100" fill="#ccc"/>
+            <rect x="700" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_198">
+            <title>Square_5_5</title>
+            <rect x="600" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_197">
+            <title>Square_5_4</title>
+            <rect x="500" y="600" width="100" height="100" fill="#ccc"/>
+            <rect x="500" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_196">
+            <title>Square_5_3</title>
+            <rect x="400" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_195">
+            <title>Square_5_2</title>
+            <rect x="300" y="600" width="100" height="100" fill="#ccc"/>
+            <rect x="300" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_194">
+            <title>Square_5_1</title>
+            <rect x="200" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_193">
+            <title>Square_5_0</title>
+            <rect x="100" y="600" width="100" height="100" fill="#ccc"/>
+            <rect x="100" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_183">
+          <title>Row_4</title>
+          <g id="Graphic_191">
+            <title>Square_4_7</title>
+            <rect x="800" y="500" width="100" height="100" fill="#ccc"/>
+            <rect x="800" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_190">
+            <title>Square_4_6</title>
+            <rect x="700" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_189">
+            <title>Square_4_5</title>
+            <rect x="600" y="500" width="100" height="100" fill="#ccc"/>
+            <rect x="600" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_188">
+            <title>Square_4_4</title>
+            <rect x="500" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_187">
+            <title>Square_4_3</title>
+            <rect x="400" y="500" width="100" height="100" fill="#ccc"/>
+            <rect x="400" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_186">
+            <title>Square_4_2</title>
+            <rect x="300" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_185">
+            <title>Square_4_1</title>
+            <rect x="200" y="500" width="100" height="100" fill="#ccc"/>
+            <rect x="200" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_184">
+            <title>Square_4_0</title>
+            <rect x="100" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_174">
+          <title>Row_3</title>
+          <g id="Graphic_182">
+            <title>Square_3_7</title>
+            <rect x="800" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_181">
+            <title>Square_3_6</title>
+            <rect x="700" y="400" width="100" height="100" fill="#ccc"/>
+            <rect x="700" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_180">
+            <title>Square_3_5</title>
+            <rect x="600" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_179">
+            <title>Square_3_4</title>
+            <rect x="500" y="400" width="100" height="100" fill="#ccc"/>
+            <rect x="500" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_178">
+            <title>Square_3_3</title>
+            <rect x="400" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_177">
+            <title>Square_3_2</title>
+            <rect x="300" y="400" width="100" height="100" fill="#ccc"/>
+            <rect x="300" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_176">
+            <title>Square_3_1</title>
+            <rect x="200" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_175">
+            <title>Square_3_0</title>
+            <rect x="100" y="400" width="100" height="100" fill="#ccc"/>
+            <rect x="100" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_165">
+          <title>Row_2</title>
+          <g id="Graphic_173">
+            <title>Square_2_7</title>
+            <rect x="800" y="300" width="100" height="100" fill="#ccc"/>
+            <rect x="800" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_172">
+            <title>Square_2_6</title>
+            <rect x="700" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_171">
+            <title>Square_2_5</title>
+            <rect x="600" y="300" width="100" height="100" fill="#ccc"/>
+            <rect x="600" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_170">
+            <title>Square_2_4</title>
+            <rect x="500" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_169">
+            <title>Square_2_3</title>
+            <rect x="400" y="300" width="100" height="100" fill="#ccc"/>
+            <rect x="400" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_168">
+            <title>Square_2_2</title>
+            <rect x="300" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_167">
+            <title>Square_2_1</title>
+            <rect x="200" y="300" width="100" height="100" fill="#ccc"/>
+            <rect x="200" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_166">
+            <title>Square_2_0</title>
+            <rect x="100" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_156">
+          <title>Row_1</title>
+          <g id="Graphic_164">
+            <title>Square_1_7</title>
+            <rect x="800" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_163">
+            <title>Square_1_6</title>
+            <rect x="700" y="200" width="100" height="100" fill="#ccc"/>
+            <rect x="700" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_162">
+            <title>Square_1_5</title>
+            <rect x="600" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_161">
+            <title>Square_1_4</title>
+            <rect x="500" y="200" width="100" height="100" fill="#ccc"/>
+            <rect x="500" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_160">
+            <title>Square_1_3</title>
+            <rect x="400" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_159">
+            <title>Square_1_2</title>
+            <rect x="300" y="200" width="100" height="100" fill="#ccc"/>
+            <rect x="300" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_158">
+            <title>Square_1_1</title>
+            <rect x="200" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_157">
+            <title>Square_1_0</title>
+            <rect x="100" y="200" width="100" height="100" fill="#ccc"/>
+            <rect x="100" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_147">
+          <title>Row_0</title>
+          <g id="Graphic_155">
+            <title>Square_0_7</title>
+            <rect x="800" y="100" width="100" height="100" fill="#ccc"/>
+            <rect x="800" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_154">
+            <title>Square_0_6</title>
+            <rect x="700" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_153">
+            <title>Square_0_5</title>
+            <rect x="600" y="100" width="100" height="100" fill="#ccc"/>
+            <rect x="600" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_152">
+            <title>Square_0_4</title>
+            <rect x="500" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_151">
+            <title>Square_0_3</title>
+            <rect x="400" y="100" width="100" height="100" fill="#ccc"/>
+            <rect x="400" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_150">
+            <title>Square_0_2</title>
+            <rect x="300" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_149">
+            <title>Square_0_1</title>
+            <rect x="200" y="100" width="100" height="100" fill="#ccc"/>
+            <rect x="200" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_148">
+            <title>Square_0_0</title>
+            <rect x="100" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Graphic_146">
+          <title>Border</title>
+          <rect x="101" y="100" width="800" height="800" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        </g>
+      </g>
     </g>
-    <g>
+    <g id="Canvas_1: Available">
       <title>Available</title>
-      <rect x="100" y="400" width="100" height="100" fill="#ff2600" fill-opacity=".2"/>
-      <rect x="100" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <rect x="400" y="400" width="100" height="100" fill="#ff2600" fill-opacity=".2"/>
-      <rect x="400" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <rect x="600" y="400" width="100" height="100" fill="#ff2600" fill-opacity=".2"/>
-      <rect x="600" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <rect x="800" y="400" width="100" height="100" fill="#ff2600" fill-opacity=".2"/>
-      <rect x="800" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <rect x="700" y="400" width="100" height="100" fill="#ff2600" fill-opacity=".2"/>
-      <rect x="700" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <rect x="200" y="400" width="100" height="100" fill="#00fa00" fill-opacity=".2"/>
-      <rect x="200" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
-      <rect x="300" y="400" width="100" height="100" fill="#00fa00" fill-opacity=".2"/>
-      <rect x="300" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
-      <rect x="499.5" y="402" width="100" height="100" fill="#00fa00" fill-opacity=".2"/>
-      <rect x="499.5" y="402" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <g id="Graphic_144">
+        <title>NotAvailable1</title>
+        <rect x="100" y="400" width="100" height="100" fill="#ff2600" fill-opacity=".2"/>
+        <rect x="100" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_143">
+        <title>NotAvailable2</title>
+        <rect x="400" y="400" width="100" height="100" fill="#ff2600" fill-opacity=".2"/>
+        <rect x="400" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_142">
+        <title>NotAvailable3</title>
+        <rect x="600" y="400" width="100" height="100" fill="#ff2600" fill-opacity=".2"/>
+        <rect x="600" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_141">
+        <title>NotAvailable4</title>
+        <rect x="800" y="400" width="100" height="100" fill="#ff2600" fill-opacity=".2"/>
+        <rect x="800" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_140">
+        <title>NotAvailable5</title>
+        <rect x="700" y="400" width="100" height="100" fill="#ff2600" fill-opacity=".2"/>
+        <rect x="700" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_139">
+        <title>Available1</title>
+        <rect x="200" y="400" width="100" height="100" fill="#00fa00" fill-opacity=".2"/>
+        <rect x="200" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      </g>
+      <g id="Graphic_138">
+        <title>Available2</title>
+        <rect x="300" y="400" width="100" height="100" fill="#00fa00" fill-opacity=".2"/>
+        <rect x="300" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      </g>
+      <g id="Graphic_137">
+        <title>Available3</title>
+        <rect x="499.5" y="402" width="100" height="100" fill="#00fa00" fill-opacity=".2"/>
+        <rect x="499.5" y="402" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      </g>
     </g>
-    <g>
+    <g id="Canvas_1: Cols-On">
       <title>Cols-On</title>
-      <line x1="850" y1="85" x2="850" y2="880.1" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="650" y1="85" x2="650" y2="880.1" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="150" y1="85" x2="150" y2="880.1" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
+      <g id="Line_82">
+        <title>col7</title>
+        <line x1="850" y1="85" x2="850" y2="880.1" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_81">
+        <title>col5</title>
+        <line x1="650" y1="85" x2="650" y2="880.1" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_80">
+        <title>col0</title>
+        <line x1="150" y1="85" x2="150" y2="880.1" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
     </g>
-    <g>
+    <g id="Canvas_1: Diag1-On">
       <title>Diag1-On</title>
-      <line x1="910" y1="290" x2="313.3643" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="810" y1="90" x2="113.36432" y2="786.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="210" y1="90" x2="113.36432" y2="186.63568" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
+      <g id="Line_74">
+        <title>diag1_9</title>
+        <line x1="910" y1="290" x2="313.3643" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_73">
+        <title>diag1_6</title>
+        <line x1="810" y1="90" x2="113.36432" y2="786.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_72">
+        <title>diag1_0</title>
+        <line x1="210" y1="90" x2="113.36432" y2="186.63568" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
     </g>
-    <g>
+    <g id="Canvas_1: Diag2-On">
       <title>Diag2-On</title>
-      <line x1="90" y1="90" x2="886.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="490" y1="90" x2="886.6357" y2="486.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="590" y1="90" x2="886.6357" y2="386.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
+      <g id="Line_59">
+        <title>diag2_7</title>
+        <line x1="90" y1="90" x2="886.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_58">
+        <title>diag2_3</title>
+        <line x1="490" y1="90" x2="886.6357" y2="486.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_57">
+        <title>diag2_2</title>
+        <line x1="590" y1="90" x2="886.6357" y2="386.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
     </g>
-    <g>
+    <g id="Canvas_1: QueensExample">
       <title>QueensExample</title>
-      <circle cx="814.9777" cy="327.67257" r="5.977723" fill="black"/>
-      <circle cx="832.3674" cy="321.15143" r="5.977723" fill="black"/>
-      <circle cx="850.844" cy="318.9777" r="5.977723" fill="black"/>
-      <circle cx="869.3206" cy="321.15143" r="5.977723" fill="black"/>
-      <circle cx="886.7103" cy="327.67257" r="5.977723" fill="black"/>
-      <path d="M 821.4989 358.10455 C 839.9754 354.844 867.1469 354.844 880.1891 358.10455 L 885.6234 330.93314 L 869.3206 355.93084 L 868.6685 325.2815 L 857.3651 354.844 L 850.844 323.32514 L 844.3229 354.844 L 833.0195 325.2815 L 832.3674 355.93084 L 816.0646 330.93314 Z" fill="black"/>
-      <path d="M 821.4989 358.10455 C 839.9754 354.844 867.1469 354.844 880.1891 358.10455 L 885.6234 330.93314 L 869.3206 355.93084 L 868.6685 325.2815 L 857.3651 354.844 L 850.844 323.32514 L 844.3229 354.844 L 833.0195 325.2815 L 832.3674 355.93084 L 816.0646 330.93314 Z" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 821.4989 358.10455 C 821.4989 362.452 824.7594 362.452 826.9331 366.7994 C 829.1069 370.06 829.1069 368.97312 828.02 374.4074 C 824.7594 376.5811 824.7594 379.8417 824.7594 379.8417 C 821.4989 383.10226 825.8463 385.27597 825.8463 385.27597 C 839.9754 387.4497 861.7126 387.4497 875.8417 385.27597 C 875.8417 385.27597 879.1023 383.10226 875.8417 379.8417 C 875.8417 379.8417 876.9286 376.5811 873.668 374.4074 C 872.5811 368.97312 872.5811 370.06 874.7549 366.7994 C 876.9286 362.452 880.1891 362.452 880.1891 358.10455 C 861.7126 354.844 839.9754 354.844 821.4989 358.10455 Z" fill="black"/>
-      <path d="M 821.4989 358.10455 C 821.4989 362.452 824.7594 362.452 826.9331 366.7994 C 829.1069 370.06 829.1069 368.97312 828.02 374.4074 C 824.7594 376.5811 824.7594 379.8417 824.7594 379.8417 C 821.4989 383.10226 825.8463 385.27597 825.8463 385.27597 C 839.9754 387.4497 861.7126 387.4497 875.8417 385.27597 C 875.8417 385.27597 879.1023 383.10226 875.8417 379.8417 C 875.8417 379.8417 876.9286 376.5811 873.668 374.4074 C 872.5811 368.97312 872.5811 370.06 874.7549 366.7994 C 876.9286 362.452 880.1891 362.452 880.1891 358.10455 C 861.7126 354.844 839.9754 354.844 821.4989 358.10455 Z" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 825.8463 385.27597 C 842.0356 390.908 859.6524 390.908 875.8417 385.27597" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 825.8463 364.6257 C 842.0356 358.99366 859.6524 358.99366 875.8417 364.6257" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <line x1="12697.587" y1="401.56" x2="30087.302" y2="401.56" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 826.9331 376.5811 C 842.4594 381.72124 859.2287 381.72124 874.7549 376.5811" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 824.7594 383.10226 C 841.6057 389.2508 860.0823 389.2508 876.9286 383.10226" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <circle cx="614.9777" cy="227.67257" r="5.977723" fill="black"/>
-      <circle cx="632.3674" cy="221.15143" r="5.977723" fill="black"/>
-      <circle cx="650.844" cy="218.9777" r="5.977723" fill="black"/>
-      <circle cx="669.3206" cy="221.15143" r="5.977723" fill="black"/>
-      <circle cx="686.7103" cy="227.67257" r="5.977723" fill="black"/>
-      <path d="M 621.49886 258.10455 C 639.9754 254.84398 667.14686 254.84398 680.18915 258.10455 L 685.6234 230.93314 L 669.3206 255.93084 L 668.66846 225.28148 L 657.36514 254.84398 L 650.844 223.32514 L 644.32286 254.84398 L 633.01954 225.28148 L 632.3674 255.93084 L 616.0646 230.93314 Z" fill="black"/>
-      <path d="M 621.49886 258.10455 C 639.9754 254.84398 667.14686 254.84398 680.18915 258.10455 L 685.6234 230.93314 L 669.3206 255.93084 L 668.66846 225.28148 L 657.36514 254.84398 L 650.844 223.32514 L 644.32286 254.84398 L 633.01954 225.28148 L 632.3674 255.93084 L 616.0646 230.93314 Z" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 621.49886 258.10455 C 621.49886 262.45198 624.7594 262.45198 626.93314 266.7994 C 629.10686 270.05998 629.10686 268.97312 628.02 274.4074 C 624.7594 276.58112 624.7594 279.8417 624.7594 279.8417 C 621.49886 283.10226 625.8463 285.27597 625.8463 285.27597 C 639.9754 287.4497 661.7126 287.4497 675.8417 285.27597 C 675.8417 285.27597 679.1023 283.10226 675.8417 279.8417 C 675.8417 279.8417 676.9286 276.58112 673.668 274.4074 C 672.58115 268.97312 672.58115 270.05998 674.7549 266.7994 C 676.9286 262.45198 680.18915 262.45198 680.18915 258.10455 C 661.7126 254.84398 639.9754 254.84398 621.49886 258.10455 Z" fill="black"/>
-      <path d="M 621.49886 258.10455 C 621.49886 262.45198 624.7594 262.45198 626.93314 266.7994 C 629.10686 270.05998 629.10686 268.97312 628.02 274.4074 C 624.7594 276.58112 624.7594 279.8417 624.7594 279.8417 C 621.49886 283.10226 625.8463 285.27597 625.8463 285.27597 C 639.9754 287.4497 661.7126 287.4497 675.8417 285.27597 C 675.8417 285.27597 679.1023 283.10226 675.8417 279.8417 C 675.8417 279.8417 676.9286 276.58112 673.668 274.4074 C 672.58115 268.97312 672.58115 270.05998 674.7549 266.7994 C 676.9286 262.45198 680.18915 262.45198 680.18915 258.10455 C 661.7126 254.84398 639.9754 254.84398 621.49886 258.10455 Z" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 625.8463 285.27597 C 642.0356 290.908 659.6524 290.908 675.8417 285.27597" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 625.8463 264.6257 C 642.0356 258.99366 659.6524 258.99366 675.8417 264.6257" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <line x1="12497.587" y1="301.55998" x2="29887.302" y2="301.55998" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 626.93314 276.58112 C 642.45935 281.72124 659.22865 281.72124 674.7549 276.58112" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 624.7594 283.10226 C 641.60566 289.2508 660.08235 289.2508 676.9286 283.10226" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <circle cx="114.97771" cy="127.67257" r="5.977723" fill="black"/>
-      <circle cx="132.36743" cy="121.15143" r="5.977723" fill="black"/>
-      <circle cx="150.844" cy="118.97771" r="5.977723" fill="black"/>
-      <circle cx="169.32057" cy="121.15143" r="5.977723" fill="black"/>
-      <circle cx="186.7103" cy="127.67257" r="5.977723" fill="black"/>
-      <path d="M 121.49886 158.10455 C 139.97543 154.84398 167.14686 154.84398 180.18915 158.10455 L 185.62343 130.93314 L 169.32057 155.93084 L 168.66846 125.28148 L 157.36514 154.84398 L 150.844 123.32514 L 144.32286 154.84398 L 133.01954 125.28148 L 132.36743 155.93084 L 116.06457 130.93314 Z" fill="black"/>
-      <path d="M 121.49886 158.10455 C 139.97543 154.84398 167.14686 154.84398 180.18915 158.10455 L 185.62343 130.93314 L 169.32057 155.93084 L 168.66846 125.28148 L 157.36514 154.84398 L 150.844 123.32514 L 144.32286 154.84398 L 133.01954 125.28148 L 132.36743 155.93084 L 116.06457 130.93314 Z" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 121.49886 158.10455 C 121.49886 162.45198 124.75943 162.45198 126.93314 166.7994 C 129.10686 170.05998 129.10686 168.97312 128.02 174.4074 C 124.75943 176.58112 124.75943 179.8417 124.75943 179.8417 C 121.49886 183.10226 125.84629 185.27597 125.84629 185.27597 C 139.97543 187.44969 161.71257 187.44969 175.84172 185.27597 C 175.84172 185.27597 179.10229 183.10226 175.84172 179.8417 C 175.84172 179.8417 176.92857 176.58112 173.668 174.4074 C 172.58115 168.97312 172.58115 170.05998 174.75486 166.7994 C 176.92857 162.45198 180.18915 162.45198 180.18915 158.10455 C 161.71257 154.84398 139.97543 154.84398 121.49886 158.10455 Z" fill="black"/>
-      <path d="M 121.49886 158.10455 C 121.49886 162.45198 124.75943 162.45198 126.93314 166.7994 C 129.10686 170.05998 129.10686 168.97312 128.02 174.4074 C 124.75943 176.58112 124.75943 179.8417 124.75943 179.8417 C 121.49886 183.10226 125.84629 185.27597 125.84629 185.27597 C 139.97543 187.44969 161.71257 187.44969 175.84172 185.27597 C 175.84172 185.27597 179.10229 183.10226 175.84172 179.8417 C 175.84172 179.8417 176.92857 176.58112 173.668 174.4074 C 172.58115 168.97312 172.58115 170.05998 174.75486 166.7994 C 176.92857 162.45198 180.18915 162.45198 180.18915 158.10455 C 161.71257 154.84398 139.97543 154.84398 121.49886 158.10455 Z" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 125.84629 185.27597 C 142.03559 190.908 159.65241 190.908 175.84172 185.27597" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 125.84629 164.6257 C 142.03559 158.99366 159.65241 158.99366 175.84172 164.6257" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <line x1="11997.587" y1="201.55998" x2="29387.302" y2="201.55998" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 126.93314 176.58112 C 142.45935 181.72124 159.22865 181.72124 174.75486 176.58112" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <path d="M 124.75943 183.10226 C 141.60566 189.25078 160.08235 189.25078 176.92857 183.10226" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <g id="Graphic_611">
+        <title>Queen1</title>
+        <text transform="translate(605.844 183)" fill="black">
+          <tspan font-family="Arial Unicode MS" font-size="90" font-weight="400" fill="black" x="0" y="96">♛</tspan>
+        </text>
+      </g>
+      <g id="Graphic_612">
+        <title>Queen0</title>
+        <text transform="translate(105.844 82)" fill="black">
+          <tspan font-family="Arial Unicode MS" font-size="90" font-weight="400" fill="black" x="0" y="96">♛</tspan>
+        </text>
+      </g>
+      <g id="Graphic_613">
+        <title>Queen2</title>
+        <text transform="translate(806 284)" fill="black">
+          <tspan font-family="Arial Unicode MS" font-size="90" font-weight="400" fill="black" x="0" y="96">♛</tspan>
+        </text>
+      </g>
     </g>
   </g>
 </svg>

@@ -1,194 +1,506 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="20 50 885 854" width="885pt" height="854pt" xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <metadata> Produced by OmniGraffle 7.6.1 
-    <dc:date>2018-01-26 05:01:34 +0000</dc:date>
-  </metadata>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 50 885 854" width="885" height="854">
   <defs>
-    <font-face font-family="Source Code Pro" font-size="18" panose-1="2 11 5 9 3 4 3 2 2 4" units-per-em="1000" underline-position="-75" underline-thickness="50" slope="0" x-height="480" cap-height="660" ascent="984.002" descent="-273.00055" font-weight="500">
+    <font-face font-family="Source Code Pro" font-size="18" panose-1="2 11 5 9 3 4 3 2 2 4" units-per-em="1000" underline-position="-75" underline-thickness="50" slope="0" x-height="480" cap-height="660" ascent="984.002" descent="-273.00055" font-weight="400">
       <font-face-src>
         <font-face-name name="SourceCodePro-Regular"/>
       </font-face-src>
     </font-face>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" viewBox="-1 -3 6 6" markerWidth="6" markerHeight="6" color="#666">
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -3 6 6" markerWidth="6" markerHeight="6" color="#666">
       <g>
         <path d="M 3.2 0 L 0 -1.2 L 0 1.2 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
       </g>
     </marker>
   </defs>
-  <g stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1">
+  <metadata> Produced by OmniGraffle 7.7.1 
+    <dc:date>2018-04-03 07:19:44 +0000</dc:date>
+  </metadata>
+  <g id="Canvas_1" fill-opacity="1" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none">
     <title>N-Queens</title>
-    <g>
+    <g id="Canvas_1: Board">
       <title>Board</title>
-      <rect x="800" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="800" width="100" height="100" fill="#ccc"/>
-      <rect x="700" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="800" width="100" height="100" fill="#ccc"/>
-      <rect x="500" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="800" width="100" height="100" fill="#ccc"/>
-      <rect x="300" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="800" width="100" height="100" fill="#ccc"/>
-      <rect x="100" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="700" width="100" height="100" fill="#ccc"/>
-      <rect x="800" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="700" width="100" height="100" fill="#ccc"/>
-      <rect x="600" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="700" width="100" height="100" fill="#ccc"/>
-      <rect x="400" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="700" width="100" height="100" fill="#ccc"/>
-      <rect x="200" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="600" width="100" height="100" fill="#ccc"/>
-      <rect x="700" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="600" width="100" height="100" fill="#ccc"/>
-      <rect x="500" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="600" width="100" height="100" fill="#ccc"/>
-      <rect x="300" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="600" width="100" height="100" fill="#ccc"/>
-      <rect x="100" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="500" width="100" height="100" fill="#ccc"/>
-      <rect x="800" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="500" width="100" height="100" fill="#ccc"/>
-      <rect x="600" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="500" width="100" height="100" fill="#ccc"/>
-      <rect x="400" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="500" width="100" height="100" fill="#ccc"/>
-      <rect x="200" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="400" width="100" height="100" fill="#ccc"/>
-      <rect x="700" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="400" width="100" height="100" fill="#ccc"/>
-      <rect x="500" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="400" width="100" height="100" fill="#ccc"/>
-      <rect x="300" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="400" width="100" height="100" fill="#ccc"/>
-      <rect x="100" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="300" width="100" height="100" fill="#ccc"/>
-      <rect x="800" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="300" width="100" height="100" fill="#ccc"/>
-      <rect x="600" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="300" width="100" height="100" fill="#ccc"/>
-      <rect x="400" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="300" width="100" height="100" fill="#ccc"/>
-      <rect x="200" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="200" width="100" height="100" fill="#ccc"/>
-      <rect x="700" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="200" width="100" height="100" fill="#ccc"/>
-      <rect x="500" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="200" width="100" height="100" fill="#ccc"/>
-      <rect x="300" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="200" width="100" height="100" fill="#ccc"/>
-      <rect x="100" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="800" y="100" width="100" height="100" fill="#ccc"/>
-      <rect x="800" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="700" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="600" y="100" width="100" height="100" fill="#ccc"/>
-      <rect x="600" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="500" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="400" y="100" width="100" height="100" fill="#ccc"/>
-      <rect x="400" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="300" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="200" y="100" width="100" height="100" fill="#ccc"/>
-      <rect x="200" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="100" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <rect x="101" y="100" width="800" height="800" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+      <g id="Group_145">
+        <title>Board0</title>
+        <g id="Group_210">
+          <title>Row_7</title>
+          <g id="Graphic_218">
+            <title>Square_7_7</title>
+            <rect x="800" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_217">
+            <title>Square_7_6</title>
+            <rect x="700" y="800" width="100" height="100" fill="#ccc"/>
+            <rect x="700" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_216">
+            <title>Square_7_5</title>
+            <rect x="600" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_215">
+            <title>Square_7_4</title>
+            <rect x="500" y="800" width="100" height="100" fill="#ccc"/>
+            <rect x="500" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_214">
+            <title>Square_7_3</title>
+            <rect x="400" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_213">
+            <title>Square_7_2</title>
+            <rect x="300" y="800" width="100" height="100" fill="#ccc"/>
+            <rect x="300" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_212">
+            <title>Square_7_1</title>
+            <rect x="200" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_211">
+            <title>Square_7_0</title>
+            <rect x="100" y="800" width="100" height="100" fill="#ccc"/>
+            <rect x="100" y="800" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_201">
+          <title>Row_6</title>
+          <g id="Graphic_209">
+            <title>Square_6_7</title>
+            <rect x="800" y="700" width="100" height="100" fill="#ccc"/>
+            <rect x="800" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_208">
+            <title>Square_6_6</title>
+            <rect x="700" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_207">
+            <title>Square_6_5</title>
+            <rect x="600" y="700" width="100" height="100" fill="#ccc"/>
+            <rect x="600" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_206">
+            <title>Square_6_4</title>
+            <rect x="500" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_205">
+            <title>Square_6_3</title>
+            <rect x="400" y="700" width="100" height="100" fill="#ccc"/>
+            <rect x="400" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_204">
+            <title>Square_6_2</title>
+            <rect x="300" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_203">
+            <title>Square_6_1</title>
+            <rect x="200" y="700" width="100" height="100" fill="#ccc"/>
+            <rect x="200" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_202">
+            <title>Square_6_0</title>
+            <rect x="100" y="700" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_192">
+          <title>Row_5</title>
+          <g id="Graphic_200">
+            <title>Square_5_7</title>
+            <rect x="800" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_199">
+            <title>Square_5_6</title>
+            <rect x="700" y="600" width="100" height="100" fill="#ccc"/>
+            <rect x="700" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_198">
+            <title>Square_5_5</title>
+            <rect x="600" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_197">
+            <title>Square_5_4</title>
+            <rect x="500" y="600" width="100" height="100" fill="#ccc"/>
+            <rect x="500" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_196">
+            <title>Square_5_3</title>
+            <rect x="400" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_195">
+            <title>Square_5_2</title>
+            <rect x="300" y="600" width="100" height="100" fill="#ccc"/>
+            <rect x="300" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_194">
+            <title>Square_5_1</title>
+            <rect x="200" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_193">
+            <title>Square_5_0</title>
+            <rect x="100" y="600" width="100" height="100" fill="#ccc"/>
+            <rect x="100" y="600" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_183">
+          <title>Row_4</title>
+          <g id="Graphic_191">
+            <title>Square_4_7</title>
+            <rect x="800" y="500" width="100" height="100" fill="#ccc"/>
+            <rect x="800" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_190">
+            <title>Square_4_6</title>
+            <rect x="700" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_189">
+            <title>Square_4_5</title>
+            <rect x="600" y="500" width="100" height="100" fill="#ccc"/>
+            <rect x="600" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_188">
+            <title>Square_4_4</title>
+            <rect x="500" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_187">
+            <title>Square_4_3</title>
+            <rect x="400" y="500" width="100" height="100" fill="#ccc"/>
+            <rect x="400" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_186">
+            <title>Square_4_2</title>
+            <rect x="300" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_185">
+            <title>Square_4_1</title>
+            <rect x="200" y="500" width="100" height="100" fill="#ccc"/>
+            <rect x="200" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_184">
+            <title>Square_4_0</title>
+            <rect x="100" y="500" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_174">
+          <title>Row_3</title>
+          <g id="Graphic_182">
+            <title>Square_3_7</title>
+            <rect x="800" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_181">
+            <title>Square_3_6</title>
+            <rect x="700" y="400" width="100" height="100" fill="#ccc"/>
+            <rect x="700" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_180">
+            <title>Square_3_5</title>
+            <rect x="600" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_179">
+            <title>Square_3_4</title>
+            <rect x="500" y="400" width="100" height="100" fill="#ccc"/>
+            <rect x="500" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_178">
+            <title>Square_3_3</title>
+            <rect x="400" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_177">
+            <title>Square_3_2</title>
+            <rect x="300" y="400" width="100" height="100" fill="#ccc"/>
+            <rect x="300" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_176">
+            <title>Square_3_1</title>
+            <rect x="200" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_175">
+            <title>Square_3_0</title>
+            <rect x="100" y="400" width="100" height="100" fill="#ccc"/>
+            <rect x="100" y="400" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_165">
+          <title>Row_2</title>
+          <g id="Graphic_173">
+            <title>Square_2_7</title>
+            <rect x="800" y="300" width="100" height="100" fill="#ccc"/>
+            <rect x="800" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_172">
+            <title>Square_2_6</title>
+            <rect x="700" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_171">
+            <title>Square_2_5</title>
+            <rect x="600" y="300" width="100" height="100" fill="#ccc"/>
+            <rect x="600" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_170">
+            <title>Square_2_4</title>
+            <rect x="500" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_169">
+            <title>Square_2_3</title>
+            <rect x="400" y="300" width="100" height="100" fill="#ccc"/>
+            <rect x="400" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_168">
+            <title>Square_2_2</title>
+            <rect x="300" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_167">
+            <title>Square_2_1</title>
+            <rect x="200" y="300" width="100" height="100" fill="#ccc"/>
+            <rect x="200" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_166">
+            <title>Square_2_0</title>
+            <rect x="100" y="300" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_156">
+          <title>Row_1</title>
+          <g id="Graphic_164">
+            <title>Square_1_7</title>
+            <rect x="800" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_163">
+            <title>Square_1_6</title>
+            <rect x="700" y="200" width="100" height="100" fill="#ccc"/>
+            <rect x="700" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_162">
+            <title>Square_1_5</title>
+            <rect x="600" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_161">
+            <title>Square_1_4</title>
+            <rect x="500" y="200" width="100" height="100" fill="#ccc"/>
+            <rect x="500" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_160">
+            <title>Square_1_3</title>
+            <rect x="400" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_159">
+            <title>Square_1_2</title>
+            <rect x="300" y="200" width="100" height="100" fill="#ccc"/>
+            <rect x="300" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_158">
+            <title>Square_1_1</title>
+            <rect x="200" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_157">
+            <title>Square_1_0</title>
+            <rect x="100" y="200" width="100" height="100" fill="#ccc"/>
+            <rect x="100" y="200" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Group_147">
+          <title>Row_0</title>
+          <g id="Graphic_155">
+            <title>Square_0_7</title>
+            <rect x="800" y="100" width="100" height="100" fill="#ccc"/>
+            <rect x="800" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_154">
+            <title>Square_0_6</title>
+            <rect x="700" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_153">
+            <title>Square_0_5</title>
+            <rect x="600" y="100" width="100" height="100" fill="#ccc"/>
+            <rect x="600" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_152">
+            <title>Square_0_4</title>
+            <rect x="500" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_151">
+            <title>Square_0_3</title>
+            <rect x="400" y="100" width="100" height="100" fill="#ccc"/>
+            <rect x="400" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_150">
+            <title>Square_0_2</title>
+            <rect x="300" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_149">
+            <title>Square_0_1</title>
+            <rect x="200" y="100" width="100" height="100" fill="#ccc"/>
+            <rect x="200" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+          <g id="Graphic_148">
+            <title>Square_0_0</title>
+            <rect x="100" y="100" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </g>
+        </g>
+        <g id="Graphic_146">
+          <title>Border</title>
+          <rect x="101" y="100" width="800" height="800" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        </g>
+      </g>
     </g>
-    <g>
+    <g id="Canvas_1: Labels-Diag2-On">
       <title>Labels-Diag2-On</title>
-      <text transform="translate(60 55)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x="0" y="18">bit 7</tspan>
-      </text>
-      <text transform="translate(460 55)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x="0" y="18">bit 3</tspan>
-      </text>
-      <text transform="translate(560 55)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x="0" y="18">bit 2</tspan>
-      </text>
+      <g id="Graphic_97">
+        <title>label_diag2_7</title>
+        <text transform="translate(60 55)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x="0" y="18">bit 7</tspan>
+        </text>
+      </g>
+      <g id="Graphic_96">
+        <title>label_diag2_3</title>
+        <text transform="translate(460 55)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x="0" y="18">bit 3</tspan>
+        </text>
+      </g>
+      <g id="Graphic_95">
+        <title>label_diag2_2</title>
+        <text transform="translate(560 55)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x="0" y="18">bit 2</tspan>
+        </text>
+      </g>
     </g>
-    <g>
+    <g id="Canvas_1: Labels-Diag2-Off">
       <title>Labels-Diag2-Off</title>
-      <text transform="translate(25 765)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x=".1" y="18">bit 14</tspan>
-      </text>
-      <text transform="translate(25 665)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x=".1" y="18">bit 13</tspan>
-      </text>
-      <text transform="translate(25 565)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x=".1" y="18">bit 12</tspan>
-      </text>
-      <text transform="translate(25 465)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x=".1" y="18">bit 11</tspan>
-      </text>
-      <text transform="translate(25 365)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x=".1" y="18">bit 10</tspan>
-      </text>
-      <text transform="translate(25 265)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x="0" y="18">bit 9</tspan>
-      </text>
-      <text transform="translate(25 165)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x="0" y="18">bit 8</tspan>
-      </text>
-      <text transform="translate(155 55)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x="0" y="18">bit 6</tspan>
-      </text>
-      <text transform="translate(260 55)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x="0" y="18">bit 5</tspan>
-      </text>
-      <text transform="translate(360 55)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x="0" y="18">bit 4</tspan>
-      </text>
-      <text transform="translate(660 55)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x="0" y="18">bit 1</tspan>
-      </text>
-      <text transform="translate(760 55)" fill="black">
-        <tspan font-family="Source Code Pro" font-size="18" font-weight="500" x="0" y="18">bit 0</tspan>
-      </text>
+      <g id="Graphic_94">
+        <title>label_diag2_14</title>
+        <text transform="translate(25 765)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x=".1" y="18">bit 14</tspan>
+        </text>
+      </g>
+      <g id="Graphic_93">
+        <title>label_diag2_13</title>
+        <text transform="translate(25 665)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x=".1" y="18">bit 13</tspan>
+        </text>
+      </g>
+      <g id="Graphic_92">
+        <title>label_diag2_12</title>
+        <text transform="translate(25 565)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x=".1" y="18">bit 12</tspan>
+        </text>
+      </g>
+      <g id="Graphic_91">
+        <title>label_diag2_11</title>
+        <text transform="translate(25 465)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x=".1" y="18">bit 11</tspan>
+        </text>
+      </g>
+      <g id="Graphic_90">
+        <title>label_diag2_10</title>
+        <text transform="translate(25 365)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x=".1" y="18">bit 10</tspan>
+        </text>
+      </g>
+      <g id="Graphic_89">
+        <title>label_diag2_9</title>
+        <text transform="translate(25 265)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x="0" y="18">bit 9</tspan>
+        </text>
+      </g>
+      <g id="Graphic_88">
+        <title>label_diag2_8</title>
+        <text transform="translate(25 165)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x="0" y="18">bit 8</tspan>
+        </text>
+      </g>
+      <g id="Graphic_87">
+        <title>label_diag2_6</title>
+        <text transform="translate(155 55)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x="0" y="18">bit 6</tspan>
+        </text>
+      </g>
+      <g id="Graphic_86">
+        <title>label_diag2_5</title>
+        <text transform="translate(260 55)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x="0" y="18">bit 5</tspan>
+        </text>
+      </g>
+      <g id="Graphic_85">
+        <title>label_diag2_4</title>
+        <text transform="translate(360 55)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x="0" y="18">bit 4</tspan>
+        </text>
+      </g>
+      <g id="Graphic_84">
+        <title>label_diag2_1</title>
+        <text transform="translate(660 55)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x="0" y="18">bit 1</tspan>
+        </text>
+      </g>
+      <g id="Graphic_83">
+        <title>label_diag2_0</title>
+        <text transform="translate(760 55)" fill="black">
+          <tspan font-family="Source Code Pro" font-size="18" font-weight="400" fill="black" x="0" y="18">bit 0</tspan>
+        </text>
+      </g>
     </g>
-    <g>
+    <g id="Canvas_1: Diag2-On">
       <title>Diag2-On</title>
-      <line x1="90" y1="90" x2="886.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="490" y1="90" x2="886.6357" y2="486.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="590" y1="90" x2="886.6357" y2="386.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
+      <g id="Line_59">
+        <title>diag2_7</title>
+        <line x1="90" y1="90" x2="886.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_58">
+        <title>diag2_3</title>
+        <line x1="490" y1="90" x2="886.6357" y2="486.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_57">
+        <title>diag2_2</title>
+        <line x1="590" y1="90" x2="886.6357" y2="386.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
     </g>
-    <g>
+    <g id="Canvas_1: Diag2-Off">
       <title>Diag2-Off</title>
-      <line x1="90" y1="790" x2="186.63568" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="90" y1="690" x2="286.63568" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="90" y1="590" x2="386.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="90" y1="490" x2="486.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="90" y1="390" x2="586.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="90" y1="290" x2="686.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="90" y1="190" x2="786.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="190" y1="90" x2="886.6357" y2="786.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="290" y1="90" x2="886.6357" y2="686.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="390" y1="90" x2="886.6357" y2="586.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="690" y1="90" x2="886.6357" y2="286.63568" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
-      <line x1="790" y1="90" x2="886.6357" y2="186.63568" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-dasharray="1,5"/>
+      <g id="Line_56">
+        <title>diag2_14</title>
+        <line x1="90" y1="790" x2="186.63568" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_55">
+        <title>diag2_13</title>
+        <line x1="90" y1="690" x2="286.63568" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_54">
+        <title>diag2_12</title>
+        <line x1="90" y1="590" x2="386.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_53">
+        <title>diag2_11</title>
+        <line x1="90" y1="490" x2="486.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_52">
+        <title>diag2_10</title>
+        <line x1="90" y1="390" x2="586.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_51">
+        <title>diag2_9</title>
+        <line x1="90" y1="290" x2="686.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_50">
+        <title>diag2_8</title>
+        <line x1="90" y1="190" x2="786.6357" y2="886.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_49">
+        <title>diag2_6</title>
+        <line x1="190" y1="90" x2="886.6357" y2="786.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_48">
+        <title>diag2_5</title>
+        <line x1="290" y1="90" x2="886.6357" y2="686.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_47">
+        <title>diag2_4</title>
+        <line x1="390" y1="90" x2="886.6357" y2="586.6357" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_46">
+        <title>diag2_1</title>
+        <line x1="690" y1="90" x2="886.6357" y2="286.63568" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
+      <g id="Line_45">
+        <title>diag2_0</title>
+        <line x1="790" y1="90" x2="886.6357" y2="186.63568" marker-end="url(#FilledArrow_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,20.0" stroke-width="4"/>
+      </g>
     </g>
   </g>
 </svg>
