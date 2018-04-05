@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-5 -5 810 810" width="800" height="800">
+  <defs>
+    <style type="text/css"><![CDATA[
+      .piece { font-size: 90px; font-weight: 400; }
+      .blackp { fill: black; }
+      .whitep { fill: white; stroke: black; stroke-width: 2px;}
+    ]]></style>
+    <rect id="whitesquare" width="100" height="100" stroke="black" stroke-width="3" fill="#ddd"/>
+    <rect id="blacksquare" width="100" height="100" stroke="black" stroke-width="3" fill="#666"/>
+    <g id="oddrow">
+      <use xl:href="#whitesquare" x="0" y="0"/>
+      <use xl:href="#blacksquare" x="100" y="0"/>
+      <use xl:href="#whitesquare" x="200" y="0"/>
+      <use xl:href="#blacksquare" x="300" y="0"/>
+      <use xl:href="#whitesquare" x="400" y="0"/>
+      <use xl:href="#blacksquare" x="500" y="0"/>
+      <use xl:href="#whitesquare" x="600" y="0"/>
+      <use xl:href="#blacksquare" x="700" y="0"/>
+    </g>
+    <g id="evenrow">
+      <use xl:href="#blacksquare" x="0" y="0"/>
+      <use xl:href="#whitesquare" x="100" y="0"/>
+      <use xl:href="#blacksquare" x="200" y="0"/>
+      <use xl:href="#whitesquare" x="300" y="0"/>
+      <use xl:href="#blacksquare" x="400" y="0"/>
+      <use xl:href="#whitesquare" x="500" y="0"/>
+      <use xl:href="#blacksquare" x="600" y="0"/>
+      <use xl:href="#whitesquare" x="700" y="0"/>
+    </g>
+    <g id="board">
+      <use xl:href="#oddrow" x="0" y="0"/>
+      <use xl:href="#evenrow" x="0" y="100"/>
+      <use xl:href="#oddrow" x="0" y="200"/>
+      <use xl:href="#evenrow" x="0" y="300"/>
+      <use xl:href="#oddrow" x="0" y="400"/>
+      <use xl:href="#evenrow" x="0" y="500"/>
+      <use xl:href="#oddrow" x="0" y="600"/>
+      <use xl:href="#evenrow" x="0" y="700"/>
+      <rect x="0" y="0" width="800" height="800" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" fill="none"/>
+    </g>
+    <text id="whiteking"><tspan class="whitep piece" x="5" y="80">&#x265A;</tspan></text>
+    <text id="whitequeen"><tspan class="whitep piece" x="5" y="80">&#x265B;</tspan></text>
+    <text id="whiterook"><tspan class="whitep piece" x="5" y="80">&#x265C;</tspan></text>
+    <text id="whitebishop"><tspan class="whitep piece" x="5" y="80">&#x265D;</tspan></text>
+    <text id="whiteknight"><tspan class="whitep piece" x="5" y="80">&#x265E;</tspan></text>
+    <text id="whitepawn"><tspan class="whitep piece" x="5" y="80">&#x265F;</tspan></text>
+    <text id="blackking"><tspan class="blackp piece" x="5" y="80">&#x265A;</tspan></text>
+    <text id="blackqueen"><tspan class="blackp piece" x="5" y="80">&#x265B;</tspan></text>
+    <text id="blackrook"><tspan class="blackp piece" x="5" y="80">&#x265C;</tspan></text>
+    <text id="blackbishop"><tspan class="blackp piece" x="5" y="80">&#x265D;</tspan></text>
+    <text id="blackknight"><tspan class="blackp piece" x="5" y="80">&#x265E;</tspan></text>
+    <text id="blackpawn"><tspan class="blackp piece" x="5" y="80">&#x265F;</tspan></text>
+  </defs>
+  <g>
+    <use xl:href="#board" x="0" y="0"/>
+    <use xl:href="#blackrook" x="0" y="0"/>
+    <use xl:href="#blackknight" x="100" y="0"/>
+    <use xl:href="#blackbishop" x="200" y="0"/>
+    <use xl:href="#blackqueen" x="300" y="0"/>
+    <use xl:href="#blackking" x="400" y="0"/>
+    <use xl:href="#blackbishop" x="500" y="0"/>
+    <use xl:href="#blackknight" x="600" y="0"/>
+    <use xl:href="#blackrook" x="700" y="0"/>
+    <use xl:href="#blackpawn" x="0" y="100"/>
+    <use xl:href="#blackpawn" x="100" y="100"/>
+    <use xl:href="#blackpawn" x="200" y="100"/>
+    <use xl:href="#blackpawn" x="300" y="100"/>
+    <use xl:href="#blackpawn" x="400" y="100"/>
+    <use xl:href="#blackpawn" x="500" y="100"/>
+    <use xl:href="#blackpawn" x="600" y="100"/>
+    <use xl:href="#blackpawn" x="700" y="100"/>
+    <use xl:href="#whiterook" x="0" y="700"/>
+    <use xl:href="#whiteknight" x="100" y="700"/>
+    <use xl:href="#whitebishop" x="200" y="700"/>
+    <use xl:href="#whitequeen" x="300" y="700"/>
+    <use xl:href="#whiteking" x="400" y="700"/>
+    <use xl:href="#whitebishop" x="500" y="700"/>
+    <use xl:href="#whiteknight" x="600" y="700"/>
+    <use xl:href="#whiterook" x="700" y="700"/>
+    <use xl:href="#whitepawn" x="0" y="600"/>
+    <use xl:href="#whitepawn" x="100" y="600"/>
+    <use xl:href="#whitepawn" x="200" y="600"/>
+    <use xl:href="#whitepawn" x="300" y="600"/>
+    <use xl:href="#whitepawn" x="400" y="600"/>
+    <use xl:href="#whitepawn" x="500" y="600"/>
+    <use xl:href="#whitepawn" x="600" y="600"/>
+    <use xl:href="#whitepawn" x="700" y="600"/>
+  </g>
+</svg>
