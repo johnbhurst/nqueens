@@ -14,13 +14,14 @@ DIR=`dirname $0`
 PROJECT="nqueens-gcp"
 NAME="queens"
 ZONE="us-central1-a"
+IMAGE="debian-9-stretch-v20180129"
 CPUS=64
 
 gcloud compute --project $PROJECT instances create $NAME \
   --zone $ZONE \
   --machine-type "n1-highcpu-$CPUS" \
   --min-cpu-platform "Intel Skylake" \
-  --image "debian-9-stretch-v20180105" \
+  --image $IMAGE \
   --image-project "debian-cloud" \
   --boot-disk-size "10" \
   --boot-disk-type "pd-standard" \
