@@ -2,6 +2,7 @@
 # John Hurst (john.b.hurst@gmail.com)
 # 2018-01-08
 
+sudo apt-get update
 sudo apt-get -y install git
 sudo apt-get -y install openjdk-8-jdk
 
