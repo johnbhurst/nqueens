@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import static java.lang.Integer.parseInt;
 import static java.util.stream.IntStream.range;
 
-public class QueensStreamParallelMap {
+public class QueensStreamParallelGenerating {
 
   public static void main(String[] args) {
     int level = 3;
