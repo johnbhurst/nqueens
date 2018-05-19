@@ -11,6 +11,8 @@ import static java.util.stream.IntStream.range;
 
 public class QueensStreamParallelBranching {
 
+  private static final int PARALLELISM_DEPTH = 1;
+
   public static void main(String[] args) {
     int from = args.length >= 1 ? parseInt(args[0]) : 0;
     int to = args.length >= 2 ? parseInt(args[1]) : from;
@@ -56,7 +58,7 @@ public class QueensStreamParallelBranching {
       if (this.row == this.size) {
         return 1;
       }
-      IntStream cols = this.row <= 1 ?
+      IntStream cols = this.row < PARALLELISM_DEPTH ?
         range(0, this.size).parallel() :
         range(0, this.size);
       return cols

@@ -13,16 +13,17 @@ import static java.util.stream.IntStream.range;
 
 public class QueensStreamParallelGenerating {
 
+  private static final int PARALLELISM_DEPTH = 1;
+
   public static void main(String[] args) {
-    int level = 3;
     int from = args.length >= 1 ? parseInt(args[0]) : 0;
     int to = args.length >= 2 ? parseInt(args[1]) : from;
 
     for (int size = from; size <= to; size++) {
       Instant start = Instant.now();
       Stream<Board> boards = Stream.iterate(Stream.of(new Board(size)), s -> s.flatMap(Board::generate))
-        .limit(level)
-        .skip(level - 1)
+        .limit(PARALLELISM_DEPTH)
+        .skip(PARALLELISM_DEPTH - 1)
         .findFirst()
         .get();
       int count = boards.collect(Collectors.toList()).stream().parallel()
