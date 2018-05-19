@@ -12,7 +12,7 @@ import static java.lang.Integer.parseInt;
 
 public class QueensForkJoin {
 
-  private static final int PARALLELISM_DEPTH = 1;
+  private static final int PARALLELISM_DEPTH = 2;
 
   public static void main(String[] args) {
     int from = args.length >= 1 ? parseInt(args[0]) : 0;
