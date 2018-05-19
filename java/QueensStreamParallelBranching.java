@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import static java.lang.Integer.parseInt;
 import static java.util.stream.IntStream.range;
 
-public class QueensStreamParallel {
+public class QueensStreamParallelBranching {
 
   public static void main(String[] args) {
     int from = args.length >= 1 ? parseInt(args[0]) : 0;
