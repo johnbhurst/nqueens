@@ -7,3 +7,4 @@
 *.vpb
 *.vpwhist*
 tmp/
+*.csv
