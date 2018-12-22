@@ -30,8 +30,8 @@ defmodule Queens do
       1
     else
       1..board.size
-        |> Enum.filter(fn col -> ok(board, col) end)
-        |> Enum.map(fn col -> solve(place(board, col)) end)
+        |> Enum.filter(&(ok(board, &1)))
+        |> Enum.map(&(solve(place(board, &1))))
         |> Enum.sum
     end
   end
