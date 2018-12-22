@@ -1,18 +1,5 @@
 defmodule Queens do
-  @moduledoc """
-  Documentation for Queens.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Queens.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def main(argv) do
+    IO.puts "Hello World (#{argv})"
   end
 end
