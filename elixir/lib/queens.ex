@@ -2,7 +2,6 @@ defmodule Board do
   defstruct size: 8, row: 0, cols: 0, diags1: 0, diags2: 0
 end
 
-
 defmodule Queens do
   use Bitwise
 
@@ -26,15 +25,10 @@ defmodule Queens do
     if board.row == board.size do
       1
     else
-      Enum.sum(
-        Enum.map(
-          Enum.filter(
-            1..board.size,
-            fn col -> ok(board, col) end
-          ),
-          fn col -> solve(place(board, col)) end
-        )
-      )
+      1..board.size
+        |> Enum.filter(fn col -> ok(board, col) end)
+        |> Enum.map(fn col -> solve(place(board, col)) end)
+        |> Enum.sum
     end
   end
 
