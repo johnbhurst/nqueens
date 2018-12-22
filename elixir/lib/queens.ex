@@ -35,13 +35,11 @@ defmodule Queens do
   def main(argv) do
     from = if length(argv) > 0, do: String.to_integer(Enum.at(argv, 0)), else: 8
     to = if length(argv) > 1, do: String.to_integer(Enum.at(argv, 1)), else: from
-
     for size <- from..to do
       start = Time.utc_now
       result = solve(%Board{size: size})
       duration = Time.diff(Time.utc_now, start, 1000)/1000
       IO.puts "#{size},#{result},#{duration}"
     end
-
   end
 end
