@@ -26,27 +26,15 @@ defmodule Queens do
   end
 
   def solve(board) do
-    if board.row == board.size do
-      1
-    else
-      1..board.size
-        |> Enum.filter(&(ok(board, &1)))
-        |> Enum.map(&(solve(place(board, &1))))
-        |> Enum.sum
-    end
+    if board.row == board.size, do: 1, else: 1..board.size
+      |> Enum.filter(&(ok(board, &1)))
+      |> Enum.map(&(solve(place(board, &1))))
+      |> Enum.sum
   end
 
   def main(argv) do
-    from = if length(argv) > 0 do
-      String.to_integer(Enum.at(argv, 0))
-    else
-      8
-    end
-    to = if length(argv) > 1 do
-      String.to_integer(Enum.at(argv, 1))
-    else
-      from
-    end
+    from = if length(argv) > 0, do: String.to_integer(Enum.at(argv, 0)), else: 8
+    to = if length(argv) > 1, do: String.to_integer(Enum.at(argv, 1)), else: from
 
     for size <- from..to do
       start = Time.utc_now
