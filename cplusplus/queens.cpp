@@ -4,7 +4,6 @@
 
 #include <iomanip>
 #include <iostream>
-// #include <future>
 
 class Board {
 public:
@@ -66,14 +65,12 @@ int main(int argc, char** argv) {
   int from = argc < 2 ? 8 : atoi(argv[1]);
   int to = argc < 3 ? from : atoi(argv[2]);
 
-  for (int size = from; size <= to; size++)
-  {
+  for (int size = from; size <= to; size++) {
     clock_t start = clock();
     int result = Board(size).solve();
     clock_t end = clock();
     float elapsed = (end - start) / 1000000.0;
     std::cout << size << "," << result << "," << std::setprecision(3) << elapsed << std::endl;
-    // printf("Board size %d has %d solutions. Calculated in %dms\n", size, result, elapsed);
   }
 }
 
