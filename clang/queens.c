@@ -16,13 +16,7 @@ typedef struct {
 } Board;
 
 Board new(int size) {
-  Board result;
-  result.size = size;
-  result.row = 0;
-  result.cols = 0;
-  result.diags1 = 0;
-  result.diags2 = 0;
-  return result;
+  return (Board){size, 0, 0, 0, 0};
 }
 
 int ok(Board board, int col) {
@@ -32,13 +26,13 @@ int ok(Board board, int col) {
 }
 
 Board place(Board board, int col) {
-  Board result;
-  result.size = board.size;
-  result.row = board.row + 1;
-  result.cols = board.cols | 1 << col;
-  result.diags1 = board.diags1 | 1 << (board.row + col);
-  result.diags2 = board.diags2 | 1 << (board.row - col + board.size - 1);
-  return result;
+  return (Board){
+    board.size,
+    board.row + 1,
+    board.cols | 1 << col,
+    board.diags1 | 1 << (board.row + col),
+    board.diags2 | 1 << (board.row - col + board.size - 1)
+  };
 }
 
 int solve(Board board) {
