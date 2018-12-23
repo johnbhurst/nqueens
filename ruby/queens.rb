@@ -39,6 +39,6 @@ to = ARGV ? ARGV.shift.to_i : from
 from.upto(to) do |size|
   start = Time::now
   solutions = Board.new(size).solve
-  duration = sprintf("%0.3f", (Time::now - start).to_f)
-  puts "#{size},#{solutions},#{duration}"
+  duration = (Time::now - start).to_f
+  puts "#{size},#{solutions},#{sprintf("%0.3f", duration)}"
 end
