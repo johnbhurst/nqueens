@@ -19,21 +19,21 @@ class Board
 
   def ok(col)
     @cols & (1 << col) |
-    @diags1 & (1 << @row+col) |
-    @diags2 & (1 << @row-col+@size-1) == 0
+    @diags1 & (1 << @row + col) |
+    @diags2 & (1 << @row - col + @size - 1) == 0
   end
 
   def place(col)
     Board.new(@size,
     @row+1,
     @cols | (1 << col),
-    @diags1 | (1 << @row+col),
-    @diags2 | (1 << @row-col+@size-1) )
+    @diags1 | (1 << @row + col),
+    @diags2 | (1 << @row - col + @size - 1) )
   end
 
   def solve
     @row == @size ? 1 :
-    (0...@size).map {|col| ok(col) ? place(col).solve : 0}.reduce {|a,b| a+b}
+    (0...@size).map {|col| ok(col) ? place(col).solve : 0}.reduce {|a,b| a + b}
   end
 end
 
