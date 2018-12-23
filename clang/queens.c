@@ -58,8 +58,8 @@ int main(int argc, char** argv) {
     clock_t start = clock();
     int result = solve(new(size));
     clock_t end = clock();
-    int elapsed = (end - start) / 1000;
-    printf("Board size %d has %d solutions. Calculated in %dms\n", size, result, elapsed);
+    float elapsed = (end - start) / 1000000.0;
+    printf("%d,%d,%0.3f\n", size, result, elapsed);
   }
 }
 
