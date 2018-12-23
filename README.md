@@ -225,6 +225,15 @@ let rec solve board =
             |> Seq.sum
 ```
 
+Or Elixir's:
+
+```elixir
+if board.row == board.size, do: 1, else: 1..board.size
+  |> Enum.filter(fn col -> ok(board, col) end)
+  |> Enum.map(fn col -> solve(place(board, col)) end)
+  |> Enum.sum
+```
+
 ## Algorithm Notes
 
 For even sized boards, we can save half the work by using only half of the columns in the first row, and doubling the result.
