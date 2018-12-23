@@ -7,7 +7,7 @@
 
 class Board {
 public:
-  Board(int size);
+  Board(int size, int row = 0, int cols = 0, int diags1 = 0, int diags2 = 0);
   bool ok(int col);
   Board place(int col);
   int solve();
@@ -20,8 +20,12 @@ private:
   int diags2_ = 0;
 };
 
-Board::Board(int size) {
+Board::Board(int size, int row, int cols, int diags1, int diags2) {
   size_ = size;
+  row_ = row;
+  cols_ = cols;
+  diags1_ = diags1;
+  diags2_ = diags2;
 }
 
 bool Board::ok(int col) {
@@ -31,12 +35,13 @@ bool Board::ok(int col) {
 }
 
 Board Board::place(int col) {
-  Board result(size_);
-  result.row_ = row_ + 1;
-  result.cols_ = cols_ | 1 << col;
-  result.diags1_ = diags1_ | 1 << (row_ + col);
-  result.diags2_ = diags2_ | 1 << (row_ - col + size_ - 1);
-  return result;
+  return Board(
+    size_,
+    row_ + 1,
+    cols_ | 1 << col,
+    diags1_ | 1 << (row_ + col),
+    diags2_ | 1 << (row_ - col + size_ - 1)
+  );
 }
 
 int Board::solve() {
