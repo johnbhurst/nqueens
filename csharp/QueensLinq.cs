@@ -6,25 +6,6 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 
-class QueensLinq {
-
-  static void Main(string[] args) {
-    Int32 from = args.Length >= 1 ? Int32.Parse(args[0]) : 8;
-    Int32 to = args.Length >= 2 ? Int32.Parse(args[1]) : from;
-
-    for (int size = from; size <= to; size++) {
-      Stopwatch watch = new Stopwatch();
-      watch.Start();
-      Board board = new Board(size);
-      int count = board.Solve();
-      watch.Stop();
-      TimeSpan ts = watch.Elapsed;
-      string elapsed = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-      Console.WriteLine("Board size " + size + " has " + count + " solutions. Calculated in " + elapsed + ".");
-    }
-  }
-}
-
 class Board {
   private int size;
   private int row;
@@ -57,5 +38,23 @@ class Board {
         .Where(Ok)
         .Select(col => Place(col).Solve())
         .Sum();
+  }
+}
+
+class QueensLinq {
+  static void Main(string[] args) {
+    Int32 from = args.Length >= 1 ? Int32.Parse(args[0]) : 8;
+    Int32 to = args.Length >= 2 ? Int32.Parse(args[1]) : from;
+
+    for (int size = from; size <= to; size++) {
+      Stopwatch watch = new Stopwatch();
+      watch.Start();
+      Board board = new Board(size);
+      int count = board.Solve();
+      watch.Stop();
+      TimeSpan ts = watch.Elapsed;
+      string elapsed = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+      Console.WriteLine("Board size " + size + " has " + count + " solutions. Calculated in " + elapsed + ".");
+    }
   }
 }
