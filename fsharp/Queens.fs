@@ -39,5 +39,6 @@ let main argv =
         let count = size |> empty |> solve
         watch.Stop()
         let ts = watch.Elapsed
-        printfn "Board size %d has %d solutions.  Calculated in %02d:%02d:%02d.%03d." size count ts.Hours ts.Minutes ts.Seconds ts.Milliseconds
+        let elapsed = (float ts.Hours) * 3600.0 + (float ts.Minutes) * 60.0 + (float ts.Seconds) + (float ts.Milliseconds) / 1000.0
+        printfn "%d,%d,%0.3f" size count elapsed
     0
