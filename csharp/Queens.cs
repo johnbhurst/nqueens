@@ -59,8 +59,8 @@ class Queens {
       int count = board.Solve();
       watch.Stop();
       TimeSpan ts = watch.Elapsed;
-      string elapsed = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-      Console.WriteLine("Board size " + size + " has " + count + " solutions. Calculated in " + elapsed + ".");
+      double elapsed = ts.Hours*3600.0 + ts.Minutes*60.0 + ts.Seconds + ts.Milliseconds/1000.0;
+      Console.WriteLine(String.Format("{0:0},{1:0},{2:0.000}", size, count, elapsed));
     }
   }
 }
