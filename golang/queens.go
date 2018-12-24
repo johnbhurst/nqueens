@@ -70,7 +70,7 @@ func main() {
 	for size := from; size <= to; size++ {
 		start := time.Now()
 		count := Solve(New(size))
-		duration := time.Now().Sub(start)
-		fmt.Printf("Board size %d has %d solutions. Calculated in %v.\n", size, count, duration)
+		duration := time.Now().Sub(start).Seconds()
+		fmt.Printf("%d,%d,%0.3f\n", size, count, duration)
 	}
 }
