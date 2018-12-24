@@ -23,6 +23,12 @@ func New(size int) Board {
 	return Board{size: size}
 }
 
+func Ok(board Board, col int) bool {
+  return board.cols & (1 << uint(col)) == 0 &&
+    board.diags1 & (1 << uint(board.row + col)) == 0 &&
+    board.diags2 & (1 << uint(board.row - col + board.size - 1)) == 0
+}
+
 func Place(board Board, col int) Board {
   return Board{
     size: board.size,
@@ -30,12 +36,6 @@ func Place(board Board, col int) Board {
     cols: board.cols | (1 << uint(col)),
     diags1: board.diags1 | (1 << uint(board.row + col)),
     diags2: board.diags2 | (1 << uint(board.row - col + board.size - 1))}
-}
-
-func Ok(board Board, col int) bool {
-	return board.cols & (1 << uint(col)) == 0 &&
-		board.diags1 & (1 << uint(board.row + col)) == 0 &&
-    board.diags2 & (1 << uint(board.row - col + board.size - 1)) == 0
 }
 
 func Solve(board Board) int {
