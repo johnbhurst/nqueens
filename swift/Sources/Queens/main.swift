@@ -46,5 +46,5 @@ for size in from...to {
   let startTime = Date.init()
   let solutions = Board(size: size, row: 0, cols: 0, diags1: 0, diags2: 0).solve()
   let duration = Date.init().timeIntervalSince(startTime)
-  print(String(format: "swift,%d,%d,%.3f", size, solutions, duration))
+  print(String(format: "%d,%d,%.3f", size, solutions, duration))
 }

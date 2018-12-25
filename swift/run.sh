@@ -2,9 +2,12 @@
 # John Hurst (john.b.hurst@gmail.com)
 # 2018-12-09
 
-FROM=${1:-8}
-TO=${2:-$FROM}
+DIR=$(dirname $0)
+NAME=$1
+FROM=${2:-8}
+TO=${3:-$FROM}
 
-swiftc -o Queens -O Sources/Queens/main.swift
-./Queens $FROM $TO | tee swift.csv
-
+cd $DIR
+swiftc -o $NAME -O Sources/$NAME/main.swift
+./$NAME $FROM $TO
+rm $NAME
