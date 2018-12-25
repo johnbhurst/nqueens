@@ -6,23 +6,11 @@ import java.time.Duration;
 import java.time.Instant;
 
 import static java.lang.Integer.parseInt;
+import static java.time.temporal.ChronoUnit.NANOS;
+import static java.time.temporal.ChronoUnit.SECONDS;
 import static java.util.stream.IntStream.range;
 
 public class QueensStream {
-
-  public static void main(String[] args) {
-    int from = args.length >= 1 ? parseInt(args[0]) : 0;
-    int to = args.length >= 2 ? parseInt(args[1]) : from;
-
-    for (int size = from; size <= to; size++) {
-      Instant start = Instant.now();
-      Board board = new Board(size);
-      int count = board.solve();
-      Instant end = Instant.now();
-      Duration duration = Duration.between(start, end);
-      System.out.println("Board size " + size + " has " + count + " solutions. Calculated in " + duration + ".");
-    }
-  }
 
   static class Board {
 
@@ -61,5 +49,18 @@ public class QueensStream {
     }
   }
 
-}
+  public static void main(String[] args) {
+    int from = args.length >= 1 ? parseInt(args[0]) : 0;
+    int to = args.length >= 2 ? parseInt(args[1]) : from;
 
+    for (int size = from; size <= to; size++) {
+      Instant start = Instant.now();
+      Board board = new Board(size);
+      int count = board.solve();
+      Instant end = Instant.now();
+      Duration duration = Duration.between(start, end);
+      double seconds = duration.get(SECONDS) + duration.get(NANOS) / 1000000000.0;
+      System.out.println(String.format("%d,%d,%.3f", size, count, seconds));
+    }
+  }
+}
