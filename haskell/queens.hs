@@ -51,15 +51,20 @@ solve board@(Board {size = size, placed = placed}) =
     where boards = map (place board) cols
           cols = filter (ok board) [0..size-1]
 
+
+timeToMillis :: Integer -> Integer -> Float
+timeToMillis start end =
+  (fromIntegral (end-start)) / (fromIntegral 10^12)
+
 -- Solves board of given size and prints result and time to compute.
 timeSolution :: Int -> IO ()
 timeSolution size = do
   start <- getCPUTime
   let result = solve $ new size
-  printf "Board size %d has %d solutions. " size result
+  printf "%d,%d" size result
   end <- getCPUTime
-  let diff = quot (end - start) (10^9)
-  printf "Calculated in: %dms\n" diff
+  let diff = timeToMillis start end
+  printf ",%0.3f\n" diff
   return ()
 
 -- Returns the range of boards to solve, derived from command-line arguments.
