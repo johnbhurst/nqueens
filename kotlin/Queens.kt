@@ -5,20 +5,16 @@
 import java.time.Duration
 import java.time.Instant
 
-fun main(args: Array<String>) {
-  val from = if (args.size > 0) Integer.parseInt(args[0]) else 8
-  val to = if (args.size > 1) Integer.parseInt(args[1]) else from
-  for (size in from..to) {
-    time {"Board size $size has ${Board(size).solve()} solutions"}
-  }
-}
+import java.time.temporal.ChronoUnit.NANOS
+import java.time.temporal.ChronoUnit.SECONDS
 
 fun <T> time(f: () -> T): Unit {
   val start = Instant.now()
   val result = f()
   val end = Instant.now()
   val duration = Duration.between(start, end)
-  println("$result. Calculated in $duration")
+  val seconds = duration.get(SECONDS) + duration.get(NANOS)/1000000000.0
+  println("$result,$seconds")
 }
 
 class Board(
@@ -47,4 +43,13 @@ class Board(
         .filter(::ok)
         .map { place(it).solve() }
         .sum()
+
+}
+
+fun main(args: Array<String>) {
+  val from = if (args.size > 0) Integer.parseInt(args[0]) else 8
+  val to = if (args.size > 1) Integer.parseInt(args[1]) else from
+  for (size in from..to) {
+    time {"$size,${Board(size).solve()}"}
+  }
 }
