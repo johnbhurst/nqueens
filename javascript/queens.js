@@ -48,8 +48,9 @@ var end = process.argv.length > 3 ?
   Number.parseInt(process.argv[3]) : start
 
 for (var size = start; size <= end; size++) {
-  console.time(size)
+  var t = process.hrtime();
   var result = solve_board(new_board(size))
-  console.timeEnd(size)
-  console.log(result)
+  t = process.hrtime(t);
+  var seconds = t[0] + t[1]/1000000000.0;
+  console.log("%d,%d,%f", size, result, seconds.toFixed(3));
 }
