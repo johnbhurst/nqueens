@@ -2,6 +2,8 @@
 # John Hurst (john.b.hurst@gmail.com)
 # 2018-03-30
 
+using Printf
+
 struct Board
   size::Int
   row::Int
@@ -42,8 +44,6 @@ from = length(ARGS) > 0 ? parse(Int, ARGS[1]) : 8
 to = length(ARGS) > 1 ? parse(Int, ARGS[2]) : from
 
 for size in from:to
-  tic()
-  println("Board size $size has $(solve(new(size))) solutions.")
-  toc()
+  time = @elapsed result = solve(new(size))
+  println("$size,$result,$(@sprintf("%0.3f", time))")
 end
-
