@@ -9,5 +9,3 @@ TO=$3
 
 cd $DIR
 scala ${NAME}.scala $FROM $TO
-rm *class
-
