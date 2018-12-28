@@ -21,12 +21,12 @@ class Board(
     (diags2 and (1 shl row - col + size - 1)) == 0
 
   fun place(col: Int) = Board(
-      size = this.size,
-      row = this.row + 1,
-      cols = this.cols or (1 shl col),
-      diags1 = this.diags1 or (1 shl this.row + col),
-      diags2 = this.diags2 or (1 shl this.row - col + this.size - 1)
-    )
+    size = this.size,
+    row = this.row + 1,
+    cols = this.cols or (1 shl col),
+    diags1 = this.diags1 or (1 shl this.row + col),
+    diags2 = this.diags2 or (1 shl this.row - col + this.size - 1)
+  )
 
   fun solve(): Int =
     if (row == size) 1 else
