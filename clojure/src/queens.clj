@@ -70,7 +70,6 @@
 )
 
 (defn -main
-  "I don't do a whole lot."
   [from to]
   (doseq [size (range (Integer/parseInt from) (+ (Integer/parseInt to) 1))]
     (println (run size))
