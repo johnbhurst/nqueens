@@ -6,7 +6,7 @@ We compare different programming languages and platforms, and also different pro
 
 Unless otherwise noted, the same basic algorithm is used for all programs.
 
-## Algorithm Description
+# Algorithm Description
 
 We start with an empty board and count the solutions for boards found by placing a queen at each column on the first row.
 For each of those boards, we count solutions recursively by placing queens on each available column on the next row.
@@ -234,7 +234,7 @@ if board.row == board.size, do: 1, else: 1..board.size
   |> Enum.sum
 ```
 
-## Algorithm Notes
+# Algorithm Notes
 
 For even sized boards, we can save half the work by using only half of the columns in the first row, and doubling the result.
 For odd sized boards, we can do a similar trick counting twice for the first ((n-1)/2) columns, then once for the middle column.
@@ -244,3 +244,7 @@ However, the recursion means a call and a stack frame for every queen placed, wh
 An algorithm using iteration instead of recursion might be more performant.
 But it would also be harder to reason about and harder to make parallel.
 
+# See Also
+
+* [N Queens Problem (Wikipedia)](https://en.wikipedia.org/wiki/Eight_queens_puzzle)
+* [Online Encyclopedia of Integer Sequences (sequence #170)](https://oeis.org/A000170)
