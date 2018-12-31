@@ -3,7 +3,7 @@ defmodule Queens.MixProject do
 
   def project do
     [
-      app: :queens,
+      app: :Queens,
       version: "0.1.0",
       elixir: "~> 1.7",
       escript: escript_config(),
