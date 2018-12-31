@@ -2,7 +2,8 @@
 ; John Hurst (john.b.hurst@gmail.com)
 ; 2018-12-31 (Happy New Year!)
 
-(ns queens)
+(ns queens (:gen-class))
+;(ns queens)
 
 (defn newBoard [size]
   {:size size, :row 0, :cols 0, :diags1 0, :diags2 0}

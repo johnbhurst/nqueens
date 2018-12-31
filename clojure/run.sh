@@ -8,4 +8,5 @@ FROM=$2
 TO=$3
 
 cd $DIR
-lein run $FROM $TO
+lein uberjar
+java -jar target/queens-0.1.0-SNAPSHOT-standalone.jar 8 15

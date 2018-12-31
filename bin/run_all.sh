@@ -28,10 +28,10 @@ groovy $DIR/combine.groovy \
   perl.csv  \
   ruby.csv  \
   python.csv  \
-  clojure.csv  \
   elixir.csv  \
   groovy.csv  \
   haskell.csv  \
+  clojure.csv  \
   fsharp.csv  \
   crystal.csv  \
   swift.csv  \
