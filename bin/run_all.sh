@@ -5,23 +5,23 @@
 DIR=$(dirname $0)
 
 clang/run.sh      queens  8 16 | sed -e "s/^/clang,/"      > clang.csv
-clojure/run.sh    queens  8 14 | sed -e "s/^/clojure,/"    > clojure.csv
+clojure/run.sh    queens  8 15 | sed -e "s/^/clojure,/"    > clojure.csv
 cplusplus/run.sh  queens  8 16 | sed -e "s/^/cplusplus,/"  > cplusplus.csv
 crystal/run.sh    queens  8 15 | sed -e "s/^/crystal,/"    > crystal.csv
-csharp/run.sh     Queens  8 15 | sed -e "s/^/csharp,/"     > csharp.csv
+csharp/run.sh     Queens  8 16 | sed -e "s/^/csharp,/"     > csharp.csv
 elixir/run.sh     queens  8 15 | sed -e "s/^/elixir,/"     > elixir.csv
 fsharp/run.sh     nqueens 8 15 | sed -e "s/^/fsharp,/"     > fsharp.csv
 golang/run.sh     queens  8 16 | sed -e "s/^/golang,/"     > golang.csv
 groovy/run.sh     Queens  8 15 | sed -e "s/^/groovy,/"     > groovy.csv
-haskell/run.sh    Queens  8 14 | sed -e "s/^/haskell,/"    > haskell.csv
+haskell/run.sh    Queens  8 15 | sed -e "s/^/haskell,/"    > haskell.csv
 java/run.sh       Queens  8 16 | sed -e "s/^/java,/"       > java.csv
-javascript/run.sh queens  8 15 | sed -e "s/^/javascript,/" > javascript.csv
-julia/run.sh      queens  8 14 | sed -e "s/^/julia,/"      > julia.csv
-kotlin/run.sh     Queens  8 15 | sed -e "s/^/kotlin,/"     > kotlin.csv
+javascript/run.sh queens  8 16 | sed -e "s/^/javascript,/" > javascript.csv
+julia/run.sh      queens  8 15 | sed -e "s/^/julia,/"      > julia.csv
+kotlin/run.sh     Queens  8 16 | sed -e "s/^/kotlin,/"     > kotlin.csv
 perl/run.sh       queens  8 14 | sed -e "s/^/perl,/"       > perl.csv
 python/run.sh     queens  8 14 | sed -e "s/^/python,/"     > python.csv
 ruby/run.sh       queens  8 14 | sed -e "s/^/ruby,/"       > ruby.csv
-scala/run.sh      queens  8 15 | sed -e "s/^/scala,/"      > scala.csv
+scala/run.sh      queens  8 16 | sed -e "s/^/scala,/"      > scala.csv
 swift/run.sh      Queens  8 15 | sed -e "s/^/swift,/"      > swift.csv
 
 groovy $DIR/combine.groovy \
