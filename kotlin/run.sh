@@ -3,9 +3,14 @@
 # 2018-01-01
 
 DIR=$(dirname $0)
-NAME=$1
-FROM=$2
-TO=$3
+if [[ $# -eq 3 ]]; then
+  NAME=$1
+  shift
+else
+  NAME=Queens
+fi
+FROM=$1
+TO=$2
 
 cd $DIR
 kotlinc ${NAME}.kt -include-runtime -d ${NAME}.jar
