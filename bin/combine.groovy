@@ -10,8 +10,7 @@ def langs = []
 args.each {fileName ->
   def lang = fileName - ".csv"
   new File(fileName).eachLine {line ->
-    def (fileLang, size, result, time) = line.split(",") as List
-    assert fileLang == lang
+    def (size, result, time) = line.split(",") as List
     assert result as Long == answers[size as int]
     if (!langs.contains(lang)) langs << lang
     results[size][lang] = time
