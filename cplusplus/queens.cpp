@@ -60,8 +60,6 @@ int Board::solve() {
 }
 
 int main(int argc, char** argv) {
-  std::cout << "Hello world." << std::endl;
-
   int from = argc < 2 ? 8 : atoi(argv[1]);
   int to = argc < 3 ? from : atoi(argv[2]);
 
