@@ -13,5 +13,5 @@ FROM=$1
 TO=$2
 
 cd $DIR
-mix escript.build >/dev/null
-./$NAME $FROM $TO
+QUEENS_NAME=$NAME mix escript.build >/dev/null
+./Queens $FROM $TO
