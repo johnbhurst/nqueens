@@ -2,10 +2,6 @@
 # JOhn Hurst (john.b.hurst@gmail.com)
 # 2018-12-22
 
-defmodule Board do
-  defstruct size: 8, row: 0, cols: 0, diags1: 0, diags2: 0
-end
-
 defmodule Queens do
   use Bitwise
 
