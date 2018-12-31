@@ -10,9 +10,9 @@
 typedef struct {
   int size;
   int row;
-  int cols;
-  int diags1;
-  int diags2;
+  long cols;
+  long diags1;
+  long diags2;
 } Board;
 
 Board new(int size) {

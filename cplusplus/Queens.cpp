@@ -15,9 +15,9 @@ public:
 private:
   int size_;
   int row_ = 0;
-  int cols_ = 0;
-  int diags1_ = 0;
-  int diags2_ = 0;
+  long cols_ = 0;
+  long diags1_ = 0;
+  long diags2_ = 0;
 };
 
 Board::Board(int size, int row, int cols, int diags1, int diags2) {

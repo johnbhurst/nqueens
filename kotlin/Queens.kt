@@ -8,18 +8,18 @@ import java.time.Instant
 import java.time.temporal.ChronoUnit.NANOS
 import java.time.temporal.ChronoUnit.SECONDS
 
-class Board(val size: Int, val row: Int = 0, val cols: Int = 0, val diags1: Int = 0, val diags2: Int = 0) {
+class Board(val size: Int, val row: Int = 0, val cols: Long = 0, val diags1: Long = 0, val diags2: Long = 0) {
   fun ok(col: Int) =
-    (cols and (1 shl col)) or
-    (diags1 and (1 shl row + col)) or
-    (diags2 and (1 shl row - col + size - 1)) == 0
+    (cols and (1L shl col)) or
+    (diags1 and (1L shl row + col)) or
+    (diags2 and (1L shl row - col + size - 1)) == 0L
 
   fun place(col: Int) = Board(
     size,
     row + 1,
-    cols or (1 shl col),
-    diags1 or (1 shl row + col),
-    diags2 or (1 shl row - col + size - 1)
+    cols or (1L shl col),
+    diags1 or (1L shl row + col),
+    diags2 or (1L shl row - col + size - 1)
   )
 
   fun solve(): Int =
