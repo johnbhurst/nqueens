@@ -28,10 +28,13 @@ defmodule Queens.MixProject do
   end
 
   defp escript_config do
-    if System.get_env("QUEENS_NAME") == "QueensParallel" do
-      [ main_module: QueensParallel ]
-    else
-      [ main_module: Queens ]
+    cond do
+      System.get_env("QUEENS_NAME") == "QueensParallel" ->
+        [ main_module: QueensParallel ]
+      System.get_env("QUEENS_NAME") == "QueensHalf" ->
+        [ main_module: QueensHalf ]
+      true ->
+        [ main_module: Queens ]
     end
   end
 end
