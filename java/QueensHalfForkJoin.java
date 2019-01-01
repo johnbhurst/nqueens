@@ -12,7 +12,7 @@ import static java.lang.Integer.parseInt;
 import static java.time.temporal.ChronoUnit.NANOS;
 import static java.time.temporal.ChronoUnit.SECONDS;
 
-public class QueensForkJoin {
+public class QueensHalfForkJoin {
 
   private static final int PARALLELISM_DEPTH = 2;
 
@@ -67,10 +67,6 @@ public class QueensForkJoin {
       }
     }
 
-    public int solve() {
-      return this.compute();
-    }
-
     private int solveSequential() {
       if (this.row == this.size) {
         return 1;
@@ -80,6 +76,21 @@ public class QueensForkJoin {
         if (ok(col)) {
           result += place(col).solveSequential();
         }
+      }
+      return result;
+    }
+
+    public int solveRest() {
+      return this.compute();
+    }
+
+    public int solve() {
+      int result = 0;
+      for (int col = 0; col < this.size / 2; col++) {
+        result += 2 * place(col).solveRest();
+      }
+      if (size % 2 == 1) {
+        result += place(size/2).solveRest();
       }
       return result;
     }
