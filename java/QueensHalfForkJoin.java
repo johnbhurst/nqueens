@@ -48,7 +48,7 @@ public class QueensHalfForkJoin {
         return 1;
       }
       if (this.row >= PARALLELISM_DEPTH) {
-        return solveSequential();
+        return solveSequentially();
       }
       else {
         List<Board> boards = new ArrayList<>(this.size);
@@ -67,30 +67,26 @@ public class QueensHalfForkJoin {
       }
     }
 
-    private int solveSequential() {
+    private int solveSequentially() {
       if (this.row == this.size) {
         return 1;
       }
       int result = 0;
       for (int col = 0; col < this.size; col++) {
         if (ok(col)) {
-          result += place(col).solveSequential();
+          result += place(col).solveSequentially();
         }
       }
       return result;
     }
 
-    public int solveRest() {
-      return this.compute();
-    }
-
     public int solve() {
       int result = 0;
       for (int col = 0; col < this.size / 2; col++) {
-        result += 2 * place(col).solveRest();
+        result += 2 * place(col).compute();
       }
       if (size % 2 == 1) {
-        result += place(size/2).solveRest();
+        result += place(size/2).compute();
       }
       return result;
     }

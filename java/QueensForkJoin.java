@@ -44,11 +44,8 @@ public class QueensForkJoin {
     }
 
     protected Integer compute() {
-      if (this.row == this.size) {
-        return 1;
-      }
       if (this.row >= PARALLELISM_DEPTH) {
-        return solveSequential();
+        return solveSequentially();
       }
       else {
         List<Board> boards = new ArrayList<>(this.size);
@@ -67,21 +64,21 @@ public class QueensForkJoin {
       }
     }
 
-    public int solve() {
-      return this.compute();
-    }
-
-    private int solveSequential() {
+    private int solveSequentially() {
       if (this.row == this.size) {
         return 1;
       }
       int result = 0;
       for (int col = 0; col < this.size; col++) {
         if (ok(col)) {
-          result += place(col).solveSequential();
+          result += place(col).solveSequentially();
         }
       }
       return result;
+    }
+
+    public int solve() {
+      return this.compute();
     }
   }
 
