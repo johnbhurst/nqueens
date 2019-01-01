@@ -15,3 +15,4 @@ TO=$2
 cd $DIR
 QUEENS_NAME=$NAME mix escript.build >/dev/null
 ./Queens $FROM $TO
+rm Queens
