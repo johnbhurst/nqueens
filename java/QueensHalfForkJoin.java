@@ -31,16 +31,16 @@ public class QueensHalfForkJoin {
     private Board place(int col) {
       Board result = new Board(this.size);
       result.row = this.row + 1;
-      result.cols = this.cols | 1 << col;
-      result.diags1 = this.diags1 | 1 << (this.row + col);
-      result.diags2 = this.diags2 | 1 << (this.row - col + this.size - 1);
+      result.cols = this.cols | 1L << col;
+      result.diags1 = this.diags1 | 1L << (this.row + col);
+      result.diags2 = this.diags2 | 1L << (this.row - col + this.size - 1);
       return result;
     }
 
     private boolean ok(int col) {
-      return ((this.cols & (1 << col)) |
-        (this.diags1 & (1 << this.row + col)) |
-        (this.diags2 & (1 << this.row - col + this.size - 1))) == 0;
+      return ((this.cols & (1L << col)) |
+        (this.diags1 & (1L << this.row + col)) |
+        (this.diags2 & (1L << this.row - col + this.size - 1))) == 0;
     }
 
     protected Integer compute() {
