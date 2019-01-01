@@ -22,7 +22,7 @@ defmodule Queens do
   end
 
   def solve(board) do
-    if board.row == board.size, do: 1, else: 1..board.size
+    if board.row == board.size, do: 1, else: 0..board.size-1
       |> Enum.filter(fn col -> ok(board, col) end)
       |> Enum.map(fn col -> solve(place(board, col)) end)
       |> Enum.sum
