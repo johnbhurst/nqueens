@@ -55,7 +55,7 @@ public class QueensStreamParallelGenerating {
         return 1;
       }
       return generate()
-          .mapToInt(Board::solve)
+        .mapToInt(Board::solve)
         .sum();
     }
   }
