@@ -5,7 +5,7 @@
 ---
 - hosts: all
   tasks:
-    - name: install language/locale support
+    - name: Install language/locale support
       apt:
         name: language-pack-en
         state: present
