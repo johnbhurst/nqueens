@@ -1,0 +1,12 @@
+# Copyright 2019 John Hurst
+# John Hurst (john.b.hurst@gmail.com)
+# 2019-06-14
+
+---
+- hosts: all
+  tasks:
+    - name: install language/locale support
+      apt:
+        name: language-pack-en
+        state: present
+      become: yes

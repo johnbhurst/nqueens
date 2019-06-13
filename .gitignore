@@ -1,4 +1,6 @@
-.vscode
+.vagrant/
+.vscode/
 data/
 *.class
 *.jar
+ubuntu*console.log
