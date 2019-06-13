@@ -1,0 +1,33 @@
+# Copyright 2019 John Hurst
+# John Hurst (john.b.hurst@gmail.com)
+# 2019-06-14
+
+---
+- hosts: default
+  tasks:
+    - name: Install python3-apt
+      apt:
+        name: python3-apt
+        state: present
+        force_apt_get: yes
+      become: yes
+    - name: Add key for Crystal language
+      apt_key:
+        url: https://keybase.io/crystal/pgp_keys.asc
+        state: present
+      become: yes
+    - name: Define repo for Crystal language
+      apt_repository:
+        repo: deb https://dist.crystal-lang.org/apt crystal main
+        state: present
+      become: yes
+    - name: Install Crystal language
+      apt:
+        name: crystal
+        state: present
+        update_cache: yes
+        force_apt_get: yes
+      become: yes
+
+    - name: Run Crystal Queens
+      raw: crystal /vagrant/crystal/Queens.cr 8 12 >/vagrant/out-crystal.csv
