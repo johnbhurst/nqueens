@@ -14,4 +14,4 @@ TO=$2
 
 cd $DIR
 lein uberjar
-java -jar target/queens-0.1.0-SNAPSHOT-standalone.jar 8 15
+java -jar target/queens-0.1.0-SNAPSHOT-standalone.jar $FROM $TO
