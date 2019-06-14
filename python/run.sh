@@ -13,4 +13,4 @@ FROM=$1
 TO=$2
 
 cd $DIR
-python ${NAME}.py $FROM $TO
+python3 ${NAME}.py $FROM $TO
