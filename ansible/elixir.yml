@@ -1,0 +1,30 @@
+# Copyright 2019 John Hurst
+# John Hurst (john.b.hurst@gmail.com)
+# 2019-06-15
+
+---
+- hosts: default
+  tasks:
+    - name: Install Elixir repo
+      apt:
+        deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+        state: present
+        update_cache: yes
+      become: yes
+    - name: Install Erlang/OTP platform and all of its applications
+      apt:
+        name: esl-erlang
+        state: present
+        update_cache: yes
+        force_apt_get: yes
+      become: yes
+    - name: Install Elixir
+      apt:
+        name: elixir
+        state: present
+        update_cache: yes
+        force_apt_get: yes
+      become: yes
+
+    - name: Run Elixir
+      raw: bash /vagrant/elixir/run.sh Queens 8 12 >/vagrant/out-elixir.csv
