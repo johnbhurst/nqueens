@@ -6,5 +6,4 @@
 - hosts: default
   tasks:
     - name: Run Julia
-      raw: PATH=/usr/bin:/opt/julia-1.1.1/bin /bin/bash /vagrant/julia/run.sh Queens 8 12 >/vagrant/out-julia.csv
-      # TODO: PATH setting in provisioning script should work, but does not.
+      raw: /bin/bash /vagrant/julia/run.sh Queens 8 12 >/vagrant/out-julia.csv

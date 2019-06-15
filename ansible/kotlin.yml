@@ -6,5 +6,4 @@
 - hosts: default
   tasks:
     - name: Run Kotlin
-      raw: PATH=/bin:/usr/bin:/opt/kotlinc/bin /bin/bash /vagrant/kotlin/run.sh Queens 8 12 >/vagrant/out-kotlin.csv
-      # TODO: PATH setting in provision script should work, but does not.
+      raw: /bin/bash /vagrant/kotlin/run.sh Queens 8 12 >/vagrant/out-kotlin.csv

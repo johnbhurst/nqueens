@@ -114,10 +114,19 @@
         dest: /opt/
         creates: /opt/julia-1.1.1
 
+    # This doesn't seem to work!!! Instead, see symlink below.
     - name: Set PATH for Julia
       copy:
         dest: /etc/profile.d/julia-path.sh
         content: 'PATH=$PATH:/opt/julia-1.1.1/bin'
+
+    - name: Create symlink for Julia
+      file:
+        src: /opt/julia-1.1.1/bin/julia
+        dest: /usr/bin/julia
+        owner: root
+        group: root
+        state: link
 
     - name: Download Kotlin archive
       get_url:
@@ -131,10 +140,19 @@
         dest: /opt/
         creates: /opt/kotlinc
 
+    # This doesn't seem to work!!! Instead, see symlink below.
     - name: Set PATH for Kotlin
       copy:
         dest: /etc/profile.d/kotlin-path.sh
         content: 'PATH=$PATH:/opt/kotlinc/bin'
+
+    - name: Create symlink for Kotlin
+      file:
+        src: /opt/kotlinc/bin/kotlinc
+        dest: /usr/bin/kotlinc
+        owner: root
+        group: root
+        state: link
 
     - name: Install Ruby
       apt:
@@ -168,9 +186,16 @@
         dest: /opt/
         creates: /opt/swift-5.0.1-RELEASE-ubuntu18.04
 
+    # This doesn't seem to work!!! Instead, see symlink below.
     - name: Set PATH for Swift
       copy:
         dest: /etc/profile.d/swift-path.sh
         content: 'PATH=$PATH:/opt/swift-5.0.1-RELEASE-ubuntu18.04/usr/bin'
 
-
+    - name: Create symlink for Swift
+      file:
+        src: /opt/swift-5.0.1-RELEASE-ubuntu18.04/usr/bin/swiftc
+        dest: /usr/bin/swiftc
+        owner: root
+        group: root
+        state: link
