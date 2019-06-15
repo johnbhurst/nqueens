@@ -13,4 +13,4 @@ FROM=$1
 TO=$2
 
 cd $DIR
-/Applications/Julia-1.0.app/Contents/Resources/julia/bin/julia ${NAME}.jl $FROM $TO
+julia ${NAME}.jl $FROM $TO

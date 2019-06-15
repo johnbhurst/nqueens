@@ -1,0 +1,27 @@
+# Copyright 2019 John Hurst
+# John Hurst (john.b.hurst@gmail.com)
+# 2019-06-15
+
+---
+- hosts: default
+  tasks:
+    - name: Download Julia archive
+      get_url:
+        url: https://julialang-s3.julialang.org/bin/linux/x64/1.1/julia-1.1.1-linux-x86_64.tar.gz
+        dest: /tmp/julia-1.1.1-linux-x86_64.tar.gz
+    - name: Unpack Julia archive
+      unarchive:
+        remote_src: yes
+        src: /tmp/julia-1.1.1-linux-x86_64.tar.gz
+        dest: /opt/
+        creates: /opt/julia-1.1.1
+      become: yes
+    - name: Set PATH for Julia
+      copy:
+        dest: /etc/profile.d/julia-path.sh
+        content: 'PATH=$PATH:/opt/julia-1.1.1/bin'
+      become: yes
+
+    - name: Run Julia
+      # TODO: PATH setting above should work, but does not.
+      raw: PATH=/usr/bin:/opt/julia-1.1.1/bin /bin/bash /vagrant/julia/run.sh Queens 8 12 >/vagrant/out-julia.csv
