@@ -43,3 +43,18 @@ Run this command to deactivate the Python virtual environment in your shell when
 ``` bash
 deactivate
 ```
+
+## TODO
+
+Tasks to complete on Ansible setup.
+
+* Try symlinks to get around PATH issues with Julia, Kotlin, Swift.
+* Use vars for software versions for Julia, Kotlin, Swift downloads.
+* Ansible tasks to display versions of languages?
+* Environment vars for Groovy?
+* Convert all run playbooks to use shell instead of raw?
+* Generic run playbook?
+* Variables for arguments, per language?
+* Playbook to run parallel versions?
+* Run in GCP?
+* Parallel versions in GCP with highcpu.
