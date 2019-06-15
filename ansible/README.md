@@ -49,7 +49,6 @@ deactivate
 Tasks to complete on Ansible setup.
 
 * Add step to .NET provisioning to get rid of intro banner.
-* Try symlinks to get around PATH issues with Julia, Kotlin, Swift.
 * Use vars for software versions for Julia, Kotlin, Swift downloads.
 * Environment vars for Groovy?
 * Convert all run playbooks to use shell instead of raw?
