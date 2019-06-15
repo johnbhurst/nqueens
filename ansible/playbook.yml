@@ -63,22 +63,24 @@
       apt:
         name: dotnet-sdk-2.2
         state: present
+        update_cache: yes
 
     - name: Install Elixir repo
       apt:
         deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
         state: present
-        update_cache: yes
 
     - name: Install Erlang/OTP platform and all of its applications
       apt:
         name: esl-erlang
         state: present
+        update_cache: yes
 
     - name: Install Elixir
       apt:
         name: elixir
         state: present
+        update_cache: yes
 
     - name: Install Go
       apt:
