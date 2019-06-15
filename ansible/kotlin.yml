@@ -5,23 +5,6 @@
 ---
 - hosts: default
   tasks:
-    - name: Download Kotlin archive
-      get_url:
-        url: https://github.com/JetBrains/kotlin/releases/download/v1.3.31/kotlin-compiler-1.3.31.zip
-        dest: /tmp/kotlin-compiler-1.3.31.zip
-    - name: Unpack Kotlin archive
-      unarchive:
-        remote_src: yes
-        src: /tmp/kotlin-compiler-1.3.31.zip
-        dest: /opt/
-        creates: /opt/kotlinc
-      become: yes
-    - name: Set PATH for Kotlin
-      copy:
-        dest: /etc/profile.d/kotlin-path.sh
-        content: 'PATH=$PATH:/opt/kotlinc/bin'
-      become: yes
-
     - name: Run Kotlin
-      # TODO: PATH setting above should work, but does not.
       raw: PATH=/bin:/usr/bin:/opt/kotlinc/bin /bin/bash /vagrant/kotlin/run.sh Queens 8 12 >/vagrant/out-kotlin.csv
+      # TODO: PATH setting in provision script should work, but does not.

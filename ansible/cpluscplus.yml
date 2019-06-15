@@ -5,5 +5,5 @@
 ---
 - hosts: default
   tasks:
-    - name: Run C++ Queens
+    - name: Run C++
       raw: bash /vagrant/cplusplus/run.sh Queens 8 12 >/vagrant/out-cplusplus.csv

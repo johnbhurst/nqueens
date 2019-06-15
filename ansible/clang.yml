@@ -5,5 +5,5 @@
 ---
 - hosts: default
   tasks:
-    - name: Run C Queens
+    - name: Run
       raw: bash /vagrant/clang/run.sh Queens 8 12 >/vagrant/out-clang.csv

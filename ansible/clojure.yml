@@ -5,13 +5,5 @@
 ---
 - hosts: default
   tasks:
-    - name: Install Clojure
-      apt:
-        name: clojure
-        state: present
-        update_cache: yes
-        force_apt_get: yes
-      become: yes
-
     - name: Run Clojure
       raw: bash /vagrant/clojure/run.sh Queens 8 12 >/vagrant/out-clojure.csv

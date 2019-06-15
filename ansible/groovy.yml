@@ -5,13 +5,7 @@
 ---
 - hosts: default
   tasks:
-    - name: Install Groovy
-      apt:
-        name: groovy
-        state: present
-        force_apt_get: yes
-      become: yes
-    - name: Run Groovy Queens
+    - name: Run Groovy
       shell: /vagrant/groovy/run.sh Queens 8 12 >/vagrant/out-groovy.csv
       args:
         executable: /bin/bash

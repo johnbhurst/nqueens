@@ -5,6 +5,6 @@
 ---
 - hosts: default
   tasks:
-    - name: Run python3 Queens
-      raw: python3 /vagrant/python/Queens.py 8 12 >/vagrant/out-python.csv
+    - name: Run Python3
+      raw: bash /vagrant/python/run.sh Queens 8 12 >/vagrant/out-python.csv
 

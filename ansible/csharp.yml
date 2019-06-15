@@ -5,25 +5,6 @@
 ---
 - hosts: default
   tasks:
-    - name: Add key for Microsoft repo
-      apt_key:
-        url: https://packages.microsoft.com/keys/microsoft.asc
-        state: present
-      become: yes
-    - name: Define repo for Microsoft .NET Core
-      apt_repository:
-        repo: deb https://packages.microsoft.com/ubuntu/18.04/prod bionic main
-        state: present
-      become: yes
-
-    - name: Install .NET Core
-      apt:
-        name: dotnet-sdk-2.2
-        state: present
-        update_cache: yes
-        force_apt_get: yes
-      become: yes
-
-    - name: Run C# Queens
+    - name: Run C#
       raw: bash /vagrant/csharp/run.sh Queens 8 12 >/vagrant/out-csharp.csv
 

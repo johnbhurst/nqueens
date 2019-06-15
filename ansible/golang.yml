@@ -5,12 +5,5 @@
 ---
 - hosts: default
   tasks:
-    - name: Install Go language
-      apt:
-        name: golang-go
-        state: present
-        update_cache: yes
-        force_apt_get: yes
-      become: yes
     - name: Run Go
       raw: bash /vagrant/golang/run.sh Queens 8 12 >/vagrant/out-golang.csv

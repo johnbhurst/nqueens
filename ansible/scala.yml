@@ -5,13 +5,5 @@
 ---
 - hosts: default
   tasks:
-    - name: Install Scala
-      apt:
-        name: scala
-        state: present
-        update_cache: yes
-        force_apt_get: yes
-      become: yes
-
     - name: Run Scala
       raw: bash /vagrant/scala/run.sh Queens 8 12 >/vagrant/out-scala.csv

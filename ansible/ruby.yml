@@ -5,13 +5,5 @@
 ---
 - hosts: default
   tasks:
-    - name: Install Ruby
-      apt:
-        name: ruby
-        state: present
-        update_cache: yes
-        force_apt_get: yes
-      become: yes
-
     - name: Run Ruby
       raw: bash /vagrant/ruby/run.sh Queens 8 12 >/vagrant/out-ruby.csv

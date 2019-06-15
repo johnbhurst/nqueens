@@ -5,13 +5,5 @@
 ---
 - hosts: default
   tasks:
-    - name: Install nodejs
-      apt:
-        name: nodejs
-        state: present
-        update_cache: yes
-        force_apt_get: yes
-      become: yes
-
     - name: Run nodejs/JavaScript
       raw: bash /vagrant/javascript/run.sh Queens 8 12 >/vagrant/out-javascript.csv

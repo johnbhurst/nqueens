@@ -5,11 +5,5 @@
 ---
 - hosts: default
   tasks:
-    - name: Install OpenJDK 8
-      apt:
-        name: openjdk-8-jdk
-        state: present
-        force_apt_get: yes
-      become: yes
-    - name: Run Java Queens
+    - name: Run Java
       raw: bash /vagrant/java/run.sh Queens 8 12 >/vagrant/out-java.csv
