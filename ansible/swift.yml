@@ -1,0 +1,41 @@
+# Copyright 2019 John Hurst
+# John Hurst (john.b.hurst@gmail.com)
+# 2019-06-15
+
+---
+- hosts: default
+  tasks:
+    - name: Install clang dependency
+      apt:
+        name: clang
+        state: present
+        update_cache: yes
+        force_apt_get: yes
+      become: yes
+    - name: Install libicu-dev dependency
+      apt:
+        name: libicu-dev
+        state: present
+        update_cache: yes
+        force_apt_get: yes
+      become: yes
+    - name: Download Swift archive
+      get_url:
+        url: https://swift.org/builds/swift-5.0.1-release/ubuntu1804/swift-5.0.1-RELEASE/swift-5.0.1-RELEASE-ubuntu18.04.tar.gz
+        dest: /tmp/swift-5.0.1-RELEASE-ubuntu18.04.tar.gz
+    - name: Unpack Swift archive
+      unarchive:
+        remote_src: yes
+        src: /tmp/swift-5.0.1-RELEASE-ubuntu18.04.tar.gz
+        dest: /opt/
+        creates: /opt/swift-5.0.1-RELEASE-ubuntu18.04
+      become: yes
+    - name: Set PATH for Swift
+      copy:
+        dest: /etc/profile.d/swift-path.sh
+        content: 'PATH=$PATH:/opt/swift-5.0.1-RELEASE-ubuntu18.04/usr/bin'
+      become: yes
+
+    - name: Run Swift
+      # TODO: PATH setting above should work, but does not.
+      raw: PATH=/bin:/usr/bin:/opt/swift-5.0.1-RELEASE-ubuntu18.04/usr/bin /bin/bash /vagrant/swift/run.sh Queens 8 12 >/vagrant/out-swift.csv
