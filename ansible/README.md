@@ -49,7 +49,6 @@ deactivate
 Tasks to complete on Ansible setup.
 
 * Add step to .NET provisioning to get rid of intro banner.
-* Use vars for software versions for Julia, Kotlin, Swift downloads.
 * Environment vars for Groovy?
 * Convert all run playbooks to use shell instead of raw?
 * Generic run playbook?

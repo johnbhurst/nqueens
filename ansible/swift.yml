@@ -4,6 +4,12 @@
 
 ---
 - hosts: default
+  vars_files:
+    - vars.yml
+  environment:
+    PATH: "{{ansible_env.PATH }}:{{ swift.root }}/usr/bin"
   tasks:
     - name: Run Swift
-      raw: /bin/bash /vagrant/swift/run.sh Queens 8 12 >/vagrant/out-swift.csv
+      shell: /vagrant/swift/run.sh Queens 8 12 >/vagrant/out-swift.csv
+      args:
+        executable: /bin/bash

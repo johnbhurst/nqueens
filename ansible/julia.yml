@@ -4,6 +4,12 @@
 
 ---
 - hosts: default
+  vars_files:
+    - vars.yml
+  environment:
+    PATH: "{{ansible_env.PATH }}:{{ julia.root }}/bin"
   tasks:
     - name: Run Julia
-      raw: /bin/bash /vagrant/julia/run.sh Queens 8 12 >/vagrant/out-julia.csv
+      shell: /vagrant/julia/run.sh Queens 8 12 >/vagrant/out-julia.csv
+      args:
+        executable: /bin/bash

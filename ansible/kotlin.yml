@@ -4,6 +4,12 @@
 
 ---
 - hosts: default
+  vars_files:
+    - vars.yml
+  environment:
+    PATH: "{{ansible_env.PATH }}:{{ kotlin.root }}/bin"
   tasks:
     - name: Run Kotlin
-      raw: /bin/bash /vagrant/kotlin/run.sh Queens 8 12 >/vagrant/out-kotlin.csv
+      shell: /vagrant/kotlin/run.sh Queens 8 12 >/vagrant/out-kotlin.csv
+      args:
+        executable: /bin/bash
