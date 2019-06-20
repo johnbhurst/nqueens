@@ -37,6 +37,16 @@
         name: clojure
         state: present
 
+    - name: Install buildapp for Common Lisp
+      apt:
+        name: buildapp
+        state: present
+
+    - name: Install Common Lisp
+      apt:
+        name: sbcl
+        state: present
+
     - name: Add key for Crystal language
       apt_key:
         url: https://keybase.io/crystal/pgp_keys.asc

@@ -1,0 +1,9 @@
+# Copyright 2019 John Hurst
+# John Hurst (john.b.hurst@gmail.com)
+# 2019-06-21
+
+---
+- hosts: default
+  tasks:
+    - name: Run Common Lisp
+      raw: bash /vagrant/commonlisp/run.sh Queens 8 12 >/vagrant/out-commonlisp.csv
