@@ -43,17 +43,3 @@ Run this command to deactivate the Python virtual environment in your shell when
 ``` bash
 deactivate
 ```
-
-## TODO
-
-Tasks to complete on Ansible setup.
-
-* Add step to .NET provisioning to get rid of intro banner.
-* Environment vars for Groovy?
-* Convert all run playbooks to use shell instead of raw?
-* Generic run playbook?
-* Ansible tasks to display versions of languages?
-* Variables for arguments, per language?
-* Playbook to run parallel versions?
-* Run in GCP?
-* Parallel versions in GCP with highcpu.
