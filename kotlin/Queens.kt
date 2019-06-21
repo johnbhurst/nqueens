@@ -39,6 +39,6 @@ fun main(args: Array<String>) {
     val end = Instant.now()
     val duration = Duration.between(start, end)
     val seconds = duration.get(SECONDS) + duration.get(NANOS)/1000000000.0
-    println("$size,$result,$seconds")
+    println(String.format("%d,%d,%.3f", size, result, seconds))
   }
 }
