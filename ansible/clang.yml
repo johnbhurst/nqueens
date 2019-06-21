@@ -1,9 +1,0 @@
-# Copyright 2019 John Hurst
-# John Hurst (john.b.hurst@gmail.com)
-# 2019-06-14
-
----
-- hosts: default
-  tasks:
-    - name: Run
-      raw: bash /vagrant/clang/run.sh Queens 8 12 >/vagrant/out-clang.csv
