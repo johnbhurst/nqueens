@@ -4,7 +4,17 @@ This project contains programs that count solutions to the [N Queens Problem](ht
 
 We compare different programming languages and platforms, and also different program styles or techniques within those languages.
 
+For example, we look at imperative versus functional style in languages that support both. We look at different methods of using parallelism in different languages.
+
 Unless otherwise noted, the same basic algorithm is used for all programs.
+
+# Building and Running
+
+There are many different programming languages (more than twenty so far). Most of these are available for free for any platform, and you can download and install them yourself to run the programs.
+
+But rather than having to install so many different things on your machine, this project includes [Vagrant](https://www.vagrantup.com/) and [Ansible](https://www.ansible.com/) scripts that create a virtual machine with everything installed for you. When you are done you can delete the virtual machine and not mess up your own machine.
+
+See [ansible/README.md](ansible/README.md) for instructions on setting up with Vagrant.
 
 # Algorithm Description
 
