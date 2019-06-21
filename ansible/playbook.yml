@@ -57,17 +57,17 @@
         name: buildapp
         state: present
 
-    - name: Add key for Crystal language
+    - name: Add key for Crystal
       apt_key:
         url: https://keybase.io/crystal/pgp_keys.asc
         state: present
 
-    - name: Define repo for Crystal language
+    - name: Define repo for Crystal
       apt_repository:
         repo: deb https://dist.crystal-lang.org/apt crystal main
         state: present
 
-    - name: Install Crystal language
+    - name: Install Crystal
       apt:
         name: crystal
         state: present
@@ -88,12 +88,12 @@
         state: present
         update_cache: yes
 
-    - name: Install Elixir repo
+    - name: Define repo for Elixir
       apt:
         deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
         state: present
 
-    - name: Install Erlang/OTP platform and all of its applications
+    - name: Install Erlang/OTP platform for Elixir
       apt:
         name: esl-erlang
         state: present
@@ -115,7 +115,7 @@
         name: groovy
         state: present
 
-    - name: Set GROOVY_HOME in environment.
+    - name: Set GROOVY_HOME in environment
       copy:
         dest: /etc/profile.d/groovy-home.sh
         content: 'export GROOVY_HOME=/usr/share/groovy'
@@ -125,7 +125,7 @@
         name: haskell-platform
         state: present
 
-    - name: Install nodejs
+    - name: Install nodejs for JavaScript
       apt:
         name: nodejs
         state: present
