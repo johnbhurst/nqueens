@@ -37,14 +37,19 @@
         name: clojure
         state: present
 
-    - name: Install buildapp for Common Lisp
+    - name: Install Leiningen for Clojure
       apt:
-        name: buildapp
+        name: leiningen
         state: present
 
     - name: Install Common Lisp
       apt:
         name: sbcl
+        state: present
+
+    - name: Install buildapp for Common Lisp
+      apt:
+        name: buildapp
         state: present
 
     - name: Add key for Crystal language
