@@ -130,7 +130,12 @@
         remote_src: yes
         src: "/tmp/{{ julia.archive }}"
         dest: /opt/
-        creates: "/opt/{{ julia.root }}"
+        creates: "{{ julia.root }}"
+
+    - name: Set PATH for Julia
+      copy:
+        dest: /etc/profile.d/julia-path.sh
+        content: 'PATH=$PATH:{{ julia.root }}/bin'
 
     - name: Download Kotlin archive
       get_url:
@@ -142,7 +147,12 @@
         remote_src: yes
         src: "/tmp/{{ kotlin.archive }}"
         dest: /opt/
-        creates: "/opt/{{ kotlin.root }}"
+        creates: "{{ kotlin.root }}"
+
+    - name: Set PATH for Kotlin
+      copy:
+        dest: /etc/profile.d/kotlin-path.sh
+        content: 'PATH=$PATH:{{ kotlin.root }}/bin'
 
     - name: Install Ruby
       apt:
@@ -174,4 +184,9 @@
         remote_src: yes
         src: "/tmp/{{ swift.archive }}"
         dest: /opt/
-        creates: "/opt/{{ swift.root }}"
+        creates: "{{ swift.root }}"
+
+    - name: Set PATH for Swift
+      copy:
+        dest: /etc/profile.d/swift-path.sh
+        content: 'PATH=$PATH:{{ swift.root }}/usr/bin'
