@@ -53,7 +53,7 @@ vagrant up
 
 The provisioning script downloads and installs a lot of different packages, and can take a while, depending on your internet connection speed.
 
-Also, some HTTP downloads are not 100% reliable, so the script may fail. In case of a partial provision, or if you want to pick up changes to the provisioning script, re-run provisioning with this command:
+Some HTTP downloads are not 100% reliable, so the script may fail. In case of a partial provision, or if you want to pick up changes to the provisioning script, re-run provisioning with this command:
 
 ``` bash
 vagrant provision
