@@ -32,6 +32,11 @@
         name: openjdk-8-jdk
         state: present
 
+    - name: Set JAVA_HOME in environment
+      copy:
+        dest: /etc/profile.d/java-home.sh
+        content: 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre'
+
     - name: Install Clojure
       apt:
         name: clojure
@@ -109,6 +114,11 @@
       apt:
         name: groovy
         state: present
+
+    - name: Set GROOVY_HOME in environment.
+      copy:
+        dest: /etc/profile.d/groovy-home.sh
+        content: 'export GROOVY_HOME=/usr/share/groovy'
 
     - name: Install Haskell
       apt:
