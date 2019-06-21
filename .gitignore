@@ -3,5 +3,6 @@
 data/
 *.class
 *.jar
-out*.csv
+*.csv
+*.out
 ubuntu*console.log
