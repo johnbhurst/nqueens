@@ -13,5 +13,5 @@ FROM=$1
 TO=$2
 
 cd $DIR
-lein uberjar
+lein uberjar >leiningen.out # don't want compiler output included in stdout of this script
 java -jar target/queens-0.1.0-SNAPSHOT-standalone.jar $FROM $TO
