@@ -16,6 +16,12 @@ function new(size)
   Board(size, 0, 0, 0, 0)
 end
 
+function ok(board::Board, col::Int)
+  board.cols & (1 << col) |
+    board.diags1 & (1 << (board.row + col)) |
+    board.diags2 & (1 << (board.row - col + board.size - 1)) == 0
+end
+
 function place(board::Board, col::Int)
   Board(
     board.size,
@@ -24,12 +30,6 @@ function place(board::Board, col::Int)
     board.diags1 | (1 << (board.row + col)),
     board.diags2 | (1 << (board.row - col + board.size - 1))
   )
-end
-
-function ok(board::Board, col::Int)
-  board.cols & (1 << col) |
-    board.diags1 & (1 << (board.row + col)) |
-    board.diags2 & (1 << (board.row - col + board.size - 1)) == 0
 end
 
 function solve(board::Board)
