@@ -22,6 +22,12 @@ public class QueensHalf {
       this.size = size;
     }
 
+    private boolean ok(int col) {
+      return ((this.cols & (1 << col)) |
+        (this.diags1 & (1 << this.row + col)) |
+        (this.diags2 & (1 << this.row - col + this.size - 1))) == 0;
+    }
+
     private Board place(int col) {
       Board result = new Board(this.size);
       result.row = this.row + 1;
@@ -29,12 +35,6 @@ public class QueensHalf {
       result.diags1 = this.diags1 | 1 << (this.row + col);
       result.diags2 = this.diags2 | 1 << (this.row - col + this.size - 1);
       return result;
-    }
-
-    private boolean ok(int col) {
-      return ((this.cols & (1 << col)) |
-        (this.diags1 & (1 << this.row + col)) |
-        (this.diags2 & (1 << this.row - col + this.size - 1))) == 0;
     }
 
     private int solveRest() {
