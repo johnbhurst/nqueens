@@ -18,9 +18,9 @@ class Board(s: Int, r: Int, c: Int, d1: Int, d2: Int) {
   def this(s: Int) = this(s, 0, 0, 0, 0)
 
   def ok(col: Int): Boolean = {
-    return (cols & (1 << col)) == 0 &&
-           (diags1 & (1 << row + col)) == 0 &&
-           (diags2 & (1 << row - col + size - 1)) == 0
+    return ((cols & (1 << col)) |
+           (diags1 & (1 << row + col)) |
+           (diags2 & (1 << row - col + size - 1))) == 0
   }
 
   def place(col: Int): Board = {

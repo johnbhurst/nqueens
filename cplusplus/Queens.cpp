@@ -29,9 +29,9 @@ Board::Board(int size, int row, int cols, int diags1, int diags2) {
 }
 
 bool Board::ok(int col) {
-  return (cols_ & (1 << col)) == 0 &&
-         (diags1_ & (1 << (row_ + col))) == 0 &&
-         (diags2_ & (1 << (row_ - col + size_ - 1))) == 0;
+  return ((cols_ & (1 << col)) |
+         (diags1_ & (1 << (row_ + col))) |
+         (diags2_ & (1 << (row_ - col + size_ - 1)))) == 0;
 }
 
 Board Board::place(int col) {

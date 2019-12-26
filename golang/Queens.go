@@ -24,8 +24,8 @@ func New(size int) Board {
 }
 
 func Ok(board Board, col int) bool {
-	return board.cols & (1 << uint(col)) == 0 &&
-		board.diags1 & (1 << uint(board.row + col)) == 0 &&
+	return board.cols & (1 << uint(col)) |
+		board.diags1 & (1 << uint(board.row + col)) |
 		board.diags2 & (1 << uint(board.row - col + board.size - 1)) == 0
 }
 

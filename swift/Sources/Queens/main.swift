@@ -14,19 +14,19 @@ class Board {
     self.diags2 = diags2
   }
 
+  func ok(col: Int) -> Bool {
+    let result = ((self.cols & (1 << col)) |
+           (self.diags1 & (1 << (self.row + col))) |
+           (self.diags2 & (1 << (self.row - col + self.size - 1)))) == 0
+    return result
+  }
+
   func place(col: Int) -> Board {
     return Board(size: size,
       row: self.row + 1,
       cols: self.cols | (1 << col),
       diags1: self.diags1 | (1 << (self.row + col)),
       diags2: self.diags2 | (1 << (self.row - col + self.size - 1)))
-  }
-
-  func ok(col: Int) -> Bool {
-    let result = (self.cols & (1 << col)) == 0 &&
-           (self.diags1 & (1 << (self.row + col))) == 0 &&
-           (self.diags2 & (1 << (self.row - col + self.size - 1))) == 0
-    return result
   }
 
   func solve() -> Int {

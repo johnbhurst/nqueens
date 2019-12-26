@@ -24,8 +24,8 @@ fn new(size: u8) -> Board {
 }
 
 fn ok(board: &Board, col: u8) -> bool {
-  return (board.cols & (1 << col)) == 0 &&
-         (board.diags1 & (1 << (board.row + col))) == 0 &&
+  return (board.cols & (1 << col)) |
+         (board.diags1 & (1 << (board.row + col))) |
          (board.diags2 & (1 << (board.row + board.size - col - 1))) == 0;
 }
 

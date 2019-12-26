@@ -16,9 +16,9 @@ function new_board(size) {
 }
 
 function ok(board, col) {
-  return (board.cols & (1 << col)) == 0 &&
-    (board.diags1 & (1 << board.row + col)) == 0 &&
-    (board.diags2 & (1 << board.row - col + board.size - 1)) == 0
+  return ((board.cols & (1 << col)) |
+    (board.diags1 & (1 << board.row + col)) |
+    (board.diags2 & (1 << board.row - col + board.size - 1))) == 0
 }
 
 function place(board, col) {
