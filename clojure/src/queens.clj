@@ -15,7 +15,7 @@
         ^Long row    (:row board)
         ^Long cols   (:cols board)
         ^Long diags1 (:diags1 board)
-        ^Long diags2 (:diags2 board)] 
+        ^Long diags2 (:diags2 board)]
       (and
         (= (bit-and cols   (bit-shift-left 1 col)) 0)
         (= (bit-and diags1 (bit-shift-left 1 (+ row col))) 0)
@@ -26,8 +26,8 @@
         ^Long row    (:row board)
         ^Long cols   (:cols board)
         ^Long diags1 (:diags1 board)
-        ^Long diags2 (:diags2 board)] 
-        (->Board 
+        ^Long diags2 (:diags2 board)]
+        (->Board
           size
           (+ row 1)
           (bit-or cols (bit-shift-left 1 col))
