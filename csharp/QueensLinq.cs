@@ -17,6 +17,12 @@ class Board {
     this.size = size;
   }
 
+  private Boolean Ok(int col) {
+    return ((this.cols & (1 << col)) |
+      (this.diags1 & (1 << this.row + col)) |
+      (this.diags2 & (1 << this.row - col + this.size - 1))) == 0;
+  }
+
   private Board Place(int col) {
     Board result = new Board(this.size);
     result.row = this.row + 1;
@@ -24,12 +30,6 @@ class Board {
     result.diags1 = this.diags1 | ((uint) 1) << (this.row + col);
     result.diags2 = this.diags2 | ((uint) 1) << (this.row - col + this.size - 1);
     return result;
-  }
-
-  private Boolean Ok(int col) {
-    return ((this.cols & (1 << col)) |
-      (this.diags1 & (1 << this.row + col)) |
-      (this.diags2 & (1 << this.row - col + this.size - 1))) == 0;
   }
 
   public int Solve() {
