@@ -14,6 +14,12 @@ class Board(object):
         self.diags1 = diags1  # bits indicating occupied diagonal
         self.diags2 = diags2  # bits indicating occupied diagonal
 
+    def is_ok(self, col):
+        """Return true if position (current row, given col) is not currently attacked."""
+        return (self.cols & (1 << col) == 0 and
+                self.diags1 & (1 << self.row + col) == 0 and
+                self.diags2 & (1 << self.row - col + self.size - 1) == 0)
+
     def place(self, col):
         """Place a queen at (current row, given col)."""
         return Board(
@@ -23,12 +29,6 @@ class Board(object):
             self.diags1 | (1 << self.row + col),
             self.diags2 | (1 << self.row - col + self.size - 1)
         )
-
-    def is_ok(self, col):
-        """Return true if position (current row, given col) is not currently attacked."""
-        return (self.cols & (1 << col) == 0 and
-                self.diags1 & (1 << self.row + col) == 0 and
-                self.diags2 & (1 << self.row - col + self.size - 1) == 0)
 
     def solve(self):
         """Return the number of solutions possible on the board as configured."""
