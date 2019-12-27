@@ -72,6 +72,22 @@
         name: crystal
         state: present
 
+    - name: Add key for Dart
+      apt_key:
+        url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+        state: present
+
+    - name: Define repo for Dart
+      apt_repository:
+        repo: deb https://storage.googleapis.com/download.dartlang.org/linux/debian stable main
+        state: present
+
+    - name: Install Dart
+      apt:
+        name: dart
+        state: present
+        update_cache: yes
+
     - name: Add key for Microsoft
       apt_key:
         url: https://packages.microsoft.com/keys/microsoft.asc
