@@ -180,6 +180,11 @@
         dest: /etc/profile.d/kotlin-path.sh
         content: 'PATH=$PATH:{{ kotlin.root }}/bin'
 
+    - name: Install Nim
+      apt:
+        name: nim
+        state: present
+
     - name: Install Ruby
       apt:
         name: ruby
