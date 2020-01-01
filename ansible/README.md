@@ -43,6 +43,16 @@ Run this command to deactivate the Python virtual environment in your shell when
 deactivate
 ```
 
+## Vagrant setup
+
+Install the providers.
+
+``` bash
+# vagrant plugin install vagrant-aws   # fails on macOS
+vagrant plugin install vagrant-azure   # 2.0.0
+vagrant plugin install vagrant-google  # 2.5.0
+```
+
 ## Creating the virtual machine
 
 To create and provision the virtual machine with Vagrant, run this command:
