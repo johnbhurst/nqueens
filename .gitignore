@@ -1,6 +1,7 @@
 .vagrant/
 .vscode/
 data/
+venv/
 *.class
 *.jar
 *.csv
