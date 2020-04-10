@@ -14,7 +14,7 @@ There are many different programming languages (more than twenty so far). Most o
 
 But rather than having to install and set up so many different packages on your machine, this project includes [Vagrant](https://www.vagrantup.com/) and [Ansible](https://www.ansible.com/) scripts that create a virtual machine with everything installed for you. You can run many of the programs in the virtual machine. When you are done you can delete the virtual machine and not mess up your own machine.
 
-See [ansible/README.md](ansible/README.md) for instructions on setting up with Vagrant.
+See [doc/ansible.md](doc/ansible.md) for instructions on setting up with Vagrant.
 
 # Algorithm Description
 
