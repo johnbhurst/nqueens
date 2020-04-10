@@ -258,3 +258,6 @@ But it would also be harder to reason about and harder to make parallel.
 
 * [N Queens Problem (Wikipedia)](https://en.wikipedia.org/wiki/Eight_queens_puzzle)
 * [Online Encyclopedia of Integer Sequences (sequence #170)](https://oeis.org/A000170)
+* Knuth, Donald E: "The Art of Computer Programming Volume 4, Fascicle 5: Mathematical Preliminaries Redux; Introduction to Backtracking; Dancing Links", Addison-Wesley 2019
+* Watkins, John J: "Across The Board: The Mathematics of Chessboard Problems", Princeton University Press 2004
+
