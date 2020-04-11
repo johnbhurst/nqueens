@@ -150,6 +150,7 @@
       get_url:
         url: "{{ julia.base_url }}/{{ julia.archive }}"
         dest: "/tmp/{{ julia.archive }}"
+        timeout: 60
 
     - name: Unpack Julia archive
       unarchive:
@@ -167,6 +168,7 @@
       get_url:
         url: "{{ kotlin.base_url }}/{{ kotlin.archive }}"
         dest: "/tmp/{{ kotlin.archive }}"
+        timeout: 60
 
     - name: Unpack Kotlin archive
       unarchive:
@@ -214,6 +216,7 @@
       get_url:
         url: "{{ swift.base_url }}/{{ swift.archive }}"
         dest: "/tmp/{{ swift.archive }}"
+        timeout: 60
 
     - name: Unpack Swift archive
       unarchive:
