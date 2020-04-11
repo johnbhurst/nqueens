@@ -6,16 +6,16 @@ local_files_directory: local_files
 local_download: True
 
 julia:
-  base_url: https://julialang-s3.julialang.org/bin/linux/x64/1.4
-  archive: julia-1.4.0-linux-x86_64.tar.gz
-  root: /opt/julia-1.4.0
+  base_url: "https://julialang-s3.julialang.org/bin/linux/x64/1.4"
+  archive: "julia-1.4.0-linux-x86_64.tar.gz"
+  root: "/opt/julia-1.4.0"
 
 kotlin:
-  base_url: https://github.com/JetBrains/kotlin/releases/download/v1.3.70
-  archive: kotlin-compiler-1.3.70.zip
-  root: /opt/kotlinc
+  base_url: "https://github.com/JetBrains/kotlin/releases/download/v1.3.70"
+  archive: "kotlin-compiler-1.3.70.zip"
+  root: "/opt/kotlinc"
 
 swift:
-  base_url: https://swift.org/builds/swift-5.2.1-release/ubuntu1804/swift-5.2.1-RELEASE
-  archive: swift-5.2.1-RELEASE-ubuntu18.04.tar.gz
-  root: /opt/swift-5.2.1-RELEASE-ubuntu18.04
+  base_url: "https://swift.org/builds/swift-5.2.1-release/ubuntu1804/swift-5.2.1-RELEASE"
+  archive: "swift-5.2.1-RELEASE-ubuntu18.04.tar.gz"
+  root: "/opt/swift-5.2.1-RELEASE-ubuntu18.04"
