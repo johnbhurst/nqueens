@@ -146,11 +146,35 @@
         name: nodejs
         state: present
 
-    - name: Download Julia archive
+    - name: Check if Julia has been downloaded locally
+      stat:
+        path: "{{ local_files_directory }}/{{ julia.archive }}"
+      delegate_to: localhost
+      become: no
+      register: local_julia_archive
+      when: local_download == True
+
+    - name: Download Julia archive locally
+      get_url:
+        url: "{{ julia.base_url }}/{{ julia.archive }}"
+        dest: "{{ local_files_directory }}/{{ julia.archive }}"
+        timeout: 60
+      delegate_to: localhost
+      become: no
+      when: local_download == True and local_julia_archive.stat.exists == False
+
+    - name: Copy Julia archive to remote machine
+      copy:
+        src: "{{ local_files_directory }}/{{ julia.archive }}"
+        dest: "/tmp/{{ julia.archive }}"
+      when: local_download == True
+
+    - name: Download Julia archive remotely
       get_url:
         url: "{{ julia.base_url }}/{{ julia.archive }}"
         dest: "/tmp/{{ julia.archive }}"
         timeout: 60
+      when: local_download == False
 
     - name: Unpack Julia archive
       unarchive:
@@ -164,11 +188,35 @@
         dest: /etc/profile.d/julia-path.sh
         content: 'PATH=$PATH:{{ julia.root }}/bin'
 
-    - name: Download Kotlin archive
+    - name: Check if Kotlin has been downloaded locally
+      stat:
+        path: "{{ local_files_directory }}/{{ kotlin.archive }}"
+      delegate_to: localhost
+      become: no
+      register: local_kotlin_archive
+      when: local_download == True
+
+    - name: Download Kotlin archive locally
+      get_url:
+        url: "{{ kotlin.base_url }}/{{ kotlin.archive }}"
+        dest: "{{ local_files_directory }}/{{ kotlin.archive }}"
+        timeout: 60
+      delegate_to: localhost
+      become: no
+      when: local_download == True and local_kotlin_archive.stat.exists == False
+
+    - name: Copy Kotlin archive to remote machine
+      copy:
+        src: "{{ local_files_directory }}/{{ kotlin.archive }}"
+        dest: "/tmp/{{ kotlin.archive }}"
+      when: local_download == True
+
+    - name: Download Kotlin archive remotely
       get_url:
         url: "{{ kotlin.base_url }}/{{ kotlin.archive }}"
         dest: "/tmp/{{ kotlin.archive }}"
         timeout: 60
+      when: local_download == False
 
     - name: Unpack Kotlin archive
       unarchive:
@@ -212,11 +260,35 @@
         name: libicu-dev
         state: present
 
-    - name: Download Swift archive
+    - name: Check if Swift has been downloaded locally
+      stat:
+        path: "{{ local_files_directory }}/{{ swift.archive }}"
+      delegate_to: localhost
+      become: no
+      register: local_swift_archive
+      when: local_download == True
+
+    - name: Download Swift archive locally
+      get_url:
+        url: "{{ swift.base_url }}/{{ swift.archive }}"
+        dest: "{{ local_files_directory }}/{{ swift.archive }}"
+        timeout: 60
+      delegate_to: localhost
+      become: no
+      when: local_download == True and local_swift_archive.stat.exists == False
+
+    - name: Copy Swift archive to remote machine
+      copy:
+        src: "{{ local_files_directory }}/{{ swift.archive }}"
+        dest: "/tmp/{{ swift.archive }}"
+      when: local_download == True
+
+    - name: Download Swift archive remotely
       get_url:
         url: "{{ swift.base_url }}/{{ swift.archive }}"
         dest: "/tmp/{{ swift.archive }}"
         timeout: 60
+      when: local_download == False
 
     - name: Unpack Swift archive
       unarchive:

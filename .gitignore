@@ -1,6 +1,7 @@
 .vagrant/
 .vscode/
 data/
+local_files/
 venv/
 *.class
 *.jar

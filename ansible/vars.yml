@@ -2,6 +2,9 @@
 # John Hurst (john.b.hurst@gmail.com)
 # 2019-06-16
 
+local_files_directory: local_files
+local_download: True
+
 julia:
   base_url: https://julialang-s3.julialang.org/bin/linux/x64/1.4
   archive: julia-1.4.0-linux-x86_64.tar.gz
