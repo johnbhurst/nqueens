@@ -26,25 +26,3 @@ ruby/run.sh        8 15 > ruby.csv
 rust/run.sh        8 17 > rust.csv
 scala/run.sh       8 17 > scala.csv
 swift/run.sh       8 16 > swift.csv
-
-# groovy $DIR/combine.groovy \
-#   perl.csv  \
-#   ruby.csv  \
-#   python.csv  \
-#   elixir.csv  \
-#   groovy.csv  \
-#   haskell.csv  \
-#   clojure.csv  \
-#   fsharp.csv  \
-#   crystal.csv  \
-#   swift.csv  \
-#   julia.csv  \
-#   scala.csv  \
-#   csharp.csv  \
-#   kotlin.csv  \
-#   golang.csv  \
-#   javascript.csv  \
-#   clang.csv  \
-#   cplusplus.csv  \
-#   java.csv  \
-#   > all.csv
