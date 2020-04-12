@@ -17,7 +17,7 @@ groovy/run.sh      8 16 > groovy.csv
 haskell/run.sh     8 16 > haskell.csv
 java/run.sh        8 17 > java.csv
 javascript/run.sh  8 17 > javascript.csv
-julia/run.sh       8 16 > julia.csv
+julia/run.sh       8 17 > julia.csv
 kotlin/run.sh      8 17 > kotlin.csv
 nim/run.sh         8 17 > nim.csv
 perl/run.sh        8 15 > perl.csv
@@ -25,4 +25,4 @@ python/run.sh      8 15 > python.csv
 ruby/run.sh        8 15 > ruby.csv
 rust/run.sh        8 17 > rust.csv
 scala/run.sh       8 17 > scala.csv
-swift/run.sh       8 16 > swift.csv
+swift/run.sh       8 17 > swift.csv
