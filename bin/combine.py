@@ -14,7 +14,7 @@ results = {}
 langs = []
 
 for arg in sys.argv[1:]:
-  lang, ext = os.path.splitext(arg)
+  lang, ext = os.path.splitext(os.path.basename(arg))
   langs.append(lang)
   with open(arg) as csvfile:
     for row in csv.reader(csvfile):
