@@ -36,10 +36,9 @@ proc solve(board: Board): int =
   if board.row == board.size:
     result = 1
   else:
-    result = 0
     for col in countup(0, board.size - 1):
       if ok(board, col):
-        result = result + solve(place(board, col))
+        result += solve(place(board, col))
 
 var fr = if paramCount() >= 1: parseInt(paramStr(1)) else: 8
 var to = if paramCount() >= 2: parseInt(paramStr(2)) else: fr
