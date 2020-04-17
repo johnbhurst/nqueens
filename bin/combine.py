@@ -19,7 +19,7 @@ for arg in sys.argv[1:]:
   with open(arg) as csvfile:
     for row in csv.reader(csvfile):
       size, result, time = row
-      assert int(result) == answers[int(size)]
+      assert int(result) == answers[int(size)], f"{arg}: Expected result {answers[int(size)]}, got {result}"
       results.setdefault(size, {})[lang] = time
 
 print("N," + ",".join(langs))
