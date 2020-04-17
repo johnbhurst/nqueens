@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
     override.ssh.private_key_path = google_private_key_path
     override.vm.box = "google/gce"
     override.vm.synced_folder "./", "/vagrant", type: "rsync", rsync__exclude: [
-      '.git', 'ansible', 'archive', 'clojure/target', 'csharp/bin', 'csharp/obj',
+      '.git', 'ansible', 'archive', 'clojure/target', 'csharp/bin', 'csharp/obj', 'data',
       'doc', 'fsharp/bin', 'fsharp/obj', 'nim/nimcache', 'swift/.build', 'tmp', 'venv'
     ]
   end
