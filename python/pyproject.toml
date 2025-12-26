@@ -1,0 +1,6 @@
+[project]
+name = "quantum-computing-and-information-ed2-qiskit"
+version = "0.1.0"
+description = "Qiskit code samples for the book Quantum Computing and Information, PolarisQCI 2025"
+readme = "README.md"
+requires-python = "==3.11.14"
