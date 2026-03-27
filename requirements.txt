@@ -1,4 +1,4 @@
-ansible==2.9.6
+ansible==4.2.0
 appnope==0.1.0
 asn1crypto==0.24.0
 attrs==19.3.0
