@@ -41,41 +41,41 @@ and with these we can record up to 64 columns or diagonals.
 
 We track the columns with queens in them using a bit set for the columns:
 
-<img alt="Column bits" src="doc/images/N-Queens-Bits-Cols.svg" width="600" height="600">
+<img alt="Column bits" src="doc/images/N-Queens-Bits-Cols.svg" width="600">
 
 For example, with these three queens placed, bits 0, 5 and 7 are set,
 giving an int value of 2<sup>0</sup> + 2<sup>5</sup> + 2<sup>7</sup>
 = 1 + 32 + 128 = 161.
 
-<img alt="Column example" src="doc/images/N-Queens-Example-Cols.svg" width="600" height="600">
+<img alt="Column example" src="doc/images/N-Queens-Example-Cols.svg" width="600">
 
 We track the diagonals with two bit sets. The first one has the diagonals to the left going down the board:
 
-<img alt="Diagonal 1 bits" src="doc/images/N-Queens-Bits-Diag1.svg" width="600" height="600">
+<img alt="Diagonal 1 bits" src="doc/images/N-Queens-Bits-Diag1.svg" width="600">
 
 With the three queens placed, bits 0, 6 and 9 are set,
 giving an int value of 2<sup>0</sup> + 2<sup>6</sup> + 2<sup>9</sup>
 = 1 + 64 + 512 = 577.
 
-<img alt="Diagonal 1 example" src="doc/images/N-Queens-Example-Diag1.svg" width="600" height="600">
+<img alt="Diagonal 1 example" src="doc/images/N-Queens-Example-Diag1.svg" width="600">
 
 The other diagonals go to the right going down the board:
 
-<img alt="Diagonal 2 bits" src="doc/images/N-Queens-Bits-Diag2.svg" width="600" height="600">
+<img alt="Diagonal 2 bits" src="doc/images/N-Queens-Bits-Diag2.svg" width="600">
 
 With the three queens placed, bits 2, 3 and 7 are set,
 giving an int value of 2<sup>2</sup> + 2<sup>3</sup> + 2<sup>7</sup>
 = 4 + 8 + 128 = 140.
 
-<img alt="Diagonal 2 example" src="doc/images/N-Queens-Example-Diag2.svg" width="600" height="600">
+<img alt="Diagonal 2 example" src="doc/images/N-Queens-Example-Diag2.svg" width="600">
 
 The available columns on the next row are those that are not currently attacked:
 
-<img alt="Available columns" src="doc/images/N-Queens-Example-Available.svg" width="600" height="600">
+<img alt="Available columns" src="doc/images/N-Queens-Example-Available.svg" width="600">
 
 The number of solutions for the current position is the sum of the number of solutions for the boards found by placing queens on the available positions:
 
-<img alt="Next boards" src="doc/images/N-Queens-Example-NextBoards.svg" width="600" height="200">
+<img alt="Next boards" src="doc/images/N-Queens-Example-NextBoards.svg" width="600">
 
 Using 64-bit integers for bit sets should let us count solutions for boards up to size 32.
 The current world record for counting solutions is for [board size 27](https://github.com/preusser/q27), so this should suffice.
