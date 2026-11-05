@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Copyright 2019 John Hurst
 # John Hurst (john.b.hurst@gmail.com)
 # 2019-12-27

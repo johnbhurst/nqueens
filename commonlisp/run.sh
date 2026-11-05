@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+# Nick Jones (nick.jones@arachnid.co.nz)
+# 2019-04-19
+
 DIR=$(dirname $0)
 if [[ $# -eq 3 ]]; then
   NAME=$1

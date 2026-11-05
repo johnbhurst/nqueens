@@ -1,4 +1,5 @@
-# # Copyright 2018 John Hurst
+#!/usr/bin/env bash
+# Copyright 2018 John Hurst
 # John Hurst (john.b.hurst@gmail.com)
 # 2018-01-06
 
@@ -16,4 +17,3 @@ cd $DIR
 g++ -O3 -std=c++11 -o $NAME ${NAME}.cpp
 ./$NAME $FROM $TO
 rm $NAME
-
