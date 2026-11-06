@@ -33,9 +33,11 @@ solve : Board => U32
 solve = |board| {
     if board.row == board.size 1
     else {
-        next_cols = List.from_iter((0..<board.size).iter()).keep_if(|col| ok(board, col))
-        next_boards = next_cols.map(|col| place(board, col))
-        List.fold(next_boards, 0, |count, next_board| count + solve(next_board))
+        cols = List.from_iter((0..<board.size).iter())
+        List.fold(cols, 0, |count, col| {
+            if ok(board, col) count + solve(place(board, col))
+            else count
+        })
     }
 }
 
