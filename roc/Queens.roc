@@ -2,6 +2,12 @@
 # John Hurst (john.b.hurst@gmail.com)
 # 2026-11-07
 
+app [main!] { pf: platform "https://github.com/roc-lang/basic-cli/releases/download/0.26.0/GddgvsGjiNXrHFW6au5i5dUDbTs8FinQdrgE2Gqmw53t.tar.zst" }
+
+import pf.Monotonic
+import pf.OsStr
+import pf.Stdout
+
 Board := { size: I32, row: I32, cols: I32, diags1: I32, diags2: I32 }
 
 new : I32 -> Board
@@ -33,11 +39,23 @@ solve = |board| {
     }
 }
 
+parse_int : OsStr -> I32
+parse_int = |os_str| {
+    str = match os_str.to_str_try() {
+        Ok(s) => s
+        Err(_) => crash "Invalid integer argument"
+    }
+    match I32.from_str(str) {
+        Ok(n) => n
+        Err(_) => crash "Invalid integer argument"
+    }
+}
+
 main! = |args| {
     (from, to) = match args {
-        [a, b] => (I32.from_str(a)?, I32.from_str(b)?)
+        [a, b] => (parse_int(a), parse_int(b))
         [a] => {
-            n = I32.from_str(a)?
+            n = parse_int(a)
             (n, n)
         }
         [] => (8, 8)
@@ -45,9 +63,11 @@ main! = |args| {
     }
 
     for size in from..=to {
-        board = new(size)
-        solutions = solve(board)
-        echo!("${size.to_str()},${solutions.to_str()}\n")
+        start = Monotonic.now!()
+        solutions = solve(new(size))
+        elapsed_ms = start.elapsed!().to_millis()
+        elapsed_s = elapsed_ms.to_f64() / 1000.0
+        _ = Stdout.line!("${size.to_str()},${solutions.to_str()},${elapsed_s.to_str()}")
     }
     Ok({})
 }
