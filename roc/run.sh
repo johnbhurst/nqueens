@@ -14,5 +14,5 @@ FROM=$1
 TO=$2
 
 cd $DIR
-roc build ${NAME}.roc --opt=speed
+roc build ${NAME}.roc --opt=speed > /dev/null 2> /dev/null
 ./${NAME} $FROM $TO
