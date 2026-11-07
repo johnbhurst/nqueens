@@ -3,7 +3,9 @@
 # 2019-06-14
 
 ---
-- hosts: default
+# System-wide packages, installed as root.
+- name: Install system packages
+  hosts: all
   vars_files:
     - vars.yml
 
@@ -22,29 +24,12 @@
         name: language-pack-en
         state: present
 
-    - name: Install unzip
+    - name: Install curl, zip and unzip (also needed by SDKMAN)
       apt:
-        name: unzip
-        state: present
-
-    - name: Install openjdk-8-jdk
-      apt:
-        name: openjdk-8-jdk
-        state: present
-
-    - name: Set JAVA_HOME in environment
-      copy:
-        dest: /etc/profile.d/java-home.sh
-        content: 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre'
-
-    - name: Install Clojure
-      apt:
-        name: clojure
-        state: present
-
-    - name: Install Leiningen for Clojure
-      apt:
-        name: leiningen
+        name:
+          - curl
+          - zip
+          - unzip
         state: present
 
     # - name: Install Common Lisp
@@ -126,16 +111,6 @@
         name: golang-go
         state: present
 
-    - name: Install Groovy
-      apt:
-        name: groovy
-        state: present
-
-    - name: Set GROOVY_HOME in environment
-      copy:
-        dest: /etc/profile.d/groovy-home.sh
-        content: 'export GROOVY_HOME=/usr/share/groovy'
-
     - name: Install Haskell
       apt:
         name: haskell-platform
@@ -188,48 +163,6 @@
         dest: /etc/profile.d/julia-path.sh
         content: 'PATH=$PATH:{{ julia.root }}/bin'
 
-    - name: Check if Kotlin has been downloaded locally
-      stat:
-        path: "{{ local_files_directory }}/{{ kotlin.archive }}"
-      delegate_to: localhost
-      become: no
-      register: local_kotlin_archive
-      when: local_download == True
-
-    - name: Download Kotlin archive locally
-      get_url:
-        url: "{{ kotlin.base_url }}/{{ kotlin.archive }}"
-        dest: "{{ local_files_directory }}/{{ kotlin.archive }}"
-        timeout: 60
-      delegate_to: localhost
-      become: no
-      when: local_download == True and local_kotlin_archive.stat.exists == False
-
-    - name: Copy Kotlin archive to remote machine
-      copy:
-        src: "{{ local_files_directory }}/{{ kotlin.archive }}"
-        dest: "/tmp/{{ kotlin.archive }}"
-      when: local_download == True
-
-    - name: Download Kotlin archive remotely
-      get_url:
-        url: "{{ kotlin.base_url }}/{{ kotlin.archive }}"
-        dest: "/tmp/{{ kotlin.archive }}"
-        timeout: 60
-      when: local_download == False
-
-    - name: Unpack Kotlin archive
-      unarchive:
-        remote_src: yes
-        src: "/tmp/{{ kotlin.archive }}"
-        dest: /opt/
-        creates: "{{ kotlin.root }}"
-
-    - name: Set PATH for Kotlin
-      copy:
-        dest: /etc/profile.d/kotlin-path.sh
-        content: 'PATH=$PATH:{{ kotlin.root }}/bin'
-
     - name: Install Nim
       apt:
         name: nim
@@ -243,11 +176,6 @@
     - name: Install Rust
       apt:
         name: rustc
-        state: present
-
-    - name: Install Scala
-      apt:
-        name: scala
         state: present
 
     - name: Install clang dependency for Swift
@@ -301,3 +229,42 @@
       copy:
         dest: /etc/profile.d/swift-path.sh
         content: 'PATH=$PATH:{{ swift.root }}/usr/bin'
+
+# JVM tools (Java, Groovy, Kotlin, Leiningen for Clojure, Scala), installed
+# with SDKMAN for the user Ansible connects as, not root.
+# Versions are set in vars.yml.
+- name: Install JVM tools with SDKMAN
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: jvm
+
+  become: no
+  vars:
+    sdkman_dir: "{{ ansible_facts.user_dir }}/.sdkman"
+  environment:
+    SDKMAN_DIR: "{{ sdkman_dir }}"
+  tasks:
+
+    - name: Install SDKMAN
+      shell: curl -s "https://get.sdkman.io" | bash
+      args:
+        executable: /bin/bash
+        creates: "{{ sdkman_dir }}/bin/sdkman-init.sh"
+
+    - name: Install SDKMAN candidates
+      shell: |
+        source "{{ sdkman_dir }}/bin/sdkman-init.sh"
+        sdk install {{ item.key }} {{ item.value }} </dev/null
+      args:
+        executable: /bin/bash
+        creates: "{{ sdkman_dir }}/candidates/{{ item.key }}/{{ item.value }}"
+      loop: "{{ sdkman_candidates | dict2items }}"
+
+    - name: Make the configured versions the SDKMAN defaults
+      file:
+        src: "{{ sdkman_dir }}/candidates/{{ item.key }}/{{ item.value }}"
+        dest: "{{ sdkman_dir }}/candidates/{{ item.key }}/current"
+        state: link
+        force: yes
+      loop: "{{ sdkman_candidates | dict2items }}"

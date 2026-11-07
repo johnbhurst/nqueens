@@ -40,7 +40,7 @@ class Board(s: Int, r: Int, c: Int, d1: Int, d2: Int) {
     //   ).sum
       (0 until size)
         .withFilter(col => ok(col))
-        .map(col => place(col).solve)
+        .map(col => place(col).solve())
         .sum
   }
 }
@@ -51,11 +51,11 @@ object Queens {
     val to = if (args.length > 1) args(1).toInt else from
     for (size <- from to to) {
       val start = Instant.now()
-      val result = new Board(size).solve
+      val result = new Board(size).solve()
       val end = Instant.now()
       val duration = Duration.between(start, end)
       val seconds = duration.get(SECONDS) + duration.get(NANOS)/1000000000.0
-    println(size + "," + result + "," + seconds)
+      println(size + "," + result + "," + seconds)
     }
   }
 }

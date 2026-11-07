@@ -10,6 +10,24 @@ You need to have this software installed to use Ansible with Vagrant:
 
 Set up a Python3 virtual environment, following instructions in [python.md](python.md).
 
+## Running the playbook locally (e.g. WSL2)
+
+The playbook can also provision the machine you are on, such as an Ubuntu WSL2 environment, without Vagrant:
+
+``` bash
+ansible-playbook -i localhost, -c local -K ansible/playbook.yml
+```
+
+`-K` prompts for your sudo password, used for the system packages.
+
+The JVM tools (Java, Groovy, Kotlin, Leiningen for Clojure, and Scala) are installed with [SDKMAN](https://sdkman.io/) for your own user, not system-wide. The playbook installs SDKMAN if it is not already in `~/.sdkman`. Their versions are set in `ansible/vars.yml`. To install or update only the JVM tools:
+
+``` bash
+ansible-playbook -i localhost, -c local -K --tags jvm ansible/playbook.yml
+```
+
+Open a new shell afterwards, or run `source ~/.sdkman/bin/sdkman-init.sh`, to pick up the tools.
+
 ## Vagrant setup
 
 Install the providers.

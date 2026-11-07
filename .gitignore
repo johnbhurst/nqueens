@@ -8,3 +8,5 @@ venv/
 *.csv
 *.out
 ubuntu*console.log
+.bsp/
+.scala-build/
