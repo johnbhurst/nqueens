@@ -33,11 +33,9 @@ function place(board::Board, col::Int)
 end
 
 function solve(board::Board)
-  board.row == board.size ? 1 : begin
-    cols = 0:board.size-1
-    solutions = map(col -> ok(board, col) ? solve(place(board, col)) : 0, cols)
-    sum(solutions)
-  end
+  board.row == board.size ?
+    1 :
+    sum((solve(place(board, col)) for col in 0:board.size-1 if ok(board, col)); init=0)
 end
 
 from = length(ARGS) > 0 ? parse(Int, ARGS[1]) : 8
