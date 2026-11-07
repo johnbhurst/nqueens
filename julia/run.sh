@@ -14,4 +14,4 @@ FROM=$1
 TO=$2
 
 cd $DIR
-julia ${NAME}.jl $FROM $TO
+julia -O3 ${NAME}.jl $FROM $TO
