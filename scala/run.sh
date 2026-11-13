@@ -14,4 +14,4 @@ FROM=$1
 TO=$2
 
 cd $DIR
-scala run ${NAME}.scala -- $FROM $TO
+scala run --quiet ${NAME}.scala -- $FROM $TO

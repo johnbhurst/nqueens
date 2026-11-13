@@ -14,5 +14,7 @@ FROM=$1
 TO=$2
 
 cd $DIR
-lein uberjar >leiningen.out # don't want compiler output included in stdout of this script
+# Hide build output, but show it if the build fails.
+lein uberjar >leiningen.out 2>&1 \
+  || { cat leiningen.out >&2; exit 1; }
 java -jar target/queens-0.1.0-SNAPSHOT-standalone.jar $FROM $TO

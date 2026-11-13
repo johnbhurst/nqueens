@@ -14,5 +14,9 @@ FROM=$1
 TO=$2
 
 cd $DIR
-roc build ${NAME}.roc --opt=speed > /dev/null 2> /dev/null
+# Hide build output, but show it if the build fails. roc build exits with
+# status 2 for warnings alone, so check for the executable instead.
+rm -f ${NAME}
+roc build ${NAME}.roc --opt=speed >roc.out 2>&1
+[[ -x ${NAME} ]] || { cat roc.out >&2; exit 1; }
 ./${NAME} $FROM $TO
