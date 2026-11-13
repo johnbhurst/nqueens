@@ -14,4 +14,4 @@ FROM=$1
 TO=$2
 
 cd $DIR
-crystal ${NAME}.cr $FROM $TO
+crystal run --release ${NAME}.cr -- $FROM $TO

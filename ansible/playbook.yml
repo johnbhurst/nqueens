@@ -24,13 +24,16 @@
         name: language-pack-en
         state: present
 
-    - name: Install curl, zip and unzip (also needed by SDKMAN)
+    # Tagged always, so they are installed when running selected tags.
+    - name: Install tools needed by later tasks
       apt:
         name:
           - curl
           - zip
           - unzip
+          - python3-debian # for deb822_repository
         state: present
+      tags: always
 
     # - name: Install Common Lisp
     #   apt:
@@ -41,21 +44,6 @@
     #   apt:
     #     name: buildapp
     #     state: present
-
-    - name: Add key for Crystal
-      apt_key:
-        url: https://keybase.io/crystal/pgp_keys.asc
-        state: present
-
-    - name: Define repo for Crystal
-      apt_repository:
-        repo: deb https://dist.crystal-lang.org/apt crystal main
-        state: present
-
-    - name: Install Crystal
-      apt:
-        name: crystal
-        state: present
 
     - name: Add key for Dart
       apt_key:
@@ -213,6 +201,35 @@
       copy:
         dest: /etc/profile.d/swift-path.sh
         content: 'PATH=$PATH:{{ swift.root }}/usr/bin'
+
+# Crystal, from the official repository on the openSUSE Build Service,
+# as used by https://crystal-lang.org/install/on_ubuntu/.
+# The Ubuntu archive also has Crystal, but an older version.
+- name: Install Crystal
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: crystal
+
+  become: yes
+  vars:
+    crystal_repo_url: "https://download.opensuse.org/repositories/devel:/languages:/crystal/xUbuntu_{{ ansible_facts.distribution_version }}/"
+  tasks:
+
+    - name: Define repo for Crystal
+      deb822_repository:
+        name: crystal
+        types: deb
+        uris: "{{ crystal_repo_url }}"
+        suites: /
+        signed_by: "{{ crystal_repo_url }}Release.key"
+        state: present
+
+    - name: Install Crystal
+      apt:
+        name: crystal
+        state: present
+        update_cache: yes
 
 # .NET SDK for C# and F#, from the Ubuntu archive.
 # The project files' TargetFramework must match this version.
