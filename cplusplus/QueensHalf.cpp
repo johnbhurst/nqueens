@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
     int result = Board(size).solve();
     clock_t end = clock();
     float elapsed = (end - start) / 1000000.0;
-    std::cout << size << "," << result << "," << std::setprecision(3) << elapsed << std::endl;
+    std::cout << size << "," << result << "," << std::fixed << std::setprecision(3) << elapsed << std::endl;
   }
 }
 

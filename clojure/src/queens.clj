@@ -50,7 +50,7 @@
         duration (java.time.Duration/between start end)
         seconds (+ (.get duration java.time.temporal.ChronoUnit/SECONDS)
                    (/ (.get duration java.time.temporal.ChronoUnit/NANOS) 1000000000.0))]
-    (str size "," result "," seconds)))
+    (format "%d,%d,%.3f" size result seconds)))
 
 (defn -main
   [from to]
