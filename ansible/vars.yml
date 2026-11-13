@@ -10,6 +10,14 @@ julia:
   sha256: "5c61cb4b40332cb5a3504e7779e2f5dac093caa4a1116ded19f01413f85c63e4"
   root: "/opt/julia-1.13.3"
 
+# Roc new-compiler nightly build. Nightlies and their checksums are listed
+# at https://github.com/roc-lang/nightlies/releases.
+roc:
+  base_url: "https://github.com/roc-lang/nightlies/releases/download/nightly-2026-11-13-03dce41"
+  archive: "roc_nightly-linux_x86_64-2026-11-13-03dce41.tar.gz"
+  sha256: "1a52fc3d1466fc851e6a33c2838fb12454464bc5a3c0bc95edc784aa0e425e52"
+  root: "/opt/roc_nightly-linux_x86_64-2026-11-13-03dce41"
+
 # Zig binary archive. Versions and checksums are listed in
 # https://ziglang.org/download/index.json.
 zig:

@@ -296,6 +296,54 @@
         path: /etc/profile.d/swift-path.sh
         state: absent
 
+# Roc, from a nightly build of the new compiler, unpacked in /opt.
+# Roc has no stable releases yet, and changes incompatibly between
+# nightlies, so the nightly is pinned in vars.yml. The program's
+# basic-cli platform also needs a recent enough nightly.
+- name: Install Roc
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: roc
+
+  become: yes
+  tasks:
+
+    - name: Check if Roc is already unpacked
+      stat:
+        path: "{{ roc.root }}"
+      register: roc_root
+
+    - name: Download and unpack Roc
+      when: not roc_root.stat.exists
+      block:
+
+        - name: Download Roc archive
+          get_url:
+            url: "{{ roc.base_url }}/{{ roc.archive }}"
+            dest: "/tmp/{{ roc.archive }}"
+            checksum: "sha256:{{ roc.sha256 }}"
+            timeout: 60
+
+        - name: Unpack Roc archive
+          unarchive:
+            remote_src: yes
+            src: "/tmp/{{ roc.archive }}"
+            dest: /opt/
+            creates: "{{ roc.root }}"
+
+        - name: Remove Roc archive
+          file:
+            path: "/tmp/{{ roc.archive }}"
+            state: absent
+
+    - name: Link roc into /usr/local/bin
+      file:
+        src: "{{ roc.root }}/roc"
+        dest: /usr/local/bin/roc
+        state: link
+        force: yes
+
 # Zig, from the official binary archive, unpacked in /opt.
 # The Ubuntu archive's Zig is too old for the program, and Zig changes
 # incompatibly between releases, so the version is pinned in vars.yml.
