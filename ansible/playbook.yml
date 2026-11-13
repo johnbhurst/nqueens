@@ -78,11 +78,6 @@
         state: present
         update_cache: yes
 
-    - name: Install Go
-      apt:
-        name: golang-go
-        state: present
-
     - name: Install Haskell
       apt:
         name: haskell-platform
@@ -228,6 +223,23 @@
     - name: Install Crystal
       apt:
         name: crystal
+        state: present
+        update_cache: yes
+
+# Go, from the Ubuntu archive. golang-go installs Ubuntu's default Go
+# version; golang-1.NN-go packages provide other versions.
+- name: Install Go
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: golang
+
+  become: yes
+  tasks:
+
+    - name: Install Go
+      apt:
+        name: golang-go
         state: present
         update_cache: yes
 
