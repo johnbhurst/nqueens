@@ -36,4 +36,12 @@ For data analysis, from the top-level directory or `bin/`:
 uv run jupyter --version
 ```
 
-`bin/analysis.py` is divided into `# %%` cells, for running interactively in an editor such as VS Code. Select `.venv/bin/python` as the interpreter. The script reads `../all.csv`, relative to `bin/`.
+`bin/analysis.py` plots the combined timings from `bin/combine.py`, and lists the languages from slowest to fastest:
+
+``` bash
+uv run python bin/combine.py clang.csv clojure.csv ... > all.csv
+uv run python bin/analysis.py all.csv              # show the plot in a window
+uv run python bin/analysis.py all.csv -o all.png   # save the plot to a file
+```
+
+It ranks the languages at the largest board size that all of them have timings for, and leaves out times of zero, which are below the timer's resolution.
