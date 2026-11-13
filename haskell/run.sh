@@ -14,7 +14,7 @@ FROM=$1
 TO=$2
 
 cd $DIR
-ghc ${NAME}.hs >/dev/null
+ghc -O2 ${NAME}.hs >/dev/null
 ./$NAME $FROM $TO
 rm $NAME
 rm ${NAME}.hi

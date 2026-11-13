@@ -14,6 +14,6 @@ FROM=$1
 TO=$2
 
 cd $DIR
-rustc -O ${NAME}.rs
+rustc -C opt-level=3 ${NAME}.rs
 ./$NAME $FROM $TO
 rm $NAME

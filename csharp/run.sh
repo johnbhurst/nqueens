@@ -14,4 +14,4 @@ FROM=$1
 TO=$2
 
 cd $DIR
-dotnet run --project ${NAME}.csproj $FROM $TO
+dotnet run -c Release --project ${NAME}.csproj $FROM $TO
