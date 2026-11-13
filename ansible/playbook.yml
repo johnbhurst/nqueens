@@ -45,48 +45,6 @@
     #     name: buildapp
     #     state: present
 
-    - name: Check if Julia has been downloaded locally
-      stat:
-        path: "{{ local_files_directory }}/{{ julia.archive }}"
-      delegate_to: localhost
-      become: no
-      register: local_julia_archive
-      when: local_download == True
-
-    - name: Download Julia archive locally
-      get_url:
-        url: "{{ julia.base_url }}/{{ julia.archive }}"
-        dest: "{{ local_files_directory }}/{{ julia.archive }}"
-        timeout: 60
-      delegate_to: localhost
-      become: no
-      when: local_download == True and local_julia_archive.stat.exists == False
-
-    - name: Copy Julia archive to remote machine
-      copy:
-        src: "{{ local_files_directory }}/{{ julia.archive }}"
-        dest: "/tmp/{{ julia.archive }}"
-      when: local_download == True
-
-    - name: Download Julia archive remotely
-      get_url:
-        url: "{{ julia.base_url }}/{{ julia.archive }}"
-        dest: "/tmp/{{ julia.archive }}"
-        timeout: 60
-      when: local_download == False
-
-    - name: Unpack Julia archive
-      unarchive:
-        remote_src: yes
-        src: "/tmp/{{ julia.archive }}"
-        dest: /opt/
-        creates: "{{ julia.root }}"
-
-    - name: Set PATH for Julia
-      copy:
-        dest: /etc/profile.d/julia-path.sh
-        content: 'PATH=$PATH:{{ julia.root }}/bin'
-
     - name: Install Nim
       apt:
         name: nim
@@ -287,6 +245,59 @@
         name: nodejs
         state: present
         update_cache: yes
+
+# Julia, from the official binary archive, unpacked in /opt.
+# Julia is not in the Ubuntu archive.
+- name: Install Julia
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: julia
+
+  become: yes
+  tasks:
+
+    - name: Check if Julia is already unpacked
+      stat:
+        path: "{{ julia.root }}"
+      register: julia_root
+
+    - name: Download and unpack Julia
+      when: not julia_root.stat.exists
+      block:
+
+        - name: Download Julia archive
+          get_url:
+            url: "{{ julia.base_url }}/{{ julia.archive }}"
+            dest: "/tmp/{{ julia.archive }}"
+            checksum: "sha256:{{ julia.sha256 }}"
+            timeout: 60
+
+        - name: Unpack Julia archive
+          unarchive:
+            remote_src: yes
+            src: "/tmp/{{ julia.archive }}"
+            dest: /opt/
+            creates: "{{ julia.root }}"
+
+        - name: Remove Julia archive
+          file:
+            path: "/tmp/{{ julia.archive }}"
+            state: absent
+
+    # A link in /usr/local/bin works for every shell, unlike /etc/profile.d,
+    # which zsh does not read.
+    - name: Link julia into /usr/local/bin
+      file:
+        src: "{{ julia.root }}/bin/julia"
+        dest: /usr/local/bin/julia
+        state: link
+        force: yes
+
+    - name: Remove old Julia PATH setting
+      file:
+        path: /etc/profile.d/julia-path.sh
+        state: absent
 
 # .NET SDK for C# and F#, from the Ubuntu archive.
 # The project files' TargetFramework must match this version.

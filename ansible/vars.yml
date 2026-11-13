@@ -5,10 +5,13 @@
 local_files_directory: local_files
 local_download: True
 
+# Julia binary archive. Versions and checksums are listed in
+# https://julialang-s3.julialang.org/bin/versions.json.
 julia:
-  base_url: "https://julialang-s3.julialang.org/bin/linux/x64/1.4"
-  archive: "julia-1.4.0-linux-x86_64.tar.gz"
-  root: "/opt/julia-1.4.0"
+  base_url: "https://julialang-s3.julialang.org/bin/linux/x64/1.13"
+  archive: "julia-1.13.3-linux-x86_64.tar.gz"
+  sha256: "5c61cb4b40332cb5a3504e7779e2f5dac093caa4a1116ded19f01413f85c63e4"
+  root: "/opt/julia-1.13.3"
 
 swift:
   base_url: "https://swift.org/builds/swift-5.2.1-release/ubuntu1804/swift-5.2.1-RELEASE"
