@@ -14,4 +14,7 @@ FROM=$1
 TO=$2
 
 cd $DIR
-dart ${NAME}.dart $FROM $TO
+# dart ${NAME}.dart $FROM $TO
+dart compile exe ${NAME}.dart -o ${NAME} >dart.out # don't want compiler output included in stdout of this script
+./${NAME} $FROM $TO
+rm ${NAME}

@@ -45,22 +45,6 @@
     #     name: buildapp
     #     state: present
 
-    - name: Add key for Dart
-      apt_key:
-        url: https://dl-ssl.google.com/linux/linux_signing_key.pub
-        state: present
-
-    - name: Define repo for Dart
-      apt_repository:
-        repo: deb https://storage.googleapis.com/download.dartlang.org/linux/debian stable main
-        state: present
-
-    - name: Install Dart
-      apt:
-        name: dart
-        state: present
-        update_cache: yes
-
     - name: Define repo for Elixir
       apt:
         deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
@@ -223,6 +207,33 @@
     - name: Install Crystal
       apt:
         name: crystal
+        state: present
+        update_cache: yes
+
+# Dart, from Google's repository, as used by
+# https://dart.dev/get-dart#install-using-apt-get.
+- name: Install Dart
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: dart
+
+  become: yes
+  tasks:
+
+    - name: Define repo for Dart
+      deb822_repository:
+        name: dart
+        types: deb
+        uris: https://storage.googleapis.com/download.dartlang.org/linux/debian
+        suites: stable
+        components: main
+        signed_by: https://dl-ssl.google.com/linux/linux_signing_key.pub
+        state: present
+
+    - name: Install Dart
+      apt:
+        name: dart
         state: present
         update_cache: yes
 

@@ -9,9 +9,7 @@ class Board {
   int diags1 = 0;
   int diags2 = 0;
 
-  Board(int size) {
-    this.size = size;
-  }
+  Board(this.size);
 
   bool ok(int col) {
     return ((this.cols & (1 << col)) |
