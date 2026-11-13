@@ -45,11 +45,6 @@
     #     name: buildapp
     #     state: present
 
-    - name: Install nodejs for JavaScript
-      apt:
-        name: nodejs
-        state: present
-
     - name: Check if Julia has been downloaded locally
       stat:
         path: "{{ local_files_directory }}/{{ julia.archive }}"
@@ -263,6 +258,33 @@
     - name: Install GHC
       apt:
         name: ghc
+        state: present
+        update_cache: yes
+
+# Node.js for JavaScript, from the NodeSource repository, which provides
+# current LTS versions. The Ubuntu archive has an older Node.js.
+- name: Install Node.js
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: javascript
+
+  become: yes
+  tasks:
+
+    - name: Define repo for Node.js
+      deb822_repository:
+        name: nodesource
+        types: deb
+        uris: "https://deb.nodesource.com/node_{{ nodejs_major_version }}.x"
+        suites: nodistro
+        components: main
+        signed_by: https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key
+        state: present
+
+    - name: Install Node.js
+      apt:
+        name: nodejs
         state: present
         update_cache: yes
 

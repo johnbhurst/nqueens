@@ -15,6 +15,10 @@ swift:
   archive: "swift-5.2.1-RELEASE-ubuntu18.04.tar.gz"
   root: "/opt/swift-5.2.1-RELEASE-ubuntu18.04"
 
+# Node.js major version, from the NodeSource repository. Use an LTS version:
+# see https://nodejs.org/en/about/previous-releases.
+nodejs_major_version: "26"
+
 # .NET SDK installed from the Ubuntu archive (package dotnet-sdk-<version>).
 dotnet_version: "10.0"
 
