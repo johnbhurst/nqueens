@@ -70,8 +70,8 @@ timeSolution size = do
 -- Returns the range of boards to solve, derived from command-line arguments.
 sizes :: [String] -> [Int]
 sizes args = [start..end]
-  where start = if length args < 1 then 8 else read (head args) :: Int
-        end = if length args < 2 then start else read (head (tail args)) :: Int
+  where start = case args of (a : _) -> read a; _ -> 8
+        end = case args of (_ : b : _) -> read b; _ -> start
 
 main = do
   args <- getArgs

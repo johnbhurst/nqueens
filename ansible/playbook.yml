@@ -45,11 +45,6 @@
     #     name: buildapp
     #     state: present
 
-    - name: Install Haskell
-      apt:
-        name: haskell-platform
-        state: present
-
     - name: Install nodejs for JavaScript
       apt:
         name: nodejs
@@ -251,6 +246,23 @@
     - name: Install Go
       apt:
         name: golang-go
+        state: present
+        update_cache: yes
+
+# Haskell GHC compiler, from the Ubuntu archive. The Haskell Platform
+# package is gone, and the programs need only GHC's base libraries.
+- name: Install Haskell
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: haskell
+
+  become: yes
+  tasks:
+
+    - name: Install GHC
+      apt:
+        name: ghc
         state: present
         update_cache: yes
 
