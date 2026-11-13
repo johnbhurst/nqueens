@@ -10,6 +10,14 @@ julia:
   sha256: "5c61cb4b40332cb5a3504e7779e2f5dac093caa4a1116ded19f01413f85c63e4"
   root: "/opt/julia-1.13.3"
 
+# Zig binary archive. Versions and checksums are listed in
+# https://ziglang.org/download/index.json.
+zig:
+  base_url: "https://ziglang.org/download/0.17.1"
+  archive: "zig-x86_64-linux-0.17.1.tar.xz"
+  sha256: "3581863e3cbcfd0fce0efc682ce7e9e93da96668a977791d356a26d2a7e9b17a"
+  root: "/opt/zig-x86_64-linux-0.17.1"
+
 # Node.js major version, from the NodeSource repository. Use an LTS version:
 # see https://nodejs.org/en/about/previous-releases.
 nodejs_major_version: "26"

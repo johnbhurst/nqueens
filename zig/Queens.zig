@@ -52,11 +52,15 @@ pub fn main(init: std.process.Init) !void {
     const args = try init.minimal.args.toSlice(init.arena.allocator());
     const from = if (args.len > 1) try std.fmt.parseInt(u64, args[1], 10) else 8;
     const to = if (args.len > 2) try std.fmt.parseInt(u64, args[2], 10) else from;
+    var stdout_buffer: [1024]u8 = undefined;
+    var stdout_file_writer: std.Io.File.Writer = .init(.stdout(), init.io, &stdout_buffer);
+    const stdout = &stdout_file_writer.interface;
     for (from..to + 1) |size| {
         const start = std.Io.Clock.awake.now(init.io);
         const solutions = Board.new(size).solve();
         const elapsed_ns = start.untilNow(init.io, .awake).nanoseconds;
         const elapsed_s: f64 = @as(f64, @floatFromInt(elapsed_ns)) / 1e9;
-        std.debug.print("{},{},{d:.3}\n", .{ size, solutions, elapsed_s });
+        try stdout.print("{},{},{d:.3}\n", .{ size, solutions, elapsed_s });
+        try stdout.flush(); // show each result as soon as it is ready
     }
 }

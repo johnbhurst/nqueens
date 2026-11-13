@@ -296,6 +296,58 @@
         path: /etc/profile.d/swift-path.sh
         state: absent
 
+# Zig, from the official binary archive, unpacked in /opt.
+# The Ubuntu archive's Zig is too old for the program, and Zig changes
+# incompatibly between releases, so the version is pinned in vars.yml.
+- name: Install Zig
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: zig
+
+  become: yes
+  tasks:
+
+    - name: Check if Zig is already unpacked
+      stat:
+        path: "{{ zig.root }}"
+      register: zig_root
+
+    - name: Download and unpack Zig
+      when: not zig_root.stat.exists
+      block:
+
+        - name: Install xz-utils, to unpack the Zig archive
+          apt:
+            name: xz-utils
+            state: present
+
+        - name: Download Zig archive
+          get_url:
+            url: "{{ zig.base_url }}/{{ zig.archive }}"
+            dest: "/tmp/{{ zig.archive }}"
+            checksum: "sha256:{{ zig.sha256 }}"
+            timeout: 60
+
+        - name: Unpack Zig archive
+          unarchive:
+            remote_src: yes
+            src: "/tmp/{{ zig.archive }}"
+            dest: /opt/
+            creates: "{{ zig.root }}"
+
+        - name: Remove Zig archive
+          file:
+            path: "/tmp/{{ zig.archive }}"
+            state: absent
+
+    - name: Link zig into /usr/local/bin
+      file:
+        src: "{{ zig.root }}/zig"
+        dest: /usr/local/bin/zig
+        state: link
+        force: yes
+
 # .NET SDK for C# and F#, from the Ubuntu archive.
 # The project files' TargetFramework must match this version.
 - name: Install .NET SDK
