@@ -3,7 +3,7 @@
 # 2018-12-22
 
 defmodule Queens do
-  use Bitwise
+  import Bitwise
 
   def ok(board, col) do
     (board.cols &&& (1 <<< col)) == 0 and
