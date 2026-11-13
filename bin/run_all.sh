@@ -6,6 +6,7 @@ DIR=$(dirname $0)
 
 clang/run.sh       8 17 > clang.csv
 clojure/run.sh     8 16 > clojure.csv
+commonlisp/run.sh  8 16 > commonlisp.csv
 cplusplus/run.sh   8 17 > cplusplus.csv
 crystal/run.sh     8 16 > crystal.csv
 csharp/run.sh      8 17 > csharp.csv
@@ -22,7 +23,9 @@ kotlin/run.sh      8 17 > kotlin.csv
 nim/run.sh         8 17 > nim.csv
 perl/run.sh        8 15 > perl.csv
 python/run.sh      8 15 > python.csv
+roc/run.sh         8 17 > roc.csv
 ruby/run.sh        8 15 > ruby.csv
 rust/run.sh        8 17 > rust.csv
 scala/run.sh       8 17 > scala.csv
 swift/run.sh       8 17 > swift.csv
+zig/run.sh         8 17 > zig.csv
