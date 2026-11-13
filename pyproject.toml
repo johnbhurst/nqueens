@@ -1,0 +1,10 @@
+[project]
+name = "nqueens-analysis"
+version = "0.1.0"
+description = "Data analysis of N-Queens benchmark results"
+requires-python = ">=3.14"
+dependencies = [
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.2",
+    "pandas>=3.1.1",
+]

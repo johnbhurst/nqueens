@@ -2,7 +2,7 @@
 .vscode/
 data/
 local_files/
-venv/
+.venv/
 *.class
 *.jar
 *.csv

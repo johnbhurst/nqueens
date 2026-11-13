@@ -25,7 +25,7 @@ Vagrant.configure(2) do |config|
     override.vm.box = "google/gce"
     override.vm.synced_folder "./", "/vagrant", type: "rsync", rsync__exclude: [
       '.git', 'ansible', 'archive', 'clojure/target', 'csharp/bin', 'csharp/obj', 'data',
-      'doc', 'fsharp/bin', 'fsharp/obj', 'nim/nimcache', 'swift/.build', 'tmp', 'venv'
+      'doc', 'fsharp/bin', 'fsharp/obj', 'nim/nimcache', 'swift/.build', 'tmp', '.venv'
     ]
   end
 
