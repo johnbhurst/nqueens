@@ -14,5 +14,8 @@ TO=$2
 
 cd $DIR
 
-buildapp --load-system queens --asdf-path . --entry queens:main --output queens
+# Hide build output, but show it if the build fails.
+buildapp --load-system queens --asdf-path . --entry queens:main --output queens >buildapp.out 2>&1 \
+  || { cat buildapp.out >&2; exit 1; }
 ./queens $FROM $TO
+rm queens

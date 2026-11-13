@@ -51,10 +51,10 @@
         (result (solve (make-board :size size)))
         (end    (get-internal-real-time)))
     (format t
-      "~a,~a,~a seconds~%"
+      "~a,~a,~,3f~%"
       size
       result
-      (float (/ (- end start) 1000)))))
+      (/ (- end start) internal-time-units-per-second))))
 
 (defun main (args)
   (dolist (size (range (parse-integer (second args))

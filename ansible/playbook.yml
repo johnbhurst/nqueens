@@ -35,16 +35,24 @@
         state: present
       tags: always
 
-    # - name: Install Common Lisp
-    #   apt:
-    #     name: sbcl
-    #     state: present
+# Common Lisp: SBCL, and buildapp to build executables, from the Ubuntu
+# archive.
+- name: Install Common Lisp
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: commonlisp
 
-    # - name: Install buildapp for Common Lisp
-    #   apt:
-    #     name: buildapp
-    #     state: present
+  become: yes
+  tasks:
 
+    - name: Install SBCL and buildapp
+      apt:
+        name:
+          - sbcl
+          - buildapp
+        state: present
+        update_cache: yes
 
 # Crystal, from the official repository on the openSUSE Build Service,
 # as used by https://crystal-lang.org/install/on_ubuntu/.
