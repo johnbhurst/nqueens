@@ -14,4 +14,4 @@ FROM=$1
 TO=$2
 
 cd $DIR
-zig run Queens.zig -O ReleaseFast -- $FROM $TO
+zig run ${NAME}.zig -O ReleaseFast -- $FROM $TO
