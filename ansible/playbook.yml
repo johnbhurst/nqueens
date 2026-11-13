@@ -35,6 +35,23 @@
         state: present
       tags: always
 
+# .NET SDK for C# and F#, from the Ubuntu archive.
+# The project files' TargetFramework must match this version.
+- name: Install C# and F#
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: dotnet
+
+  become: yes
+  tasks:
+
+    - name: Install .NET SDK
+      apt:
+        name: "dotnet-sdk-{{ dotnet_version }}"
+        state: present
+        update_cache: yes
+
 # Common Lisp: SBCL, and buildapp to build executables, from the Ubuntu
 # archive.
 - name: Install Common Lisp
@@ -161,9 +178,48 @@
         state: present
         update_cache: yes
 
+# JVM tools (Java, Groovy, Kotlin, Leiningen for Clojure, Scala), installed
+# with SDKMAN for the user Ansible connects as, not root.
+# Versions are set in vars.yml.
+- name: Install Java, Clojure, Groovy, Kotlin and Scala
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: jvm
+
+  become: no
+  vars:
+    sdkman_dir: "{{ ansible_facts.user_dir }}/.sdkman"
+  environment:
+    SDKMAN_DIR: "{{ sdkman_dir }}"
+  tasks:
+
+    - name: Install SDKMAN
+      shell: curl -s "https://get.sdkman.io" | bash
+      args:
+        executable: /bin/bash
+        creates: "{{ sdkman_dir }}/bin/sdkman-init.sh"
+
+    - name: Install SDKMAN candidates
+      shell: |
+        source "{{ sdkman_dir }}/bin/sdkman-init.sh"
+        sdk install {{ item.key }} {{ item.value }} </dev/null
+      args:
+        executable: /bin/bash
+        creates: "{{ sdkman_dir }}/candidates/{{ item.key }}/{{ item.value }}"
+      loop: "{{ sdkman_candidates | dict2items }}"
+
+    - name: Make the configured versions the SDKMAN defaults
+      file:
+        src: "{{ sdkman_dir }}/candidates/{{ item.key }}/{{ item.value }}"
+        dest: "{{ sdkman_dir }}/candidates/{{ item.key }}/current"
+        state: link
+        force: yes
+      loop: "{{ sdkman_candidates | dict2items }}"
+
 # Node.js for JavaScript, from the NodeSource repository, which provides
 # current LTS versions. The Ubuntu archive has an older Node.js.
-- name: Install Node.js
+- name: Install JavaScript
   hosts: all
   vars_files:
     - vars.yml
@@ -257,45 +313,6 @@
         state: present
         update_cache: yes
 
-# Ruby, from the Ubuntu archive. Ruby is in Ubuntu's main component, so
-# it gets security updates for the life of the Ubuntu release.
-- name: Install Ruby
-  hosts: all
-  vars_files:
-    - vars.yml
-  tags: ruby
-
-  become: yes
-  tasks:
-
-    - name: Install Ruby
-      apt:
-        name: ruby
-        state: present
-        update_cache: yes
-
-# Swift, from the Ubuntu archive. The swiftlang package depends on the
-# packages swiftc needs to compile and link.
-- name: Install Swift
-  hosts: all
-  vars_files:
-    - vars.yml
-  tags: swift
-
-  become: yes
-  tasks:
-
-    - name: Install Swift
-      apt:
-        name: swiftlang
-        state: present
-        update_cache: yes
-
-    - name: Remove old Swift PATH setting
-      file:
-        path: /etc/profile.d/swift-path.sh
-        state: absent
-
 # Roc, from a nightly build of the new compiler, unpacked in /opt.
 # Roc has no stable releases yet, and changes incompatibly between
 # nightlies, so the nightly is pinned in vars.yml. The program's
@@ -343,6 +360,88 @@
         dest: /usr/local/bin/roc
         state: link
         force: yes
+
+# Ruby, from the Ubuntu archive. Ruby is in Ubuntu's main component, so
+# it gets security updates for the life of the Ubuntu release.
+- name: Install Ruby
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: ruby
+
+  become: yes
+  tasks:
+
+    - name: Install Ruby
+      apt:
+        name: ruby
+        state: present
+        update_cache: yes
+
+# Rust, installed with rustup for the user Ansible connects as, not root.
+# The Rust project supports only the latest stable release, and the
+# Ubuntu archive's rustc is several releases behind.
+# rustup adds ~/.cargo/bin to the PATH in the user's shell startup files.
+- name: Install Rust
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: rust
+
+  become: no
+  vars:
+    rustup: "{{ ansible_facts.user_dir }}/.cargo/bin/rustup"
+  tasks:
+
+    - name: Install gcc, used by rustc as the linker
+      apt:
+        name: gcc
+        state: present
+      become: yes
+
+    - name: Install rustup and the Rust toolchain
+      shell: >-
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs
+        | sh -s -- -y --profile minimal --default-toolchain {{ rust_version }}
+      args:
+        executable: /bin/bash
+        creates: "{{ rustup }}"
+
+    - name: Install the Rust toolchain, if the version has changed
+      command: "{{ rustup }} toolchain install {{ rust_version }} --profile minimal"
+      args:
+        creates: "{{ ansible_facts.user_dir }}/.rustup/toolchains/{{ rust_version }}-*"
+
+    - name: Get the default Rust toolchain
+      command: "{{ rustup }} default"
+      register: rust_default
+      changed_when: false
+
+    - name: Make the configured version the default Rust toolchain
+      command: "{{ rustup }} default {{ rust_version }}"
+      when: not rust_default.stdout.startswith(rust_version ~ '-')
+
+# Swift, from the Ubuntu archive. The swiftlang package depends on the
+# packages swiftc needs to compile and link.
+- name: Install Swift
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: swift
+
+  become: yes
+  tasks:
+
+    - name: Install Swift
+      apt:
+        name: swiftlang
+        state: present
+        update_cache: yes
+
+    - name: Remove old Swift PATH setting
+      file:
+        path: /etc/profile.d/swift-path.sh
+        state: absent
 
 # Zig, from the official binary archive, unpacked in /opt.
 # The Ubuntu archive's Zig is too old for the program, and Zig changes
@@ -395,102 +494,3 @@
         dest: /usr/local/bin/zig
         state: link
         force: yes
-
-# .NET SDK for C# and F#, from the Ubuntu archive.
-# The project files' TargetFramework must match this version.
-- name: Install .NET SDK
-  hosts: all
-  vars_files:
-    - vars.yml
-  tags: dotnet
-
-  become: yes
-  tasks:
-
-    - name: Install .NET SDK
-      apt:
-        name: "dotnet-sdk-{{ dotnet_version }}"
-        state: present
-        update_cache: yes
-
-# Rust, installed with rustup for the user Ansible connects as, not root.
-# The Rust project supports only the latest stable release, and the
-# Ubuntu archive's rustc is several releases behind.
-# rustup adds ~/.cargo/bin to the PATH in the user's shell startup files.
-- name: Install Rust with rustup
-  hosts: all
-  vars_files:
-    - vars.yml
-  tags: rust
-
-  become: no
-  vars:
-    rustup: "{{ ansible_facts.user_dir }}/.cargo/bin/rustup"
-  tasks:
-
-    - name: Install gcc, used by rustc as the linker
-      apt:
-        name: gcc
-        state: present
-      become: yes
-
-    - name: Install rustup and the Rust toolchain
-      shell: >-
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs
-        | sh -s -- -y --profile minimal --default-toolchain {{ rust_version }}
-      args:
-        executable: /bin/bash
-        creates: "{{ rustup }}"
-
-    - name: Install the Rust toolchain, if the version has changed
-      command: "{{ rustup }} toolchain install {{ rust_version }} --profile minimal"
-      args:
-        creates: "{{ ansible_facts.user_dir }}/.rustup/toolchains/{{ rust_version }}-*"
-
-    - name: Get the default Rust toolchain
-      command: "{{ rustup }} default"
-      register: rust_default
-      changed_when: false
-
-    - name: Make the configured version the default Rust toolchain
-      command: "{{ rustup }} default {{ rust_version }}"
-      when: not rust_default.stdout.startswith(rust_version ~ '-')
-
-# JVM tools (Java, Groovy, Kotlin, Leiningen for Clojure, Scala), installed
-# with SDKMAN for the user Ansible connects as, not root.
-# Versions are set in vars.yml.
-- name: Install JVM tools with SDKMAN
-  hosts: all
-  vars_files:
-    - vars.yml
-  tags: jvm
-
-  become: no
-  vars:
-    sdkman_dir: "{{ ansible_facts.user_dir }}/.sdkman"
-  environment:
-    SDKMAN_DIR: "{{ sdkman_dir }}"
-  tasks:
-
-    - name: Install SDKMAN
-      shell: curl -s "https://get.sdkman.io" | bash
-      args:
-        executable: /bin/bash
-        creates: "{{ sdkman_dir }}/bin/sdkman-init.sh"
-
-    - name: Install SDKMAN candidates
-      shell: |
-        source "{{ sdkman_dir }}/bin/sdkman-init.sh"
-        sdk install {{ item.key }} {{ item.value }} </dev/null
-      args:
-        executable: /bin/bash
-        creates: "{{ sdkman_dir }}/candidates/{{ item.key }}/{{ item.value }}"
-      loop: "{{ sdkman_candidates | dict2items }}"
-
-    - name: Make the configured versions the SDKMAN defaults
-      file:
-        src: "{{ sdkman_dir }}/candidates/{{ item.key }}/{{ item.value }}"
-        dest: "{{ sdkman_dir }}/candidates/{{ item.key }}/current"
-        state: link
-        force: yes
-      loop: "{{ sdkman_candidates | dict2items }}"
