@@ -45,11 +45,6 @@
     #     name: buildapp
     #     state: present
 
-    - name: Install Nim
-      apt:
-        name: nim
-        state: present
-
     - name: Install Ruby
       apt:
         name: ruby
@@ -298,6 +293,22 @@
       file:
         path: /etc/profile.d/julia-path.sh
         state: absent
+
+# Nim, from the Ubuntu archive.
+- name: Install Nim
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: nim
+
+  become: yes
+  tasks:
+
+    - name: Install Nim
+      apt:
+        name: nim
+        state: present
+        update_cache: yes
 
 # .NET SDK for C# and F#, from the Ubuntu archive.
 # The project files' TargetFramework must match this version.

@@ -14,6 +14,6 @@ FROM=$1
 TO=$2
 
 cd $DIR
-nim compile -d:release ${NAME}.nim # 2>err
+nim compile -d:release --hints:off ${NAME}.nim # warnings and errors still shown
 ./$NAME $FROM $TO
 rm $NAME

@@ -47,5 +47,5 @@ for size in countup(fr, to):
   var start = cpuTime()
   var result = solve(new(size))
   var elapsed = cpuTime() - start
-  echo size, ',', result, ',', elapsed
+  echo size, ',', result, ',', formatFloat(elapsed, ffDecimal, 3)
 
