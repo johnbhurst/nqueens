@@ -25,6 +25,9 @@ nodejs_major_version: "26"
 # .NET SDK installed from the Ubuntu archive (package dotnet-sdk-<version>).
 dotnet_version: "10.0"
 
+# Rust toolchain installed with rustup. See https://releases.rs/.
+rust_version: "1.100.0"
+
 # JVM tools installed with SDKMAN: candidate name -> version.
 # See available versions with: sdk list <candidate>
 sdkman_candidates:

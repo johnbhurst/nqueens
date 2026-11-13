@@ -45,11 +45,6 @@
     #     name: buildapp
     #     state: present
 
-    - name: Install Rust
-      apt:
-        name: rustc
-        state: present
-
     - name: Install clang dependency for Swift
       apt:
         name: clang
@@ -338,6 +333,49 @@
         name: "dotnet-sdk-{{ dotnet_version }}"
         state: present
         update_cache: yes
+
+# Rust, installed with rustup for the user Ansible connects as, not root.
+# The Rust project supports only the latest stable release, and the
+# Ubuntu archive's rustc is several releases behind.
+# rustup adds ~/.cargo/bin to the PATH in the user's shell startup files.
+- name: Install Rust with rustup
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: rust
+
+  become: no
+  vars:
+    rustup: "{{ ansible_facts.user_dir }}/.cargo/bin/rustup"
+  tasks:
+
+    - name: Install gcc, used by rustc as the linker
+      apt:
+        name: gcc
+        state: present
+      become: yes
+
+    - name: Install rustup and the Rust toolchain
+      shell: >-
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs
+        | sh -s -- -y --profile minimal --default-toolchain {{ rust_version }}
+      args:
+        executable: /bin/bash
+        creates: "{{ rustup }}"
+
+    - name: Install the Rust toolchain, if the version has changed
+      command: "{{ rustup }} toolchain install {{ rust_version }} --profile minimal"
+      args:
+        creates: "{{ ansible_facts.user_dir }}/.rustup/toolchains/{{ rust_version }}-*"
+
+    - name: Get the default Rust toolchain
+      command: "{{ rustup }} default"
+      register: rust_default
+      changed_when: false
+
+    - name: Make the configured version the default Rust toolchain
+      command: "{{ rustup }} default {{ rust_version }}"
+      when: not rust_default.stdout.startswith(rust_version ~ '-')
 
 # JVM tools (Java, Groovy, Kotlin, Leiningen for Clojure, Scala), installed
 # with SDKMAN for the user Ansible connects as, not root.
