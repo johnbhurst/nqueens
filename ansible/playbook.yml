@@ -45,57 +45,6 @@
     #     name: buildapp
     #     state: present
 
-    - name: Install clang dependency for Swift
-      apt:
-        name: clang
-        state: present
-
-    - name: Install libicu-dev dependency for Swift
-      apt:
-        name: libicu-dev
-        state: present
-
-    - name: Check if Swift has been downloaded locally
-      stat:
-        path: "{{ local_files_directory }}/{{ swift.archive }}"
-      delegate_to: localhost
-      become: no
-      register: local_swift_archive
-      when: local_download == True
-
-    - name: Download Swift archive locally
-      get_url:
-        url: "{{ swift.base_url }}/{{ swift.archive }}"
-        dest: "{{ local_files_directory }}/{{ swift.archive }}"
-        timeout: 60
-      delegate_to: localhost
-      become: no
-      when: local_download == True and local_swift_archive.stat.exists == False
-
-    - name: Copy Swift archive to remote machine
-      copy:
-        src: "{{ local_files_directory }}/{{ swift.archive }}"
-        dest: "/tmp/{{ swift.archive }}"
-      when: local_download == True
-
-    - name: Download Swift archive remotely
-      get_url:
-        url: "{{ swift.base_url }}/{{ swift.archive }}"
-        dest: "/tmp/{{ swift.archive }}"
-        timeout: 60
-      when: local_download == False
-
-    - name: Unpack Swift archive
-      unarchive:
-        remote_src: yes
-        src: "/tmp/{{ swift.archive }}"
-        dest: /opt/
-        creates: "{{ swift.root }}"
-
-    - name: Set PATH for Swift
-      copy:
-        dest: /etc/profile.d/swift-path.sh
-        content: 'PATH=$PATH:{{ swift.root }}/usr/bin'
 
 # Crystal, from the official repository on the openSUSE Build Service,
 # as used by https://crystal-lang.org/install/on_ubuntu/.
@@ -316,6 +265,28 @@
         name: ruby
         state: present
         update_cache: yes
+
+# Swift, from the Ubuntu archive. The swiftlang package depends on the
+# packages swiftc needs to compile and link.
+- name: Install Swift
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: swift
+
+  become: yes
+  tasks:
+
+    - name: Install Swift
+      apt:
+        name: swiftlang
+        state: present
+        update_cache: yes
+
+    - name: Remove old Swift PATH setting
+      file:
+        path: /etc/profile.d/swift-path.sh
+        state: absent
 
 # .NET SDK for C# and F#, from the Ubuntu archive.
 # The project files' TargetFramework must match this version.
