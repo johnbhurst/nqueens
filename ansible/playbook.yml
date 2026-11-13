@@ -73,22 +73,6 @@
         state: present
         update_cache: yes
 
-    - name: Add key for Microsoft
-      apt_key:
-        url: https://packages.microsoft.com/keys/microsoft.asc
-        state: present
-
-    - name: Define repo for Microsoft .NET Core
-      apt_repository:
-        repo: deb https://packages.microsoft.com/ubuntu/18.04/prod bionic main
-        state: present
-
-    - name: Install .NET Core
-      apt:
-        name: dotnet-sdk-2.2
-        state: present
-        update_cache: yes
-
     - name: Define repo for Elixir
       apt:
         deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
@@ -229,6 +213,23 @@
       copy:
         dest: /etc/profile.d/swift-path.sh
         content: 'PATH=$PATH:{{ swift.root }}/usr/bin'
+
+# .NET SDK for C# and F#, from the Ubuntu archive.
+# The project files' TargetFramework must match this version.
+- name: Install .NET SDK
+  hosts: all
+  vars_files:
+    - vars.yml
+  tags: dotnet
+
+  become: yes
+  tasks:
+
+    - name: Install .NET SDK
+      apt:
+        name: "dotnet-sdk-{{ dotnet_version }}"
+        state: present
+        update_cache: yes
 
 # JVM tools (Java, Groovy, Kotlin, Leiningen for Clojure, Scala), installed
 # with SDKMAN for the user Ansible connects as, not root.
